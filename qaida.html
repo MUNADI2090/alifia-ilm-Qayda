@@ -550,28 +550,30 @@ function render(){
 function drawHome(){
   pageEl.innerHTML=`
   <div class="hero">
-    <div class="ara">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+    <div class="ara">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
     <h2>আলিফিয়া ইলম একাডেমি</h2>
-    <p>নিচ থেকে বেছে নিন।</p>
+    <p>নিচ থেকে বেছে নিন</p>
   </div>
   <button class="hcard" type="button" id="goQ">
     <span class="ic" style="background:var(--grnS);color:var(--grn)">ا</span>
     <span>
       <h3>কায়দা</h3>
-      <p>উনত্রিশ <span class="n">(২৯)</span> হরফ, যবর-যের-পেশ, তানবীন, জযম, তাশদীদ, মাদ্দ, শব্দ, বাক্য ও নামাযের দশ <span class="n">(১০)</span> সূরা।</p>
+      <p>ঊনত্রিশ <span class="n">(২৯)</span> হরফ, যবর-যের-পেশ, তানবীন, জযম, তাশদীদ, মাদ্দ, শব্দ, বাক্য ও নামাযের দশ সূরা।</p>
       <span class="meta">মোট <span class="n">${bn(P.length)}</span> পৃষ্ঠা · চলছে পৃষ্ঠা <span class="n">${bn(Math.max(1,(+LS.getItem('aq_last')||1)))}</span></span>
     </span>
   </button>
-  <div class="hcard soon">
+  <button class="hcard" type="button" id="goT">
     <span class="ic" style="background:var(--redS);color:var(--red)">✦</span>
     <span>
       <h3>তাজবীদ</h3>
       <p>সতেরো <span class="n">(১৭)</span>টি মাখরাজ, হরফের গুণ, নূন ও মীম সাকিন, গুন্নাহ, মাদ্দের প্রকার, লাম-রা, কলকলা ও ওয়াক্‌ফ।</p>
-      <span class="meta">শীঘ্রই আসছে</span>
+      <span class="meta">মোট <span class="n">২৭</span> পৃষ্ঠা</span>
     </span>
-  </div>`;
+  </button>`;
   $('goQ').onclick=()=>go(Math.max(0,(+LS.getItem('aq_last')||1)-1));
+  $('goT').onclick=()=>{ location.href='tajwid.html'; };
 }
+
 
 function drawPage(p){
   LS.setItem('aq_last',cur+1);
@@ -583,7 +585,7 @@ function drawPage(p){
   pageEl.innerHTML=h;
   paint();
 }
-
+  
 function block(b,bi){
   if(b.k==='note')
     return `<section class="card"><h3>${b.t}</h3>${b.items.map(x=>`<p>${x}</p>`).join('')}</section>`;
