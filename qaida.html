@@ -1,901 +1,663 @@
-<!DOCTYPE html>
-<html lang="bn" data-theme="light" data-fs="m">
+<!doctype html>
+<html lang="bn" data-theme="light">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>আলিফিয়া ইলম — কায়দা</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5,viewport-fit=cover">
+<title>আলিফিয়া ইলম একাডেমি — কায়দা</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;600;700;800&family=Hind+Siliguri:wght@300;400;500;600;700&family=Scheherazade+New:wght@400;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
 <style>
+/* ============ ভিত্তি ============ */
 :root{
---bg:#f2f5f9; --card:#ffffff; --soft:#f7f9fc; --line:#d3dbe6; --line2:#b9c4d4;
---ink:#0a1020; --ink2:#475569; --ar:#0a1020;
---g:#0d7a4f; --gbg:#e4f5ec; --r:#c02a35; --rbg:#fdeaec;
---acc:#0d7a4f; --rad:16px; --sh:0 1px 3px rgba(16,24,40,.08),0 6px 18px rgba(16,24,40,.06);
+  --fB:'Hind Siliguri',system-ui,sans-serif;
+  --fH:'Baloo Da 2','Hind Siliguri',sans-serif;
+  --fA:'Scheherazade New','Amiri',serif;
+  --fQ:'Amiri','Scheherazade New',serif;
+  --bg:#f5f6fb; --card:#ffffff; --soft:#fafbff;
+  --ink:#16202c; --mut:#6b7789; --line:#e5e9f2;
+  --grn:#1f8a4c; --grnS:#e9f6ee; --red:#d93a3a; --redS:#fdeced;
+  --sh:0 1px 2px rgba(16,24,40,.05),0 6px 18px rgba(16,24,40,.05);
+  --fs:16px;
 }
 html[data-theme="dark"]{
---bg:#0c1219; --card:#161e29; --soft:#1c2634; --line:#34475f; --line2:#4a627f;
---ink:#f7fafd; --ink2:#cbd6e4; --ar:#ffffff;
---g:#4ee3a4; --gbg:#0f3527; --r:#ff939b; --rbg:#3a1a1e;
---acc:#4ee3a4; --sh:0 1px 3px rgba(0,0,0,.5),0 6px 18px rgba(0,0,0,.35);
+  --bg:#0b1118; --card:#131c26; --soft:#0f1822;
+  --ink:#eef4fa; --mut:#9db0c4; --line:#22303f;
+  --grnS:#11301e; --redS:#31161a;
+  --sh:0 1px 2px rgba(0,0,0,.4),0 6px 18px rgba(0,0,0,.35);
 }
-html[data-fs="s"]{--b:16px;--a:34px;--tile:60px;--q:26px;}
-html[data-fs="m"]{--b:18px;--a:42px;--tile:72px;--q:32px;}
-html[data-fs="l"]{--b:20.5px;--a:52px;--tile:86px;--q:39px;}
-
-*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{font-size:var(--fs);scroll-behavior:auto;overflow-anchor:none}
 body{
- font-family:'Hind Siliguri',system-ui,sans-serif;
- font-size:var(--b); line-height:1.95; font-weight:500;
- background:var(--bg); color:var(--ink);
- -webkit-user-select:none;user-select:none;
- -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
- overflow-x:hidden; padding-bottom:100px;
- transition:background .2s,color .2s;
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--fB);font-weight:400;
+  line-height:1.95;                 /* বাংলা মাত্রা যেন না কাটে */
+  -webkit-text-size-adjust:100%;
+  padding-bottom:5.5rem;
 }
-/* সংখ্যা পরিষ্কার দেখানোর জন্য */
-.num{font-weight:700;letter-spacing:.04em;padding:0 .06em;}
-.ar{font-family:'Noto Naskh Arabic',serif;direction:rtl;color:var(--ar);font-weight:500;line-height:2.15;}
-.wrap{max-width:760px;margin:0 auto;padding:0 12px;}
+/* সংখ্যা যেন কখনো লাইন ভেঙে আলাদা না হয় */
+.n,.num,b,strong{display:inline;white-space:nowrap}
+b,strong{font-weight:700;color:var(--grn)}
+h1,h2,h3,h4{font-family:var(--fH);font-weight:700;line-height:1.7;margin:0}
+p{margin:0 0 .55rem}
+p:last-child{margin-bottom:0}
+button{font-family:inherit;color:inherit;cursor:pointer}
 
-/* ---------- header ---------- */
-header{position:sticky;top:0;z-index:40;background:var(--card);border-bottom:2px solid var(--line);}
-.hbar{display:flex;align-items:center;gap:8px;padding:10px 12px;max-width:760px;margin:0 auto;}
-.logo{width:42px;height:42px;flex:0 0 42px;border-radius:12px;background:var(--gbg);color:var(--g);
- display:grid;place-items:center;font-family:'Noto Naskh Arabic',serif;font-size:25px;font-weight:700;line-height:1;}
-.hname{flex:1 1 auto;min-width:0;font-weight:700;font-size:1.02em;line-height:1.45;
- white-space:normal;overflow:visible;}
-.hname small{display:block;font-weight:500;font-size:.74em;color:var(--ink2);line-height:1.5;}
-.ic{flex:0 0 auto;width:42px;height:42px;border-radius:12px;border:2px solid var(--line);
- background:var(--soft);color:var(--ink);font-size:.84em;font-weight:700;cursor:pointer;
- display:grid;place-items:center;font-family:inherit;line-height:1;}
-.ic:active{transform:scale(.94);}
-.rolebar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:0 12px 10px;max-width:760px;margin:0 auto;}
-.chip{display:inline-flex;align-items:center;gap:6px;padding:4px 13px;border-radius:999px;
- font-size:.82em;font-weight:700;border:2px solid;line-height:1.9;}
-.chip.s{color:var(--r);border-color:var(--r);background:var(--rbg);}
-.chip.u{color:var(--g);border-color:var(--g);background:var(--gbg);}
-.hint{font-size:.8em;color:var(--ink2);font-weight:500;line-height:1.7;}
-.pbwrap{max-width:760px;margin:0 auto;padding:0 12px 11px;}
-.pbtxt{font-size:.8em;color:var(--ink2);margin-bottom:6px;line-height:1.7;}
-.pb{height:9px;border-radius:99px;background:var(--soft);border:1px solid var(--line);overflow:hidden;display:flex;}
-.pb i{display:block;height:100%;}
-.pb .fs{background:var(--r);} .pb .fu{background:var(--g);}
+/* ============ ভূমিকা বাছাই ============ */
+.gate{position:fixed;inset:0;z-index:90;background:var(--bg);display:flex;
+  align-items:center;justify-content:center;padding:1.25rem}
+.gate .box{width:100%;max-width:26rem;text-align:center}
+.gate .logo{width:4.5rem;height:4.5rem;margin:0 auto 1rem;border-radius:1.25rem;
+  background:var(--grnS);color:var(--grn);display:flex;align-items:center;justify-content:center;
+  font-family:var(--fA);font-size:2.6rem;line-height:1}
+.gate h1{font-size:1.6rem;margin-bottom:.2rem}
+.gate .sub{color:var(--mut);font-size:.92rem;margin-bottom:1.5rem}
+.pick{display:grid;gap:.75rem}
+.pick button{padding:1rem;border-radius:1rem;border:1.5px solid var(--line);
+  background:var(--card);font-size:1.05rem;font-weight:600;box-shadow:var(--sh);
+  display:flex;align-items:center;justify-content:center;gap:.5rem}
+.pick button .dot{width:.7rem;height:.7rem;border-radius:50%}
+.pick .st .dot{background:var(--red)} .pick .us .dot{background:var(--grn)}
+.gate .code{margin-top:1rem;display:none}
+.gate .code input{width:100%;padding:.8rem 1rem;border-radius:.9rem;border:1.5px solid var(--line);
+  background:var(--card);color:var(--ink);font-family:inherit;font-size:1rem;text-align:center}
+.gate .code .go{margin-top:.6rem;width:100%;padding:.8rem;border-radius:.9rem;border:0;
+  background:var(--grn);color:#fff;font-weight:700;font-size:1rem}
+.gate .err{color:var(--red);font-size:.85rem;margin-top:.5rem;min-height:1.2rem}
 
-/* ---------- cards ---------- */
-.card{background:var(--card);border:2px solid var(--line);border-radius:var(--rad);
- box-shadow:var(--sh);padding:16px 14px;margin:14px 0;overflow:visible;}
-.ptitle{font-size:1.3em;font-weight:700;line-height:1.55;}
-.psub{color:var(--ink2);font-size:.88em;margin-top:2px;line-height:1.7;}
-.paim{margin-top:11px;padding:11px 13px;border-right:5px solid var(--acc);
- background:var(--soft);border-radius:10px;font-size:.9em;line-height:1.8;}
-.bt{font-weight:700;font-size:1em;margin:0 0 11px;padding-bottom:8px;border-bottom:2px solid var(--line);line-height:1.7;}
+/* ============ হেডার ============ */
+header{position:sticky;top:0;z-index:40;background:var(--card);
+  border-bottom:1px solid var(--line);box-shadow:0 1px 0 rgba(0,0,0,.02)}
+.hd1{display:flex;align-items:center;gap:.7rem;padding:.7rem .9rem .5rem}
+.brand{width:2.6rem;height:2.6rem;border-radius:.8rem;background:var(--grnS);color:var(--grn);
+  display:flex;align-items:center;justify-content:center;font-family:var(--fA);font-size:1.7rem;flex:0 0 auto}
+.btitle{flex:1;min-width:0}
+.btitle h1{font-size:1.15rem}
+.btitle span{display:block;font-size:.78rem;color:var(--mut);line-height:1.5}
+.tools{display:flex;gap:.4rem;flex:0 0 auto}
+.tools button{width:2.5rem;height:2.5rem;border-radius:.75rem;border:1.5px solid var(--line);
+  background:var(--card);font-size:1rem;display:flex;align-items:center;justify-content:center}
+.hd2{display:flex;align-items:center;gap:.6rem;padding:0 .9rem .5rem;flex-wrap:wrap}
+.chip{display:inline-flex;align-items:center;gap:.4rem;padding:.3rem .8rem;border-radius:999px;
+  font-size:.85rem;font-weight:600;border:1.5px solid}
+.chip .dot{width:.55rem;height:.55rem;border-radius:50%}
+.chip.st{color:var(--red);border-color:var(--red);background:var(--redS)}
+.chip.st .dot{background:var(--red)}
+.chip.us{color:var(--grn);border-color:var(--grn);background:var(--grnS)}
+.chip.us .dot{background:var(--grn)}
+.hint{font-size:.8rem;color:var(--mut);flex:1;min-width:8rem;line-height:1.6}
+.stat{padding:0 .9rem .45rem;font-size:.8rem;color:var(--mut)}
+.bar{height:.28rem;background:var(--line)}
+.bar i{display:block;height:100%;background:var(--grn);width:0;transition:width .25s}
 
-/* ---------- note ---------- */
-.note{background:var(--soft);border:2px solid var(--line);border-radius:12px;padding:13px;margin:13px 0;}
-.note h4{font-size:.96em;margin-bottom:7px;color:var(--acc);line-height:1.7;}
-.note p{font-size:.94em;margin:7px 0;line-height:1.9;}
-.note b{color:var(--acc);font-weight:700;}
-.unote{background:var(--gbg);border:2px dashed var(--g);border-radius:12px;padding:13px;margin:13px 0;
- font-size:.92em;line-height:1.9;}
-.unote strong{display:block;color:var(--g);margin-bottom:4px;font-size:.88em;}
+/* ============ পাতা ============ */
+main{max-width:46rem;margin:0 auto;padding:1rem .9rem 1.5rem}
+.phead{margin-bottom:1rem}
+.phead h1{font-size:1.5rem;line-height:1.6}
+.psub{color:var(--mut);font-size:.92rem;margin-top:.1rem}
+.aim{margin-top:.7rem;padding:.65rem .9rem;border-right:4px solid var(--grn);
+  background:var(--grnS);border-radius:.7rem;font-size:.9rem}
+html[dir] .aim{border-right:0;border-left:4px solid var(--grn)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:1.1rem;
+  padding:1rem 1.05rem;box-shadow:var(--sh);margin-bottom:1rem;position:relative}
+.card h3{font-size:1.05rem;color:var(--grn);margin-bottom:.5rem}
+.sec{font-size:1rem;color:var(--mut);margin:1.3rem 0 .6rem;padding-bottom:.4rem;
+  border-bottom:1px solid var(--line)}
+.tip{background:var(--soft);border:1px dashed var(--line);border-radius:.9rem;
+  padding:.7rem .95rem;font-size:.88rem;color:var(--mut);margin-bottom:1rem}
 
-/* ---------- tiles ---------- */
-.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(var(--tile),1fr));gap:9px;}
-.tile{position:relative;aspect-ratio:1/1;border:2px solid var(--line);border-radius:13px;
- background:var(--card);display:flex;flex-direction:column;align-items:center;justify-content:center;
- gap:2px;cursor:pointer;padding:6px 3px 5px;}
-.tile:active{border-color:var(--line2);}
-.tile span{font-family:'Noto Naskh Arabic',serif;font-size:var(--a);color:var(--ar);
- line-height:1.15;font-weight:500;}
-.tile em{font-style:normal;font-size:.64em;color:var(--ink2);line-height:1.4;text-align:center;}
-.mk{position:absolute;top:4px;right:4px;width:22px;height:22px;border-radius:7px;
- border:2px solid var(--line);background:var(--card);cursor:pointer;padding:0;
- display:grid;place-items:center;z-index:2;}
-.mk i{display:block;width:8px;height:8px;border-radius:99px;background:var(--line2);}
-.mk.on-s{border-color:var(--r);background:var(--rbg);} .mk.on-s i{background:var(--r);}
-.mk.on-u{border-color:var(--g);background:var(--gbg);} .mk.on-u i{background:var(--g);}
-.mk.both{border-color:var(--g);background:var(--gbg);}
-.mk.both i{background:linear-gradient(90deg,var(--r) 50%,var(--g) 50%);}
+/* ============ ঘর (এক ডিজাইন সব পাতায়) ============ */
+.grid{display:grid;grid-template-columns:repeat(var(--cols,4),minmax(0,1fr));
+  gap:.6rem;margin-bottom:1rem}
+.cell{position:relative;background:var(--card);border:1px solid var(--line);
+  border-radius:.95rem;box-shadow:var(--sh);padding:1.15rem .4rem .7rem;
+  text-align:center;overflow:hidden}
+.cell .ar{font-family:var(--fA);direction:rtl;unicode-bidi:isolate;
+  font-size:clamp(1.6rem,7.5vw,2.3rem);line-height:2.15;
+  padding:.1rem .15rem;word-break:keep-all}
+.cell .bn{font-size:.72rem;color:var(--mut);line-height:1.8;margin-top:.35rem;
+  padding:0 .15rem;word-break:break-word}
+.cell[data-info]{cursor:pointer}
+.cell[data-info]:active{border-color:var(--grn)}
+.grid[style*="--cols:1"] .cell .ar,.grid[style*="--cols:2"] .cell .ar{font-size:clamp(1.5rem,6vw,2.1rem)}
+/* চিহ্নের বোতাম — শুধু কোণে */
+.mk{position:absolute;top:.35rem;inset-inline-start:.35rem;width:1.15rem;height:1.15rem;
+  border-radius:50%;border:1.5px solid var(--line);background:transparent;padding:0;z-index:2}
+.mk.s{background:var(--red);border-color:var(--red);box-shadow:0 0 0 3px var(--redS)}
+.mk.u{background:var(--grn);border-color:var(--grn);box-shadow:0 0 0 3px var(--grnS)}
 
-/* ---------- rows ---------- */
-.chips{display:flex;flex-wrap:wrap;gap:8px;}
-.ch{border:2px solid var(--line);border-radius:11px;background:var(--soft);
- padding:8px 14px;font-family:'Noto Naskh Arabic',serif;direction:rtl;
- font-size:calc(var(--a) * .74);color:var(--ar);line-height:2;}
-.lines{display:flex;flex-direction:column;gap:9px;}
-.ln{position:relative;display:flex;align-items:center;gap:10px;flex-wrap:wrap;
- border:2px solid var(--line);border-radius:12px;background:var(--soft);padding:10px 36px 10px 13px;}
-.ln .a{font-family:'Noto Naskh Arabic',serif;direction:rtl;font-size:calc(var(--a) * .72);
- color:var(--ar);line-height:2;flex:1 1 130px;min-width:0;overflow-wrap:anywhere;}
-.ln .m{font-size:.88em;color:var(--ink2);flex:1 1 130px;min-width:0;line-height:1.85;overflow-wrap:anywhere;}
-.ln .mk{top:7px;right:7px;}
-.ln.big .a{font-size:calc(var(--a) * .58);flex:1 1 100%;text-align:right;}
-.ln.big .m{flex:1 1 100%;}
+/* ============ সূরা ============ */
+.surah .sname{font-family:var(--fH);font-size:1.25rem;font-weight:700;text-align:center}
+.surah .smeta{text-align:center;color:var(--mut);font-size:.85rem;margin-bottom:.8rem}
+.stext{direction:rtl;text-align:center;font-family:var(--fQ);
+  font-size:clamp(1.35rem,5.6vw,1.75rem);line-height:2.6;
+  background:var(--soft);border:1px solid var(--line);border-radius:.9rem;padding:1rem .8rem}
+.bism{display:block;margin-bottom:.7rem;font-size:.9em}
+.ayn{display:inline-block;min-width:1.55rem;height:1.55rem;line-height:1.5rem;
+  border:1.5px solid var(--grn);color:var(--grn);border-radius:50%;
+  font-family:var(--fB);font-size:.72rem;text-align:center;margin:0 .3rem;
+  vertical-align:middle;white-space:nowrap}
+.mean ol{margin:0;padding-inline-start:1.4rem}
+.mean li{margin-bottom:.4rem;font-size:.92rem}
 
-/* ---------- table ---------- */
-.tbx{width:100%;overflow-x:auto;}
-.tb{width:100%;border-collapse:collapse;font-size:.9em;}
-.tb th,.tb td{border:2px solid var(--line);padding:9px 6px;text-align:center;line-height:1.8;}
-.tb th{background:var(--soft);font-weight:700;font-size:.9em;}
-.tb td.a{font-family:'Noto Naskh Arabic',serif;font-size:calc(var(--a)*.62);color:var(--ar);line-height:1.9;}
+/* ============ মডাল ============ */
+.modal{position:fixed;inset:0;z-index:70;display:flex;align-items:flex-end;justify-content:center;
+  background:rgba(8,14,22,.45);padding:1rem}
+.modal[hidden]{display:none}
+.modal .mbox{width:100%;max-width:26rem;background:var(--card);border-radius:1.2rem;
+  padding:1.2rem;box-shadow:var(--sh);text-align:center}
+.modal .mar{font-family:var(--fA);font-size:3.2rem;line-height:1.8;direction:rtl}
+.modal h3{font-size:1.2rem;margin:.2rem 0 .4rem}
+.modal p{color:var(--mut);font-size:.92rem}
+.modal .close{margin-top:1rem;width:100%;padding:.75rem;border-radius:.85rem;border:0;
+  background:var(--grn);color:#fff;font-weight:700;font-size:.95rem}
 
-/* ---------- surah ---------- */
-.smeta{text-align:center;margin-bottom:13px;}
-.sname{font-family:'Amiri',serif;font-size:1.55em;color:var(--ar);font-weight:700;line-height:2;}
-.sbn{font-weight:700;font-size:1.1em;line-height:1.7;}
-.sinfo{font-size:.83em;color:var(--ink2);line-height:1.7;}
-.mushaf{border:2px solid var(--line);border-radius:14px;background:var(--soft);
- padding:18px 14px;direction:rtl;text-align:center;
- font-family:'Amiri','Noto Naskh Arabic',serif;font-size:var(--q);line-height:2.5;color:var(--ar);}
-.ayn{display:inline-grid;place-items:center;width:1.5em;height:1.5em;margin:0 .26em;
- border:2px solid var(--acc);border-radius:99px;color:var(--acc);
- font-size:.5em;font-family:'Noto Naskh Arabic',serif;line-height:1;vertical-align:middle;font-weight:700;}
-.means{margin-top:15px;}
-.mn{display:flex;gap:11px;align-items:flex-start;padding:9px 2px;border-bottom:1px dashed var(--line);
- font-size:.92em;line-height:1.9;}
-.mn:last-child{border-bottom:0;}
-.mn b{flex:0 0 27px;height:27px;border-radius:99px;background:var(--soft);border:2px solid var(--line);
- display:grid;place-items:center;font-size:.74em;color:var(--acc);font-weight:700;line-height:1;}
+/* ============ নিচের নেভিগেশন ============ */
+nav{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--card);
+  border-top:1px solid var(--line);padding:.55rem .7rem calc(.55rem + env(safe-area-inset-bottom))}
+.nrow{max-width:46rem;margin:0 auto;display:flex;gap:.4rem;align-items:center}
+.nrow button,.nrow select{border:1.5px solid var(--line);background:var(--card);color:var(--ink);
+  border-radius:.8rem;padding:.6rem .7rem;font-size:.88rem;font-family:inherit;font-weight:600}
+.nrow select{flex:1;min-width:0;text-overflow:ellipsis}
+.nrow .next{background:var(--grn);color:#fff;border-color:var(--grn);white-space:nowrap}
+.nrow button:disabled{opacity:.4}
+.foot{text-align:center;font-size:.72rem;color:var(--mut);margin-top:.35rem}
 
-/* ---------- home ---------- */
-.cover{text-align:center;padding:26px 6px 10px;}
-.cover .bsm{font-family:'Amiri',serif;font-size:1.75em;color:var(--ar);line-height:2.2;}
-.cover h1{font-size:1.52em;margin-top:6px;line-height:1.6;}
-.cover p{color:var(--ink2);font-size:.92em;margin-top:6px;line-height:1.8;}
-.big{display:flex;gap:14px;align-items:flex-start;width:100%;
- background:var(--card);border:2px solid var(--line);border-radius:var(--rad);
- box-shadow:var(--sh);padding:16px 14px;margin:12px 0;cursor:pointer;font-family:inherit;color:inherit;
- text-align:left;overflow:visible;}
-.big .bi{flex:0 0 54px;height:54px;border-radius:14px;display:grid;place-items:center;font-size:26px;
- font-family:'Noto Naskh Arabic',serif;line-height:1;}
-.big .bx{flex:1 1 auto;min-width:0;}
-.big .bx b{display:block;font-size:1.14em;line-height:1.7;}
-.big .bx span{display:block;font-size:.86em;color:var(--ink2);line-height:1.8;margin-top:2px;
- overflow-wrap:anywhere;}
-.big .bx em{display:block;font-style:normal;font-size:.8em;color:var(--ink2);margin-top:7px;line-height:1.7;}
-
-/* ---------- role ---------- */
-.role{min-height:68vh;display:flex;flex-direction:column;justify-content:center;gap:12px;padding:18px 4px;}
-.rbtn{width:100%;padding:20px 16px;border-radius:var(--rad);border:3px solid;background:var(--card);
- font-family:inherit;font-size:1.06em;font-weight:700;color:inherit;cursor:pointer;text-align:left;line-height:1.7;}
-.rbtn span{display:block;font-weight:500;font-size:.82em;color:var(--ink2);margin-top:4px;line-height:1.8;}
-.rbtn.s{border-color:var(--r);} .rbtn.u{border-color:var(--g);}
-
-/* ---------- nav ---------- */
-nav{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--card);border-top:2px solid var(--line);}
-.nb{display:flex;gap:7px;align-items:center;padding:9px 12px;max-width:760px;margin:0 auto;}
-.nbtn{flex:0 0 auto;padding:11px 14px;border-radius:12px;border:2px solid var(--line);
- background:var(--soft);color:var(--ink);font-family:inherit;font-weight:700;font-size:.88em;
- cursor:pointer;line-height:1.5;}
-.nbtn.go{background:var(--acc);border-color:var(--acc);color:#fff;}
-html[data-theme="dark"] .nbtn.go{color:#06231a;}
-.nbtn:disabled{opacity:.35;}
-.sel{flex:1 1 auto;min-width:0;padding:11px 8px;border-radius:12px;border:2px solid var(--line);
- background:var(--soft);color:var(--ink);font-family:inherit;font-size:.88em;font-weight:600;line-height:1.5;}
-.foot{text-align:center;font-size:.78em;color:var(--ink2);padding:3px 0 9px;line-height:1.7;}
-
-/* ---------- modal ---------- */
-.mask{position:fixed;inset:0;z-index:60;background:rgba(6,10,18,.62);
- display:none;align-items:flex-end;justify-content:center;}
-.mask.on{display:flex;}
-.modal{width:100%;max-width:760px;background:var(--card);border-radius:20px 20px 0 0;
- border-top:3px solid var(--line);padding:18px 16px 28px;max-height:88vh;overflow-y:auto;}
-.modal .mar{font-family:'Noto Naskh Arabic',serif;font-size:calc(var(--a)*1.5);text-align:center;
- color:var(--ar);line-height:1.7;}
-.modal h3{text-align:center;font-size:1.22em;margin:4px 0 13px;line-height:1.6;}
-.mrow{display:flex;gap:10px;padding:10px 0;border-bottom:1px dashed var(--line);font-size:.92em;line-height:1.85;}
-.mrow b{flex:0 0 96px;color:var(--ink2);font-weight:600;}
-.close{width:100%;margin-top:16px;padding:13px;border-radius:12px;border:2px solid var(--line);
- background:var(--soft);font-family:inherit;font-weight:700;font-size:.94em;color:var(--ink);cursor:pointer;}
+/* ============ হোম ============ */
+.hcard{display:flex;gap:.9rem;align-items:flex-start;background:var(--card);
+  border:1px solid var(--line);border-radius:1.1rem;padding:1.05rem;box-shadow:var(--sh);
+  margin-bottom:.9rem;width:100%;text-align:start;font:inherit}
+.hcard .ic{width:3.2rem;height:3.2rem;border-radius:.9rem;display:flex;align-items:center;
+  justify-content:center;font-family:var(--fA);font-size:2rem;flex:0 0 auto}
+.hcard h3{font-size:1.15rem;color:var(--ink);margin-bottom:.3rem}
+.hcard p{font-size:.88rem;color:var(--mut);line-height:1.85}
+.hcard .meta{margin-top:.45rem;font-size:.8rem;color:var(--grn);font-weight:600}
+.hcard.soon{opacity:.75}
+.hero{text-align:center;margin:.5rem 0 1.4rem}
+.hero .ara{font-family:var(--fA);font-size:1.9rem;color:var(--mut);direction:rtl;line-height:2}
+.hero h2{font-size:1.7rem;margin:.2rem 0 .25rem}
+.hero p{color:var(--mut);font-size:.92rem}
 </style>
 </head>
 <body>
 
-<header>
-  <div class="hbar">
+<!-- ভূমিকা বাছাই -->
+<div class="gate" id="gate">
+  <div class="box">
     <div class="logo">ا</div>
-    <div class="hname">আলিফিয়া ইলম<small>কায়দা শাখা</small></div>
-    <button class="ic" id="bTh">🌙</button>
-    <button class="ic" id="bFs">অ+</button>
-    <button class="ic" id="bRo">↺</button>
+    <h1>আলিফিয়া ইলম একাডেমি</h1>
+    <div class="sub">আপনি কে? নিচ থেকে বেছে নিন।</div>
+    <div class="pick">
+      <button class="st" id="bSt" type="button"><span class="dot"></span> ছাত্র</button>
+      <button class="us" id="bUs" type="button"><span class="dot"></span> উস্তাদ</button>
+    </div>
+    <div class="code" id="codeBox">
+      <input id="codeIn" type="text" placeholder="উস্তাদের কোড" autocomplete="off">
+      <button class="go" id="codeGo" type="button">প্রবেশ করুন</button>
+      <div class="err" id="codeErr"></div>
+    </div>
   </div>
-  <div class="rolebar" id="rolebar"></div>
-  <div class="pbwrap" id="pbwrap"></div>
+</div>
+
+<header id="hd" hidden>
+  <div class="hd1">
+    <div class="brand">ا</div>
+    <div class="btitle"><h1>আলিফিয়া ইলম</h1><span id="branch">কায়দা শাখা</span></div>
+    <div class="tools">
+      <button id="tTheme" type="button" title="আলো/আঁধার">🌙</button>
+      <button id="tFont" type="button" title="লেখার আকার">অ+</button>
+      <button id="tRole" type="button" title="ভূমিকা বদল">↻</button>
+    </div>
+  </div>
+  <div class="hd2">
+    <span class="chip st" id="chip"><span class="dot"></span> ছাত্র</span>
+    <span class="hint" id="hint">ঘরের কোণে চাপ দিলে লাল চিহ্ন বসবে</span>
+  </div>
+  <div class="stat" id="stat"></div>
+  <div class="bar"><i id="barI"></i></div>
 </header>
 
-<main class="wrap" id="main"></main>
-<nav id="nav"></nav>
-<div class="mask" id="mask"><div class="modal" id="modal"></div></div>
+<main><div id="page"></div></main>
+
+<nav id="nav" hidden>
+  <div class="nrow">
+    <button id="nHome" type="button">হোম</button>
+    <button id="nPrev" type="button">‹</button>
+    <select id="nSel"></select>
+    <button id="nNext" class="next" type="button">পরের ›</button>
+  </div>
+  <div class="foot">আলিফিয়া ইলম একাডেমি</div>
+</nav>
+
+<div class="modal" id="modal" hidden>
+  <div class="mbox">
+    <div class="mar" id="mAr"></div>
+    <h3 id="mName"></h3>
+    <p id="mInfo"></p>
+    <button class="close" id="mClose" type="button">ঠিক আছে</button>
+  </div>
+</div>
 
 <script>
-const $=s=>document.querySelector(s);
-const BN=n=>String(n).replace(/[0-9]/g,d=>'০১২৩৪৫৬৭৮৯'[d]);
-const NB=n=>'<span class="num">'+BN(n)+'</span>';
-const AR=n=>String(n).replace(/[0-9]/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]);
-function E(t,c,h){const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e;}
+/* ===================== ছোট সহায়ক ===================== */
+const BN='০১২৩৪৫৬৭৮৯';
+const bn = n => String(n).replace(/\d/g, d => BN[+d]);
+const F='\u064E', K='\u0650', D='\u064F';          // যবর যের পেশ
+const FT='\u064B', KT='\u064D', DT='\u064C';       // তানবীন
+const SK='\u0652', SH='\u0651';                    // জযম, তাশদীদ
+const Z='\u200D';                                  // যোগচিহ্ন
+const lng = s => s.replace(/ি/g,'ী').replace(/ু/g,'ূ').replace(/ই/g,'ঈ').replace(/উ/g,'ঊ');
 
-const note=(t,l)=>({k:'note',t,l});
-const un=(t)=>({k:'un',t});
-const grid=(items)=>({k:'grid',items});
-const row=(t,s)=>({k:'row',t,s});
-const ex=(t,l)=>({k:'ex',t,l});
-const big=(t,l)=>({k:'big',t,l});
-const tbl=(t,h,r)=>({k:'tbl',t,h,r});
-const sura=(bn,arn,info,ayat,mean)=>({k:'sura',bn,arn,info,ayat,mean});
-
-const HORF=[
-['ا','আলিফ','মুখগহ্বর (জাওফ)','টান ছাড়া সোজা, হালকা করে পড়ুন।'],
-['ب','বা','দুই ঠোঁট','ঠোঁট মিলিয়ে ছেড়ে দিন — বাংলা "ব" এর মতো।'],
-['ت','তা','জিহ্বার আগা ও উপরের দাঁতের গোড়া','পাতলা "ত", জোর দেবেন না।'],
-['ث','ছা','জিহ্বার আগা ও উপরের দাঁতের আগা','জিহ্বার আগা দাঁতের ফাঁকে।'],
-['ج','জীম','জিহ্বার মাঝ ও উপরের তালু','পরিষ্কার "জ", "য" নয়।'],
-['ح','হা','কণ্ঠনালীর মাঝখান','গলা থেকে গরম নিঃশ্বাসের মতো "হ"।'],
-['خ','খা','কণ্ঠনালীর উপরের ভাগ','গলার উপর থেকে মোটা "খ"।'],
-['د','দাল','জিহ্বার আগা ও উপরের দাঁতের গোড়া','পাতলা "দ"।'],
-['ذ','যাল','জিহ্বার আগা ও উপরের দাঁতের আগা','জিহ্বা দাঁতের ফাঁকে — নরম "য"।'],
-['ر','রা','জিহ্বার আগা ও তালুর সামনের অংশ','জিহ্বা একটু কেঁপে উঠবে।'],
-['ز','যা','জিহ্বার আগা ও নিচের দাঁতের মাথা','শিস্‌ টানা "য"।'],
-['س','সীন','জিহ্বার আগা ও নিচের দাঁতের মাথা','পাতলা শিস্‌ "স"।'],
-['ش','শীন','জিহ্বার মাঝ ও উপরের তালু','ছড়ানো "শ"।'],
-['ص','ছোয়াদ','জিহ্বার আগা ও নিচের দাঁত','মোটা করে "স" — মুখ ভরে।'],
-['ض','দোয়াদ','জিহ্বার পাশ ও উপরের মাড়ির দাঁত','মোটা "দ", জিহ্বার পাশ চেপে ধরুন।'],
-['ط','ত্বোয়া','জিহ্বার আগা ও উপরের দাঁতের গোড়া','মোটা ও শক্ত "ত"।'],
-['ظ','যোয়া','জিহ্বার আগা ও উপরের দাঁতের আগা','মোটা "য", জিহ্বা দাঁতের ফাঁকে।'],
-['ع','আইন','কণ্ঠনালীর মাঝখান','গলা চেপে আসা শব্দ, বাংলায় হুবহু নেই।'],
-['غ','গাইন','কণ্ঠনালীর উপরের ভাগ','গড়গড়ানির মতো "গ"।'],
-['ف','ফা','নিচের ঠোঁটের ভিতর ও উপরের দাঁত','দাঁত ঠোঁটে ছুঁয়ে "ফ"।'],
-['ق','ক্বাফ','জিহ্বার গোড়া ও তালুর নরম অংশ','গলার গভীর থেকে মোটা "ক"।'],
-['ك','কাফ','জিহ্বার গোড়া, ক্বাফের একটু সামনে','পাতলা "ক"।'],
-['ل','লাম','জিহ্বার আগার পাশ ও উপরের মাড়ি','সাধারণ "ল"।'],
-['م','মীম','দুই ঠোঁট','ঠোঁট মিলিয়ে "ম"।'],
-['ن','নূন','জিহ্বার আগা ও উপরের মাড়ি','নাকে হালকা রেশ থাকবে।'],
-['و','ওয়াও','দুই ঠোঁট গোল করে','ঠোঁট গোল — "ওয়া"।'],
-['ه','হা','কণ্ঠনালীর শুরু (গভীর)','নরম, ফাঁকা নিঃশ্বাসের "হ"।'],
-['ء','হামযা','কণ্ঠনালীর শুরু (গভীর)','হঠাৎ থেমে ছেড়ে দেওয়া শব্দ।'],
-['ي','ইয়া','জিহ্বার মাঝ ও উপরের তালু','"ইয়া" — জিহ্বার মাঝ তালুতে।']
+/* ===================== ২৯ হরফ ===================== */
+/* [আরবি, নাম, যবর, যের, পেশ, জযম, মাখরাজ] */
+const L=[
+['ا','আলিফ','আ','ই','উ','আ','কণ্ঠের একদম শুরু থেকে'],
+['ب','বা','বা','বি','বু','আব্','দুই ঠোঁট মিলিয়ে'],
+['ت','তা','তা','তি','তু','আত্','জিহ্বার আগা ও উপরের সামনের দাঁতের গোড়া'],
+['ث','ছা','ছা','ছি','ছু','আছ্','জিহ্বার আগা ও উপরের দাঁতের কিনারা'],
+['ج','জীম','জা','জি','জু','আজ্','জিহ্বার মধ্যভাগ ও উপরের তালু'],
+['ح','হা','হা','হি','হু','আহ্','কণ্ঠের মাঝখান'],
+['خ','খা','খা','খি','খু','আখ্','কণ্ঠের উপরিভাগ'],
+['د','দাল','দা','দি','দু','আদ্','জিহ্বার আগা ও দাঁতের গোড়া'],
+['ذ','যাল','যা','যি','যু','আয্','জিহ্বার আগা ও দাঁতের কিনারা'],
+['ر','রা','রা','রি','রু','আর্','জিহ্বার আগা, তালুর কাছাকাছি'],
+['ز','যা','যা','যি','যু','আয্','জিহ্বার আগা ও নিচের দাঁত'],
+['س','সীন','সা','সি','সু','আস্','জিহ্বার আগা ও নিচের দাঁত'],
+['ش','শীন','শা','শি','শু','আশ্','জিহ্বার মধ্যভাগ ও তালু'],
+['ص','ছোয়াদ','ছা','ছি','ছু','আছ্','জিহ্বার আগা ও নিচের দাঁত — মোটা করে'],
+['ض','দোয়াদ','দা','দি','দু','আদ্','জিহ্বার পাশ ও উপরের মাড়ির দাঁত'],
+['ط','ত্বোয়া','তা','তি','তু','আত্','জিহ্বার আগা ও দাঁতের গোড়া — মোটা করে'],
+['ظ','যোয়া','যা','যি','যু','আয্','জিহ্বার আগা ও দাঁতের কিনারা — মোটা করে'],
+['ع','আইন','আ','ই','উ','আ‘','কণ্ঠের মাঝখান'],
+['غ','গাইন','গা','গি','গু','আগ্','কণ্ঠের উপরিভাগ'],
+['ف','ফা','ফা','ফি','ফু','আফ্','নিচের ঠোঁট ও উপরের সামনের দাঁত'],
+['ق','ক্বাফ','ক্বা','ক্বি','ক্বু','আক্','জিহ্বার গোড়া ও নরম তালু'],
+['ك','কাফ','কা','কি','কু','আক্','জিহ্বার গোড়া, ক্বাফের একটু সামনে'],
+['ل','লাম','লা','লি','লু','আল্','জিহ্বার আগার পাশ ও উপরের মাড়ি'],
+['م','মীম','মা','মি','মু','আম্','দুই ঠোঁট মিলিয়ে — নাক থেকে গুন্নাহ'],
+['ن','নূন','না','নি','নু','আন্','জিহ্বার আগা ও মাড়ি — নাক থেকে গুন্নাহ'],
+['و','ওয়াও','ওয়া','ওয়ি','ওয়ু','আও','দুই ঠোঁট গোল করে'],
+['ه','হা','হা','হি','হু','আহ্','কণ্ঠের একদম শুরু'],
+['ء','হামযা','আ','ই','উ','আ’','কণ্ঠের একদম শুরু'],
+['ي','ইয়া','ইয়া','ইয়ি','ইয়ু','আই','জিহ্বার মধ্যভাগ ও তালু']
 ];
 
+/* ===================== ঘর তৈরির কারখানা ===================== */
+const g = (fn, skip=0) => L.slice(skip).map(fn);
+
+const gHrf   = g(x=>[x[0], x[1], x[6]]);
+const gRup   = g(x=>[`${Z+x[0]} ${Z+x[0]+Z} ${x[0]+Z}`, x[1]]);
+const gFat   = g(x=>[x[0]+F, x[2]]);
+const gKas   = g(x=>[x[0]+K, x[3]]);
+const gDam   = g(x=>[x[0]+D, x[4]]);
+const gAll   = g(x=>[`${x[0]+F} ${x[0]+K} ${x[0]+D}`, `${x[2]} · ${x[3]} · ${x[4]}`]);
+const gFatT  = g(x=>[x[0]+FT, x[2]+'ন']);
+const gKasT  = g(x=>[x[0]+KT, x[3]+'ন']);
+const gDamT  = g(x=>[x[0]+DT, x[4]+'ন']);
+const gAllT  = g(x=>[`${x[0]+FT} ${x[0]+KT} ${x[0]+DT}`, `${x[2]}ন · ${x[3]}ন · ${x[4]}ন`]);
+const gJaz   = g(x=>['أ'+F+x[0]+SK, x[5]], 1);
+const gTash  = g(x=>[`أ${F}${x[0]}${SH}${F} أ${F}${x[0]}${SH}${K} أ${F}${x[0]}${SH}${D}`,
+                     `${x[5]}${x[2]} · ${x[5]}${x[3]} · ${x[5]}${x[4]}`], 1);
+const gMdA   = g(x=>[x[0]+F+'ا', x[2]+'—'], 1);
+const gMdY   = g(x=>[x[0]+K+'ي', lng(x[3])], 1);
+const gMdW   = g(x=>[x[0]+D+'و', lng(x[4])], 1);
+
+/* ===================== পাতাসমূহ ===================== */
+const note = (t,items)=>({k:'note',t,items});
+const grid = (items,cols)=>({k:'grid',items,cols:cols||4});
+const sec  = t=>({k:'sec',t});
+const tip  = t=>({k:'tip',t});
+
 const P=[
-
-{t:'শুরুর কথা',s:'পড়া শুরু করার আগে',aim:'কী শিখব, কীভাবে শিখব — সেটা জেনে নেওয়া।',b:[
-note('এই বইটি কীভাবে সাজানো',[
-'প্রথমে <b>এক একটি হরফ</b>, তারপর <b>হরকত</b>, তারপর <b>শব্দ</b>, শেষে <b>বাক্য ও সূরা</b>।',
-'প্রতিটি পৃষ্ঠার উপরে সেই পৃষ্ঠার উদ্দেশ্য লেখা আছে।',
-'কোনো হরফে চাপ দিলে তার নাম, মাখরাজ ও পড়ার নিয়ম দেখা যাবে।']),
-note('চিহ্ন দেওয়ার নিয়ম',[
-'প্রতিটি ঘরের <b>কোণে ছোট বোতাম</b> আছে। পড়া হয়ে গেলে সেখানে চাপ দিন।',
-'ছাত্রের চিহ্ন <b>লাল</b>, উস্তাদের চিহ্ন <b>সবুজ</b>।',
-'লেখায় চাপ দিলে রঙ বদলাবে না — শুধু কোণের বোতামেই চিহ্ন বসবে।']),
-note('পড়ার আদব',[
-'শুরুতে <b>আউযুবিল্লাহ</b> ও <b>বিসমিল্লাহ</b> পড়ুন।',
-'ধীরে পড়ুন। দ্রুত পড়ার চেয়ে <b>শুদ্ধ পড়া</b> অনেক বড় কথা।',
-'প্রতিদিন অল্প, কিন্তু নিয়মিত — এটাই সবচেয়ে ভালো নিয়ম।']),
-un('প্রথম দিনেই বেশি পৃষ্ঠা দেবেন না। এক পৃষ্ঠা ভালো হলে পরেরটায় যান।')
+{t:'শুরুর কথা', s:'পড়া শুরু করার আগে', b:[
+  note('কীভাবে চলবে',[
+    'প্রতিটি ঘরের <b>কোণে ছোট বোতাম</b> আছে। পড়া হয়ে গেলে সেখানে চাপ দিন।',
+    'ছাত্রের চিহ্ন <b>লাল</b>, উস্তাদের চিহ্ন <b>সবুজ</b>।',
+    'লেখায় চাপ দিলে রঙ বদলাবে না — শুধু কোণের বোতামেই চিহ্ন বসবে।']),
+  note('পড়ার আদব',[
+    'শুরুতে <b>আউযুবিল্লাহ</b> ও <b>বিসমিল্লাহ</b> পড়ুন।',
+    'ধীরে পড়ুন। দ্রুত পড়ার চেয়ে <b>শুদ্ধ পড়া</b> অনেক বড় কথা।',
+    'প্রতিদিন অল্প, কিন্তু নিয়মিত — এটাই সবচেয়ে ভালো নিয়ম।'])
 ]},
 
-{t:'উনত্রিশ ('+BN(29)+') হরফ',s:'আরবি বর্ণমালা',aim:'প্রতিটি হরফ চিনতে ও আলাদা করে বলতে পারা।',b:[
-note('নিয়ম',['আরবিতে মোট <b>উনত্রিশ ('+NB(29)+')</b>টি হরফ। লেখা ও পড়া হয় <b>ডান দিক থেকে বাঁ দিকে</b>।',
-'যেকোনো হরফে চাপ দিলে তার <b>নাম, মাখরাজ ও পড়ার নিয়ম</b> দেখা যাবে।']),
-grid(HORF.map((h,i)=>({ar:h[0],lab:h[1],idx:i}))),
-un('একসাথে সব নয় — প্রতিদিন পাঁচ থেকে সাতটি হরফ ধরান, পরদিন আগেরগুলো শুনে নিন।')
+{t:'উনত্রিশ হরফ', s:'হুরুফুল হিজা', aim:'প্রতিটি হরফ চিনে নাম ধরে বলতে পারা।', b:[
+  note('নিয়ম',['আরবিতে মোট <b>উনত্রিশ (২৯)</b>টি হরফ। লেখা ও পড়া হয় <b>ডান দিক থেকে বাঁ দিকে</b>।',
+    'যেকোনো হরফে চাপ দিলে তার <b>নাম ও মাখরাজ</b> দেখা যাবে।']),
+  grid(gHrf,4)
 ]},
 
-{t:'হরফের তিন রূপ',s:'শুরু · মাঝ · শেষ',aim:'একই হরফ শব্দের ভিতরে বদলে গেলেও চিনতে পারা।',b:[
-note('নিয়ম',['আরবি হরফ শব্দের <b>শুরুতে</b>, <b>মাঝে</b> ও <b>শেষে</b> আলাদা চেহারা নেয়। কিন্তু হরফ একই, আওয়াজও একই।',
-'ছয়টি হরফ (<b>ا د ذ ر ز و</b>) পরের হরফের সাথে জোড়া লাগে না — এদের পরে ফাঁক থাকে।']),
-tbl('কয়েকটি উদাহরণ',['হরফ','শুরুতে','মাঝে','শেষে'],[
-['ب','بـ','ـبـ','ـب'],['ج','جـ','ـجـ','ـج'],['س','سـ','ـسـ','ـس'],
-['ع','عـ','ـعـ','ـع'],['ك','كـ','ـكـ','ـك'],['ه','هـ','ـهـ','ـه'],
-['ي','يـ','ـيـ','ـي'],['م','مـ','ـمـ','ـم']]),
-tbl('যে হরফগুলো জোড়া লাগে না',['হরফ','শব্দে'],[
-['ا','بَاب'],['د','يَد'],['ذ','أَخَذ'],['ر','بَر'],['ز','عَزَّ'],['و','هُو']]),
-un('বোর্ডে একটি হরফ তিন জায়গায় লিখে দেখান — নিজে না দেখলে এটি বোঝে না।')
+{t:'হরফের তিন রূপ', s:'শেষে · মাঝে · শুরুতে', aim:'এক হরফের তিন চেহারা চেনা।', b:[
+  tip('ঘরের ভেতরে ডান দিক থেকে — <b>শেষের রূপ</b>, <b>মাঝের রূপ</b>, <b>শুরুর রূপ</b>। কিছু হরফ (ا د ذ ر ز و) পরের হরফের সাথে জোড়া লাগে না, তাই তাদের রূপ বদলায় না।'),
+  grid(gRup,3)
 ]},
 
-{t:'দেখতে কাছাকাছি হরফ',s:'সাবধানে আলাদা করুন',aim:'চেহারায় মিল আছে এমন হরফ ভুল না করা।',b:[
-note('নিয়ম',['কিছু হরফের <b>আকৃতি এক</b>, শুধু <b>নোকতার সংখ্যা ও জায়গা</b> আলাদা। নোকতা গুনে নিন, তারপর পড়ুন।']),
-ex('নোকতা গুনে পড়ুন',[
-['ب ت ث','বা (নিচে '+NB(1)+') · তা (উপরে '+NB(2)+') · ছা (উপরে '+NB(3)+')'],
-['ج ح خ','জীম (ভিতরে '+NB(1)+') · হা (নোকতা নেই) · খা (উপরে '+NB(1)+')'],
-['د ذ','দাল (নোকতা নেই) · যাল (উপরে '+NB(1)+')'],
-['ر ز','রা (নোকতা নেই) · যা (উপরে '+NB(1)+')'],
-['س ش','সীন (নোকতা নেই) · শীন (উপরে '+NB(3)+')'],
-['ص ض','ছোয়াদ (নোকতা নেই) · দোয়াদ (উপরে '+NB(1)+')'],
-['ط ظ','ত্বোয়া (নোকতা নেই) · যোয়া (উপরে '+NB(1)+')'],
-['ع غ','আইন (নোকতা নেই) · গাইন (উপরে '+NB(1)+')'],
-['ف ق','ফা (উপরে '+NB(1)+') · ক্বাফ (উপরে '+NB(2)+')']]),
-un('এই পৃষ্ঠাটি বারবার ফিরে দেখুন। বেশিরভাগ ভুল এখান থেকেই হয়।')
+{t:'দেখতে কাছাকাছি', s:'নোকতা গুনে পড়ুন', aim:'নোকতার পার্থক্য ধরতে পারা।', b:[
+  grid([
+    ['ب','বা · নিচে ১'],['ت','তা · উপরে ২'],['ث','ছা · উপরে ৩'],['ن','নূন · উপরে ১'],
+    ['ج','জীম · ভিতরে ১'],['ح','হা · নোকতা নেই'],['خ','খা · উপরে ১'],['ع','আইন · নোকতা নেই'],
+    ['د','দাল · নোকতা নেই'],['ذ','যাল · উপরে ১'],['ر','রা · নোকতা নেই'],['ز','যা · উপরে ১'],
+    ['س','সীন · নোকতা নেই'],['ش','শীন · উপরে ৩'],['ص','ছোয়াদ · নোকতা নেই'],['ض','দোয়াদ · উপরে ১'],
+    ['ط','ত্বোয়া · নোকতা নেই'],['ظ','যোয়া · উপরে ১'],['غ','গাইন · উপরে ১'],['ف','ফা · উপরে ১'],
+    ['ق','ক্বাফ · উপরে ২'],['ك','কাফ · নোকতা নেই'],['ه','হা · নোকতা নেই'],['ي','ইয়া · নিচে ২']
+  ],4)
 ]},
 
-{t:'যবর',s:'আ — এর আওয়াজ',aim:'যবরওয়ালা হরফ সঠিকভাবে পড়তে পারা।',b:[
-note('নিয়ম',['হরফের <b>উপরে</b> ছোট টান থাকলে তাকে <b>যবর</b> বলে। তখন হরফটি <b>আ</b> এর আওয়াজে পড়া হয়।',
-'যেমন — بَ পড়া হবে <b>বা</b>, تَ পড়া হবে <b>তা</b>। টেনে নয়, এক মাত্রায়।']),
-row('সব হরফে যবর','أَ|بَ|تَ|ثَ|جَ|حَ|خَ|دَ|ذَ|رَ|زَ|سَ|شَ|صَ|ضَ|طَ|ظَ|عَ|غَ|فَ|قَ|كَ|لَ|مَ|نَ|وَ|هَ|يَ'),
-ex('উচ্চারণ',[
-['أَ بَ تَ ثَ','আ · বা · তা · ছা'],
-['جَ حَ خَ دَ','জা · হা · খা · দা'],
-['ذَ رَ زَ سَ','যা · রা · যা · সা'],
-['شَ صَ ضَ طَ','শা · ছোয়া · দোয়া · ত্বোয়া'],
-['ظَ عَ غَ فَ','যোয়া · আ‘ · গা · ফা'],
-['قَ كَ لَ مَ','ক্বা · কা · লা · মা'],
-['نَ وَ هَ يَ','না · ওয়া · হা · ইয়া']]),
-un('মোটা হরফগুলো (ص ض ط ظ ق غ خ ر) আলাদা করে শুনিয়ে দিন — মুখ ভরে পড়তে হয়।')
+{t:'যবর', s:'ফাতহা — আ', aim:'সব হরফে যবর দিয়ে পড়তে পারা।', b:[
+  tip('হরফের <b>উপরে</b> ছোট টান — মুখ খুলে <b>আ</b> আওয়াজ।'), grid(gFat,4)
+]},
+{t:'যের', s:'কাসরা — ই', aim:'সব হরফে যের দিয়ে পড়তে পারা।', b:[
+  tip('হরফের <b>নিচে</b> ছোট টান — <b>ই</b> আওয়াজ।'), grid(gKas,4)
+]},
+{t:'পেশ', s:'দাম্মা — উ', aim:'সব হরফে পেশ দিয়ে পড়তে পারা।', b:[
+  tip('হরফের উপরে ছোট <b>ওয়াও</b>র মতো চিহ্ন — ঠোঁট গোল করে <b>উ</b> আওয়াজ।'), grid(gDam,4)
+]},
+{t:'যবর · যের · পেশ একসাথে', s:'তিন হরকত পরপর', aim:'তিন হরকত না থেমে পড়তে পারা।', b:[grid(gAll,2)]},
+
+{t:'তানবীন — দুই যবর', s:'ফাতহাতাইন — আন', aim:'দুই যবর পড়তে পারা।', b:[
+  tip('হরকত <b>দুইবার</b> হলে শেষে <b>ন</b> আওয়াজ যোগ হয়।'), grid(gFatT,4)
+]},
+{t:'তানবীন — দুই যের', s:'কাসরাতাইন — ইন', aim:'দুই যের পড়তে পারা।', b:[grid(gKasT,4)]},
+{t:'তানবীন — দুই পেশ', s:'দাম্মাতাইন — উন', aim:'দুই পেশ পড়তে পারা।', b:[grid(gDamT,4)]},
+{t:'তানবীন একসাথে', s:'আন · ইন · উন', aim:'তিন তানবীন পরপর পড়া।', b:[grid(gAllT,2)]},
+
+{t:'জযম', s:'সাকিন — থেমে যাওয়া হরফ', aim:'সাকিন হরফ আটকে পড়তে পারা।', b:[
+  tip('হরফের উপরে ছোট <b>গোল চিহ্ন</b> থাকলে সেখানে আওয়াজ <b>থেমে</b> যায়। আগের হরফের হরকতের সাথে মিলিয়ে পড়ুন।'),
+  grid(gJaz,4)
 ]},
 
-{t:'যের',s:'ই — এর আওয়াজ',aim:'যেরওয়ালা হরফ সঠিকভাবে পড়তে পারা।',b:[
-note('নিয়ম',['হরফের <b>নিচে</b> ছোট টান থাকলে তাকে <b>যের</b> বলে। তখন হরফটি <b>ই</b> এর আওয়াজে পড়া হয়।',
-'যেমন — بِ পড়া হবে <b>বি</b>, تِ পড়া হবে <b>তি</b>।']),
-row('সব হরফে যের','إِ|بِ|تِ|ثِ|جِ|حِ|خِ|دِ|ذِ|رِ|زِ|سِ|شِ|صِ|ضِ|طِ|ظِ|عِ|غِ|فِ|قِ|كِ|لِ|مِ|نِ|وِ|هِ|يِ'),
-ex('উচ্চারণ',[
-['إِ بِ تِ ثِ','ই · বি · তি · ছি'],
-['جِ حِ خِ دِ','জি · হি · খি · দি'],
-['ذِ رِ زِ سِ','যি · রি · যি · সি'],
-['شِ صِ ضِ طِ','শি · ছি · দি · তি (মোটা)'],
-['ظِ عِ غِ فِ','যি · ই‘ · গি · ফি'],
-['قِ كِ لِ مِ','ক্বি · কি · লি · মি'],
-['نِ وِ هِ يِ','নি · ওয়ি · হি · ইয়ি']]),
-un('যের পড়ার সময় চোয়াল একটু নিচে নামে — মুখ দেখিয়ে বুঝিয়ে দিন।')
+{t:'তাশদীদ', s:'হরফ দুইবার পড়া', aim:'তাশদীদের হরফ চাপ দিয়ে পড়তে পারা।', b:[
+  tip('তাশদীদ মানে হরফটি <b>দুইবার</b> — প্রথমবার সাকিন, দ্বিতীয়বার হরকতসহ। যেমন <b>আব্ + বা = আব্বা</b>।'),
+  grid(gTash,2)
 ]},
 
-{t:'পেশ',s:'উ — এর আওয়াজ',aim:'পেশওয়ালা হরফ সঠিকভাবে পড়তে পারা।',b:[
-note('নিয়ম',['হরফের <b>উপরে ছোট ওয়াও</b> এর মতো চিহ্ন থাকলে তাকে <b>পেশ</b> বলে। তখন হরফটি <b>উ</b> এর আওয়াজে পড়া হয়।',
-'যেমন — بُ পড়া হবে <b>বু</b>, تُ পড়া হবে <b>তু</b>। ঠোঁট গোল হবে।']),
-row('সব হরফে পেশ','أُ|بُ|تُ|ثُ|جُ|حُ|خُ|دُ|ذُ|رُ|زُ|سُ|شُ|صُ|ضُ|طُ|ظُ|عُ|غُ|فُ|قُ|كُ|لُ|مُ|نُ|وُ|هُ|يُ'),
-ex('উচ্চারণ',[
-['أُ بُ تُ ثُ','উ · বু · তু · ছু'],
-['جُ حُ خُ دُ','জু · হু · খু · দু'],
-['ذُ رُ زُ سُ','যু · রু · যু · সু'],
-['شُ صُ ضُ طُ','শু · ছু · দু · তু (মোটা)'],
-['ظُ عُ غُ فُ','যু · উ‘ · গু · ফু'],
-['قُ كُ لُ مُ','ক্বু · কু · লু · মু'],
-['نُ وُ هُ يُ','নু · ওয়ু · হু · ইয়ু']]),
-un('পেশে ঠোঁট গোল না হলে আওয়াজ "অ" হয়ে যায় — খেয়াল রাখবেন।')
+{t:'মাদ্দ — আলিফ', s:'যবরের পরে আলিফ', aim:'এক আলিফ পরিমাণ টেনে পড়া।', b:[
+  tip('যবরের পরে <b>আলিফ</b> থাকলে আওয়াজ <b>এক আলিফ</b> পরিমাণ টানতে হয়।'), grid(gMdA,4)
+]},
+{t:'মাদ্দ — ইয়া', s:'যেরের পরে ইয়া', aim:'যের-ইয়া টেনে পড়া।', b:[grid(gMdY,4)]},
+{t:'মাদ্দ — ওয়াও', s:'পেশের পরে ওয়াও', aim:'পেশ-ওয়াও টেনে পড়া।', b:[grid(gMdW,4)]},
+
+{t:'শব্দ পড়া', s:'ছোট ছোট শব্দ', aim:'হরফ জোড়া দিয়ে শব্দ পড়তে পারা।', b:[
+  grid([
+    ['بَابٌ','বাবুন'],['نَارٌ','নারুন'],['قَلَمٌ','ক্বলামুন'],['كِتَابٌ','কিতাবুন'],
+    ['عَبْدٌ','আবদুন'],['نَصْرٌ','নাসরুন'],['شَمْسٌ','শামসুন'],['قَمَرٌ','ক্বমারুন'],
+    ['بَيْتٌ','বাইতুন'],['يَوْمٌ','ইয়াওমুন'],['خَيْرٌ','খাইরুন'],['نُورٌ','নূরুন'],
+    ['رَبِّي','রব্বী'],['إِنَّ','ইন্না'],['أَحَقُّ','আহাক্কু'],['مُحَمَّدٌ','মুহাম্মাদুন'],
+    ['صَلَاةٌ','ছলাতুন'],['زَكَاةٌ','যাকাতুন'],['كَرِيمٌ','কারীম'],['رَحِيمٌ','রহীম']
+  ],2)
 ]},
 
-{t:'তিন হরকত একসাথে',s:'যবর · যের · পেশ',aim:'তিনটি হরকত না দেখে আলাদা করতে পারা।',b:[
-note('নিয়ম',['এবার তিনটি হরকত একসাথে অভ্যাস। প্রতিটি হরফ পড়ুন <b>আ — ই — উ</b> এই ক্রমে।']),
-row('একসাথে অভ্যাস','أَ أِ أُ|بَ بِ بُ|تَ تِ تُ|ثَ ثِ ثُ|جَ جِ جُ|حَ حِ حُ|خَ خِ خُ|دَ دِ دُ|ذَ ذِ ذُ|رَ رِ رُ|زَ زِ زُ|سَ سِ سُ|شَ شِ شُ|صَ صِ صُ|ضَ ضِ ضُ|طَ طِ طُ|ظَ ظِ ظُ|عَ عِ عُ|غَ غِ غُ|فَ فِ فُ|قَ قِ قُ|كَ كِ كُ|لَ لِ لُ|مَ مِ مُ|نَ نِ نُ|وَ وِ وُ|هَ هِ هُ|يَ يِ يُ'),
-un('এলোমেলোভাবে ধরুন — শুধু পেশগুলো, তারপর শুধু যেরগুলো। তাহলে সত্যিই চেনা হবে।')
-]},
-
-{t:'দুই যবর',s:'তানবীন — আন',aim:'দুই যবরে নূনের আওয়াজ আনতে পারা।',b:[
-note('নিয়ম',['হরফের উপরে <b>দুইটি যবর</b> থাকলে শেষে <b>নূন সাকিন</b> এর আওয়াজ আসে — যেমন بً = <b>বান</b>।',
-'লেখায় নূন নেই, কিন্তু পড়ায় <b>ন</b> শোনা যায়।']),
-row('দুই যবর','أً|بًا|تًا|ثًا|جًا|حًا|خًا|دًا|ذًا|رًا|زًا|سًا|شًا|صًا|ضًا|طًا|ظًا|عًا|غًا|فًا|قًا|كًا|لًا|مًا|نًا|وًا|هًا|يًا'),
-ex('উচ্চারণ',[
-['أً بًا تًا ثًا','আন · বান · তান · ছান'],
-['جًا حًا خًا دًا','জান · হান · খান · দান'],
-['ذًا رًا زًا سًا','যান · রান · যান · সান'],
-['شًا صًا ضًا طًا','শান · ছোয়ান · দোয়ান · ত্বোয়ান'],
-['ظًا عًا غًا فًا','যোয়ান · আ‘ান · গান · ফান'],
-['قًا كًا لًا مًا','ক্বান · কান · লান · মান'],
-['نًا وًا هًا يًا','নান · ওয়ান · হান · ইয়ান']]),
-un('নাকে আওয়াজ আসছে কি না শুনুন — না এলে তানবীন হয়নি।')
-]},
-
-{t:'দুই যের',s:'তানবীন — ইন',aim:'দুই যেরে নূনের আওয়াজ আনতে পারা।',b:[
-note('নিয়ম',['হরফের নিচে <b>দুইটি যের</b> থাকলে শেষে <b>ইন</b> এর আওয়াজ আসে — যেমন بٍ = <b>বিন</b>।']),
-row('দুই যের','إٍ|بٍ|تٍ|ثٍ|جٍ|حٍ|خٍ|دٍ|ذٍ|رٍ|زٍ|سٍ|شٍ|صٍ|ضٍ|طٍ|ظٍ|عٍ|غٍ|فٍ|قٍ|كٍ|لٍ|مٍ|نٍ|وٍ|هٍ|يٍ'),
-ex('উচ্চারণ',[
-['إٍ بٍ تٍ ثٍ','ইন · বিন · তিন · ছিন'],
-['جٍ حٍ خٍ دٍ','জিন · হিন · খিন · দিন'],
-['ذٍ رٍ زٍ سٍ','যিন · রিন · যিন · সিন'],
-['شٍ صٍ ضٍ طٍ','শিন · ছিন · দিন · তিন (মোটা)'],
-['ظٍ عٍ غٍ فٍ','যিন · ই‘ন · গিন · ফিন'],
-['قٍ كٍ لٍ مٍ','ক্বিন · কিন · লিন · মিন'],
-['نٍ وٍ هٍ يٍ','নিন · ওয়িন · হিন · ইয়িন']])
-]},
-
-{t:'দুই পেশ',s:'তানবীন — উন',aim:'দুই পেশে নূনের আওয়াজ আনতে পারা।',b:[
-note('নিয়ম',['হরফের উপরে <b>দুইটি পেশ</b> থাকলে শেষে <b>উন</b> এর আওয়াজ আসে — যেমন بٌ = <b>বুন</b>।']),
-row('দুই পেশ','أٌ|بٌ|تٌ|ثٌ|جٌ|حٌ|خٌ|دٌ|ذٌ|رٌ|زٌ|سٌ|شٌ|صٌ|ضٌ|طٌ|ظٌ|عٌ|غٌ|فٌ|قٌ|كٌ|لٌ|مٌ|نٌ|وٌ|هٌ|يٌ'),
-ex('উচ্চারণ',[
-['أٌ بٌ تٌ ثٌ','উন · বুন · তুন · ছুন'],
-['جٌ حٌ خٌ دٌ','জুন · হুন · খুন · দুন'],
-['ذٌ رٌ زٌ سٌ','যুন · রুন · যুন · সুন'],
-['شٌ صٌ ضٌ طٌ','শুন · ছুন · দুন · তুন (মোটা)'],
-['ظٌ عٌ غٌ فٌ','যুন · উ‘ন · গুন · ফুন'],
-['قٌ كٌ لٌ مٌ','ক্বুন · কুন · লুন · মুন'],
-['نٌ وٌ هٌ يٌ','নুন · ওয়ুন · হুন · ইয়ুন']]),
-un('তিনটি তানবীন একসাথে ধরার আগে আলাদা আলাদা পাকা করিয়ে নিন।')
-]},
-
-{t:'তিন তানবীন একসাথে',s:'আন · ইন · উন',aim:'তিন তানবীন দ্রুত আলাদা করতে পারা।',b:[
-note('নিয়ম',['একই হরফে তিন তানবীন পরপর পড়ুন — <b>আন · ইন · উন</b>।']),
-row('একসাথে অভ্যাস','بًا بٍ بٌ|تًا تٍ تٌ|ثًا ثٍ ثٌ|جًا جٍ جٌ|حًا حٍ حٌ|خًا خٍ خٌ|دًا دٍ دٌ|ذًا ذٍ ذٌ|رًا رٍ رٌ|زًا زٍ زٌ|سًا سٍ سٌ|شًا شٍ شٌ|صًا صٍ صٌ|ضًا ضٍ ضٌ|طًا طٍ طٌ|ظًا ظٍ ظٌ|عًا عٍ عٌ|غًا غٍ غٌ|فًا فٍ فٌ|قًا قٍ قٌ|كًا كٍ كٌ|لًا لٍ لٌ|مًا مٍ مٌ|نًا نٍ نٌ|وًا وٍ وٌ|هًا هٍ هٌ|يًا يٍ يٌ')
-]},
-
-{t:'জযম',s:'সাকিন হরফ',aim:'জযমওয়ালা হরফ থামিয়ে পড়তে পারা।',b:[
-note('নিয়ম',['হরফের উপরে ছোট <b>গোল চিহ্ন (ـْ)</b> থাকলে তাকে <b>জযম</b> বা <b>সাকিন</b> বলে।',
-'সাকিন হরফের <b>নিজের কোনো স্বর নেই</b> — আগের হরফের সাথে মিলিয়ে থামতে হয়।',
-'যেমন أَبْ = <b>আব্</b>, أَتْ = <b>আত্</b>।']),
-row('আলিফের যবরের পর সাকিন','أَبْ|أَتْ|أَثْ|أَجْ|أَحْ|أَخْ|أَدْ|أَذْ|أَرْ|أَزْ|أَسْ|أَشْ|أَصْ|أَضْ|أَطْ|أَظْ|أَعْ|أَغْ|أَفْ|أَقْ|أَكْ|أَلْ|أَمْ|أَنْ|أَوْ|أَهْ|أَيْ'),
-ex('উচ্চারণ',[
-['أَبْ أَتْ أَثْ','আব্ · আত্ · আছ্'],
-['أَجْ أَحْ أَخْ','আজ্ · আহ্ · আখ্'],
-['أَدْ أَذْ أَرْ','আদ্ · আয্ · আর্'],
-['أَسْ أَشْ أَصْ','আস্ · আশ্ · আছ্ (মোটা)'],
-['أَعْ أَغْ أَفْ','আ‘ · আগ্ · আফ্'],
-['أَقْ أَكْ أَلْ','আক্ব্ · আক্ · আল্'],
-['أَمْ أَنْ أَهْ','আম্ · আন্ · আহ্']]),
-un('সাকিনে থেমে যেতে হয় — টেনে নয়, ঝুলিয়েও নয়।')
-]},
-
-{t:'তাশদীদ — আলিফ দিয়ে',s:'আব্বা · আব্বি · আব্বু',aim:'তাশদীদওয়ালা হরফ দুইবার পড়তে পারা।',b:[
-note('নিয়ম',['হরফের উপরে <b>ছোট "ش" এর মাথার মতো চিহ্ন (ـّ)</b> থাকলে তাকে <b>তাশদীদ</b> বলে।',
-'তাশদীদ মানে হরফটি <b>দুইবার</b> পড়া — <b>প্রথমবার সাকিন, দ্বিতীয়বার হরকতসহ</b>।',
-'যেমন أَبَّ = আব্ + বা = <b>আব্বা</b>। প্রথম হরফে থামুন, তারপর ছেড়ে দিন।']),
-row('আলিফ দিয়ে তাশদীদ','أَبَّ أَبِّ أَبُّ|أَتَّ أَتِّ أَتُّ|أَثَّ أَثِّ أَثُّ|أَجَّ أَجِّ أَجُّ|أَحَّ أَحِّ أَحُّ|أَخَّ أَخِّ أَخُّ|أَدَّ أَدِّ أَدُّ|أَذَّ أَذِّ أَذُّ|أَرَّ أَرِّ أَرُّ|أَزَّ أَزِّ أَزُّ|أَسَّ أَسِّ أَسُّ|أَشَّ أَشِّ أَشُّ|أَصَّ أَصِّ أَصُّ|أَضَّ أَضِّ أَضُّ|أَطَّ أَطِّ أَطُّ|أَظَّ أَظِّ أَظُّ|أَعَّ أَعِّ أَعُّ|أَغَّ أَغِّ أَغُّ|أَفَّ أَفِّ أَفُّ|أَقَّ أَقِّ أَقُّ|أَكَّ أَكِّ أَكُّ|أَلَّ أَلِّ أَلُّ|أَمَّ أَمِّ أَمُّ|أَنَّ أَنِّ أَنُّ|أَوَّ أَوِّ أَوُّ|أَهَّ أَهِّ أَهُّ|أَيَّ أَيِّ أَيُّ'),
-ex('উচ্চারণ',[
-['أَبَّ أَبِّ أَبُّ','আব্বা · আব্বি · আব্বু'],
-['أَتَّ أَتِّ أَتُّ','আত্তা · আত্তি · আত্তু'],
-['أَثَّ أَثِّ أَثُّ','আছ্ছা · আছ্ছি · আছ্ছু'],
-['أَجَّ أَجِّ أَجُّ','আজ্জা · আজ্জি · আজ্জু'],
-['أَحَّ أَحِّ أَحُّ','আহ্হা · আহ্হি · আহ্হু'],
-['أَخَّ أَخِّ أَخُّ','আখ্খা · আখ্খি · আখ্খু'],
-['أَدَّ أَدِّ أَدُّ','আদ্দা · আদ্দি · আদ্দু'],
-['أَذَّ أَذِّ أَذُّ','আয্যা · আয্যি · আয্যু'],
-['أَرَّ أَرِّ أَرُّ','আর্রা · আর্রি · আর্রু'],
-['أَزَّ أَزِّ أَزُّ','আয্‌যা · আয্‌যি · আয্‌যু'],
-['أَسَّ أَسِّ أَسُّ','আস্সা · আস্সি · আস্সু'],
-['أَشَّ أَشِّ أَشُّ','আশ্শা · আশ্শি · আশ্শু'],
-['أَصَّ أَصِّ أَصُّ','আছ্ছা · আছ্ছি · আছ্ছু (মোটা)'],
-['أَضَّ أَضِّ أَضُّ','আদ্দা · আদ্দি · আদ্দু (মোটা)'],
-['أَطَّ أَطِّ أَطُّ','আত্তা · আত্তি · আত্তু (মোটা)'],
-['أَظَّ أَظِّ أَظُّ','আয্যা · আয্যি · আয্যু (মোটা)'],
-['أَعَّ أَعِّ أَعُّ','আ‘্‘আ · আ‘্‘ই · আ‘্‘উ'],
-['أَغَّ أَغِّ أَغُّ','আগ্‌গা · আগ্‌গি · আগ্‌গু'],
-['أَفَّ أَفِّ أَفُّ','আফ্ফা · আফ্ফি · আফ্ফু'],
-['أَقَّ أَقِّ أَقُّ','আক্‌ক্বা · আক্‌ক্বি · আক্‌ক্বু'],
-['أَكَّ أَكِّ أَكُّ','আক্কা · আক্কি · আক্কু'],
-['أَلَّ أَلِّ أَلُّ','আল্লা · আল্লি · আল্লু'],
-['أَمَّ أَمِّ أَمُّ','আম্মা · আম্মি · আম্মু'],
-['أَنَّ أَنِّ أَنُّ','আন্না · আন্নি · আন্নু'],
-['أَوَّ أَوِّ أَوُّ','আউয়া · আউয়ি · আউয়ু'],
-['أَهَّ أَهِّ أَهُّ','আহ্হা · আহ্হি · আহ্হু'],
-['أَيَّ أَيِّ أَيُّ','আইয়া · আইয়ি · আইয়ু']]),
-un('তাশদীদের হরফে একটু চাপ দিয়ে ধরে পড়ান। ছাত্র যেন স্পষ্ট দুইবার হরফ শোনে — একবার হলে ভুল।')
-]},
-
-{t:'তাশদীদওয়ালা শব্দ',s:'শব্দের ভিতরে তাশদীদ',aim:'আসল শব্দে তাশদীদ চিনে পড়তে পারা।',b:[
-ex('পড়ুন',[
-['رَبَّنَا','রব্বানা — আমাদের প্রতিপালক'],
-['إِنَّ','ইন্না — নিশ্চয়ই'],
-['مُحَمَّد','মুহাম্মাদ'],
-['الْحَقُّ','আল-হাক্কু — সত্য'],
-['كَبَّرَ','কাব্বারা — বড় বলল'],
-['سَبَّحَ','সাব্বাহা — তাসবীহ পড়ল'],
-['قُوَّة','ক্বুওয়াহ — শক্তি'],
-['الَّذِي','আল্লাযী — যে'],
-['أَيُّهَا','আইয়ুহা — হে'],
-['الطَّيِّب','আত্-তাইয়িব — পবিত্র'],
-['جَنَّة','জান্নাহ — বাগান'],
-['حَقًّا','হাক্কান — সত্যিই']]),
-un('তাশদীদ ছুটে গেলে অর্থ বদলে যায় — رَبَنَا আর رَبَّنَا এক নয়। এটা বুঝিয়ে দিন।')
-]},
-
-{t:'মাদ্দ — টেনে পড়া',s:'এক আলিফ পরিমাণ',aim:'কোথায় টান হবে আর কোথায় হবে না, তা বোঝা।',b:[
-note('নিয়ম',['<b>যবরের পরে আলিফ</b> থাকলে টান হয় — যেমন بَا = <b>বা</b> (টেনে)।',
-'<b>যেরের পরে সাকিন ইয়া</b> থাকলে টান হয় — যেমন بِي = <b>বী</b>।',
-'<b>পেশের পরে সাকিন ওয়াও</b> থাকলে টান হয় — যেমন بُو = <b>বূ</b>।',
-'টান হবে <b>এক আলিফ পরিমাণ</b>, অর্থাৎ <b>দুই ('+NB(2)+') মাত্রা</b>। বেশি টানলেও ভুল, কম টানলেও ভুল।']),
-row('যবরের পরে আলিফ','بَا|تَا|ثَا|جَا|حَا|خَا|دَا|ذَا|رَا|زَا|سَا|شَا|صَا|ضَا|طَا|ظَا|عَا|غَا|فَا|قَا|كَا|لَا|مَا|نَا|وَا|هَا|يَا'),
-row('যেরের পরে ইয়া','بِي|تِي|ثِي|جِي|حِي|خِي|دِي|ذِي|رِي|زِي|سِي|شِي|صِي|ضِي|طِي|ظِي|عِي|غِي|فِي|قِي|كِي|لِي|مِي|نِي|وِي|هِي|يِي'),
-row('পেশের পরে ওয়াও','بُو|تُو|ثُو|جُو|حُو|خُو|دُو|ذُو|رُو|زُو|سُو|شُو|صُو|ضُو|طُو|ظُو|عُو|غُو|فُو|قُو|كُو|لُو|مُو|نُو|وُو|هُو|يُو'),
-ex('পার্থক্য শুনুন',[
-['بَ — بَا','বা (ছোট) — বা (টেনে)'],
-['بِ — بِي','বি (ছোট) — বী (টেনে)'],
-['بُ — بُو','বু (ছোট) — বূ (টেনে)']]),
-un('হাতে গুনে দেখান — এক, দুই। ছাত্র নিজে গুনতে পারলে টান ঠিক হয়ে যায়।')
-]},
-
-{t:'হরফে লীন',s:'নরম টান',aim:'ওয়াও ও ইয়া সাকিনের নরম আওয়াজ শেখা।',b:[
-note('নিয়ম',['<b>যবরের পরে সাকিন ওয়াও</b> বা <b>সাকিন ইয়া</b> এলে পুরো টান হয় না, বরং <b>নরম করে</b> পড়তে হয়।',
-'যেমন بَوْ = <b>বাও</b>, بَيْ = <b>বাই</b>।']),
-row('ওয়াও লীন','بَوْ|تَوْ|ثَوْ|جَوْ|حَوْ|خَوْ|دَوْ|ذَوْ|رَوْ|زَوْ|سَوْ|شَوْ|صَوْ|طَوْ|عَوْ|غَوْ|فَوْ|قَوْ|كَوْ|لَوْ|مَوْ|نَوْ|هَوْ|يَوْ'),
-row('ইয়া লীন','بَيْ|تَيْ|ثَيْ|جَيْ|حَيْ|خَيْ|دَيْ|ذَيْ|رَيْ|زَيْ|سَيْ|شَيْ|صَيْ|طَيْ|عَيْ|غَيْ|فَيْ|قَيْ|كَيْ|لَيْ|مَيْ|نَيْ|هَيْ|يَيْ'),
-ex('শব্দে দেখুন',[
-['خَوْف','খাওফ — ভয়'],['قَوْم','ক্বাওম — জাতি'],['بَيْت','বাইত — ঘর'],
-['خَيْر','খাইর — কল্যাণ'],['يَوْم','ইয়াওম — দিন'],['كَيْف','কাইফা — কেমন']])
-]},
-
-{t:'খাড়া যবর ও লুকানো টান',s:'লেখা নেই, তবু টান আছে',aim:'না-লেখা টান চিনতে পারা।',b:[
-note('নিয়ম',['কখনো আলিফ লেখা থাকে না, কিন্তু যবরটি <b>খাড়া</b> করে লেখা হয় — তখনও <b>টেনে</b> পড়তে হয়।',
-'একইভাবে <b>খাড়া যের</b> ও <b>উল্টো পেশ</b> — এদের সাথেও টান আছে।']),
-ex('পড়ুন',[
-['اللّٰه','আল্লা-হ — খাড়া যবর, তাই টান'],
-['الرَّحْمٰن','আর-রাহমা-ন — খাড়া যবর'],
-['هٰذَا','হা-যা — খাড়া যবর'],
-['ذٰلِكَ','যা-লিকা — খাড়া যবর'],
-['اِلٰه','ইলা-হ — খাড়া যবর'],
-['السَّمٰوَات','আস-সামা-ওয়াত — খাড়া যবর']]),
-un('ছাত্ররা এখানে টান ছেড়ে দেয়। কানে ধরে ধরে শোধরাতে হবে।')
-]},
-
-{t:'এক শব্দ পড়া',s:'প্রথম ধাপ',aim:'একটি করে ছোট শব্দ না থেমে পড়তে পারা।',b:[
-note('নিয়ম',['এতক্ষণ হরফ পড়েছেন। এবার <b>একটি গোটা শব্দ</b> এক নিঃশ্বাসে পড়ুন — মাঝে না থেমে।']),
-ex('ছোট শব্দ',[
-['أَب','আব — পিতা'],['أُمّ','উম্ম — মাতা'],['يَد','ইয়াদ — হাত'],
-['بَاب','বা-ব — দরজা'],['قَلَم','ক্বালাম — কলম'],['كِتَاب','কিতা-ব — বই'],
-['بَيْت','বাইত — ঘর'],['نُور','নূ-র — আলো'],['عِلْم','ইলম — জ্ঞান'],
-['مَاء','মা-উ — পানি'],['شَمْس','শামস — সূর্য'],['قَمَر','ক্বামার — চাঁদ'],
-['رَبّ','রব্ব — প্রতিপালক'],['دِين','দী-ন — ধর্ম'],['نَفْس','নাফস — প্রাণ'],
-['أَرْض','আরদ্ব — জমিন']]),
-un('শব্দ ভেঙে না পড়ে যেন একটানে পড়ে — এখানে এটাই লক্ষ্য।')
-]},
-
-{t:'দুই শব্দ একসাথে',s:'দ্বিতীয় ধাপ',aim:'দুইটি শব্দ মিলিয়ে পড়তে পারা।',b:[
-note('নিয়ম',['দুই শব্দের মাঝে <b>বেশি ফাঁক রাখবেন না</b>। শ্বাস না ছেড়ে একসাথে পড়ুন।']),
-big('পড়ুন',[
-['بِسْمِ اللّٰه','বিসমিল্লাহ — আল্লাহর নামে'],
-['رَبُّ الْعَالَمِين','রব্বুল আ-লামীন — জগতসমূহের প্রতিপালক'],
-['يَوْمِ الدِّين','ইয়াওমিদ্দীন — বিচার দিন'],
-['نُورُ السَّمَاء','নূরুস সামা-ই — আকাশের আলো'],
-['كِتَابُ اللّٰه','কিতা-বুল্লাহ — আল্লাহর কিতাব'],
-['عِبَادُ الرَّحْمٰن','ইবা-দুর রাহমা-ন — দয়াময়ের বান্দারা'],
-['أَهْلُ الْبَيْت','আহলুল বাইত — ঘরের লোক'],
-['خَيْرُ النَّاس','খাইরুন না-স — সেরা মানুষ']])
-]},
-
-{t:'তিন শব্দ একসাথে',s:'তৃতীয় ধাপ',aim:'তিনটি শব্দ একটানে পড়তে পারা।',b:[
-big('পড়ুন',[
-['الْحَمْدُ لِلّٰهِ رَبِّ','আলহামদু লিল্লা-হি রব্বি'],
-['بِسْمِ اللّٰهِ الرَّحْمٰن','বিসমিল্লা-হির রাহমা-ন'],
-['سُبْحَانَ رَبِّيَ الْأَعْلَى','সুবহা-না রব্বিয়াল আ‘লা'],
-['لَا إِلٰهَ إِلَّا اللّٰه','লা- ইলা-হা ইল্লাল্লাহ'],
-['اللّٰهُ أَكْبَرُ كَبِيرًا','আল্লাহু আকবারু কাবীরা'],
-['رَبِّ زِدْنِي عِلْمًا','রব্বি যিদনী ইলমা — হে প্রভু, আমার জ্ঞান বাড়িয়ে দিন']]),
-un('এখানে শ্বাস নেওয়ার জায়গা শিখিয়ে দিন — কোথায় থামা যায়, কোথায় যায় না।')
-]},
-
-{t:'ছোট বাক্য',s:'শেষ ধাপ',aim:'পূর্ণ একটি বাক্য না থেমে পড়তে পারা।',b:[
-big('পড়ুন',[
-['بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيمِ','বিসমিল্লা-হির রাহমা-নির রাহীম'],
-['الْحَمْدُ لِلّٰهِ رَبِّ الْعَالَمِينَ','আলহামদু লিল্লা-হি রব্বিল আ-লামীন'],
-['سُبْحَانَ اللّٰهِ وَبِحَمْدِهِ','সুবহা-নাল্লা-হি ওয়া বিহামদিহ'],
-['لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللّٰهِ','লা- হাওলা ওয়ালা- ক্বুওয়াতা ইল্লা- বিল্লাহ'],
-['رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً','রব্বানা- আ-তিনা- ফিদ্দুনইয়া- হাসানাহ'],
-['إِنَّا لِلّٰهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ','ইন্না- লিল্লা-হি ওয়া ইন্না- ইলাইহি রা-জিঊন']]),
-un('এখান পর্যন্ত ঠিক হলে ছাত্র সূরা ধরার জন্য প্রস্তুত।')
-]},
-
-{t:'সূরা আল-ফাতিহা',s:'প্রথম সূরা',aim:'কুরআনের ধরনে আয়াত ধরে ধরে পড়তে পারা।',b:[
-note('পড়ার নিয়ম',['প্রতিটি আয়াতের শেষে <b>গোল নম্বর</b> আছে — সেটাই <b>ওয়াকফ</b>, অর্থাৎ থামার জায়গা।',
-'এক আয়াত পড়ুন, সেখানে থামুন, শ্বাস নিন, তারপর পরের আয়াত।',
-'নিচে একই নম্বর ধরে ধরে প্রতিটি আয়াতের <b>অর্থ</b> দেওয়া আছে।']),
-sura('সূরা আল-ফাতিহা','الْفَاتِحَة','মক্কী · সাত ('+BN(7)+') আয়াত',
-['بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيمِ',
-'الْحَمْدُ لِلّٰهِ رَبِّ الْعَالَمِينَ',
-'الرَّحْمٰنِ الرَّحِيمِ',
-'مَالِكِ يَوْمِ الدِّينِ',
-'إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ',
-'اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ',
-'صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ'],
-['পরম করুণাময় অতি দয়ালু আল্লাহর নামে শুরু করছি।',
-'সব প্রশংসা আল্লাহর জন্য, যিনি সমস্ত জগতের প্রতিপালক।',
-'যিনি পরম করুণাময়, অতি দয়ালু।',
-'যিনি বিচার দিনের মালিক।',
-'আমরা কেবল আপনারই ইবাদত করি এবং কেবল আপনারই কাছে সাহায্য চাই।',
-'আমাদের সরল পথ দেখান।',
-'তাদের পথ, যাদের উপর আপনি অনুগ্রহ করেছেন; তাদের পথ নয় যারা অভিশপ্ত, আর নয় পথভ্রষ্টদের পথ।']),
-un('ফাতিহা ছাড়া নামায হয় না। এটি সবচেয়ে বেশি সময় দিয়ে শোধরাবেন।')
-]},
-
-{t:'সূরা আল-ফীল',s:'হাতিওয়ালাদের ঘটনা',aim:'পাঁচ আয়াত শুদ্ধভাবে পড়তে পারা।',b:[
-sura('সূরা আল-ফীল','الْفِيل','মক্কী · পাঁচ ('+BN(5)+') আয়াত',
-['أَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ بِأَصْحَابِ الْفِيلِ',
-'أَلَمْ يَجْعَلْ كَيْدَهُمْ فِي تَضْلِيلٍ',
-'وَأَرْسَلَ عَلَيْهِمْ طَيْرًا أَبَابِيلَ',
-'تَرْمِيهِمْ بِحِجَارَةٍ مِنْ سِجِّيلٍ',
-'فَجَعَلَهُمْ كَعَصْفٍ مَأْكُولٍ'],
-['আপনি কি দেখেননি, আপনার প্রতিপালক হাতিওয়ালাদের সাথে কী করেছিলেন?',
-'তিনি কি তাদের ষড়যন্ত্র ব্যর্থ করে দেননি?',
-'তিনি তাদের উপর ঝাঁকে ঝাঁকে পাখি পাঠালেন।',
-'যারা তাদের উপর পোড়ামাটির পাথর নিক্ষেপ করছিল।',
-'অতঃপর তিনি তাদের করে দিলেন খেয়ে ফেলা ভুসির মতো।'])
-]},
-
-{t:'সূরা কুরাইশ',s:'শীত ও গ্রীষ্মের সফর',aim:'চার আয়াত শুদ্ধভাবে পড়তে পারা।',b:[
-sura('সূরা কুরাইশ','قُرَيْش','মক্কী · চার ('+BN(4)+') আয়াত',
-['لِإِيلَافِ قُرَيْشٍ',
-'إِيلَافِهِمْ رِحْلَةَ الشِّتَاءِ وَالصَّيْفِ',
-'فَلْيَعْبُدُوا رَبَّ هٰذَا الْبَيْتِ',
-'الَّذِي أَطْعَمَهُمْ مِنْ جُوعٍ وَآمَنَهُمْ مِنْ خَوْفٍ'],
-['কুরাইশের অভ্যস্ততার কারণে।',
-'শীত ও গ্রীষ্মের সফরে তাদের অভ্যস্ততার কারণে।',
-'অতএব তারা যেন এই ঘরের প্রতিপালকের ইবাদত করে।',
-'যিনি তাদের ক্ষুধায় খাবার দিয়েছেন এবং ভয় থেকে নিরাপদ করেছেন।'])
-]},
-
-{t:'সূরা আল-মাউন',s:'যে বিচার দিন অস্বীকার করে',aim:'সাত আয়াত শুদ্ধভাবে পড়তে পারা।',b:[
-sura('সূরা আল-মাউন','الْمَاعُون','মক্কী · সাত ('+BN(7)+') আয়াত',
-['أَرَأَيْتَ الَّذِي يُكَذِّبُ بِالدِّينِ',
-'فَذٰلِكَ الَّذِي يَدُعُّ الْيَتِيمَ',
-'وَلَا يَحُضُّ عَلَى طَعَامِ الْمِسْكِينِ',
-'فَوَيْلٌ لِلْمُصَلِّينَ',
-'الَّذِينَ هُمْ عَنْ صَلَاتِهِمْ سَاهُونَ',
-'الَّذِينَ هُمْ يُرَاءُونَ',
-'وَيَمْنَعُونَ الْمَاعُونَ'],
-['আপনি কি তাকে দেখেছেন, যে বিচার দিনকে মিথ্যা বলে?',
-'সে-ই তো এতিমকে ধাক্কা দিয়ে সরিয়ে দেয়।',
-'এবং মিসকিনকে খাবার দিতে উৎসাহ দেয় না।',
-'দুর্ভোগ সেই নামাযিদের জন্য —',
-'যারা নিজেদের নামায সম্পর্কে উদাসীন।',
-'যারা লোক দেখানোর জন্য করে।',
-'এবং নিত্যপ্রয়োজনীয় জিনিস দিতে বাধা দেয়।'])
-]},
-
-{t:'সূরা আল-কাউছার',s:'সবচেয়ে ছোট সূরা',aim:'তিন আয়াত শুদ্ধভাবে পড়তে পারা।',b:[
-sura('সূরা আল-কাউছার','الْكَوْثَر','মক্কী · তিন ('+BN(3)+') আয়াত',
-['إِنَّا أَعْطَيْنَاكَ الْكَوْثَرَ',
-'فَصَلِّ لِرَبِّكَ وَانْحَرْ',
-'إِنَّ شَانِئَكَ هُوَ الْأَبْتَرُ'],
-['নিশ্চয়ই আমি আপনাকে কাউছার দান করেছি।',
-'অতএব আপনার প্রতিপালকের জন্য নামায পড়ুন এবং কুরবানি করুন।',
-'নিশ্চয়ই আপনার শত্রুই নির্বংশ।'])
-]},
-
-{t:'সূরা আল-কাফিরুন',s:'দ্বীনের পার্থক্য',aim:'ছয় আয়াত শুদ্ধভাবে পড়তে পারা।',b:[
-sura('সূরা আল-কাফিরুন','الْكَافِرُون','মক্কী · ছয় ('+BN(6)+') আয়াত',
-['قُلْ يَا أَيُّهَا الْكَافِرُونَ',
-'لَا أَعْبُدُ مَا تَعْبُدُونَ',
-'وَلَا أَنْتُمْ عَابِدُونَ مَا أَعْبُدُ',
-'وَلَا أَنَا عَابِدٌ مَا عَبَدْتُمْ',
-'وَلَا أَنْتُمْ عَابِدُونَ مَا أَعْبُدُ',
-'لَكُمْ دِينُكُمْ وَلِيَ دِينِ'],
-['বলুন, হে কাফিররা!',
-'আমি তার ইবাদত করি না, যার ইবাদত তোমরা করো।',
-'আর তোমরাও তাঁর ইবাদতকারী নও, যাঁর ইবাদত আমি করি।',
-'আর আমিও তার ইবাদতকারী নই, যার ইবাদত তোমরা করেছ।',
-'আর তোমরাও তাঁর ইবাদতকারী নও, যাঁর ইবাদত আমি করি।',
-'তোমাদের দ্বীন তোমাদের, আমার দ্বীন আমার।'])
-]},
-
-{t:'সূরা আন-নাসর',s:'সাহায্য ও বিজয়',aim:'তিন আয়াত শুদ্ধভাবে পড়তে পারা।',b:[
-sura('সূরা আন-নাসর','النَّصْر','মাদানী · তিন ('+BN(3)+') আয়াত',
-['إِذَا جَاءَ نَصْرُ اللّٰهِ وَالْفَتْحُ',
-'وَرَأَيْتَ النَّاسَ يَدْخُلُونَ فِي دِينِ اللّٰهِ أَفْوَاجًا',
-'فَسَبِّحْ بِحَمْدِ رَبِّكَ وَاسْتَغْفِرْهُ إِنَّهُ كَانَ تَوَّابًا'],
-['যখন আল্লাহর সাহায্য ও বিজয় এসে যাবে।',
-'আর আপনি মানুষকে দলে দলে আল্লাহর দ্বীনে প্রবেশ করতে দেখবেন।',
-'তখন আপনার প্রতিপালকের প্রশংসাসহ তাসবীহ পড়ুন এবং তাঁর কাছে ক্ষমা চান। নিশ্চয়ই তিনি ক্ষমা কবুলকারী।'])
-]},
-
-{t:'সূরা আল-ইখলাস',s:'আল্লাহর পরিচয়',aim:'চার আয়াত শুদ্ধভাবে পড়তে পারা।',b:[
-sura('সূরা আল-ইখলাস','الْإِخْلَاص','মক্কী · চার ('+BN(4)+') আয়াত',
-['قُلْ هُوَ اللّٰهُ أَحَدٌ',
-'اللّٰهُ الصَّمَدُ',
-'لَمْ يَلِدْ وَلَمْ يُولَدْ',
-'وَلَمْ يَكُنْ لَهُ كُفُوًا أَحَدٌ'],
-['বলুন, তিনি আল্লাহ, এক।',
-'আল্লাহ কারও মুখাপেক্ষী নন, সবাই তাঁর মুখাপেক্ষী।',
-'তিনি কাউকে জন্ম দেননি, তাঁকেও জন্ম দেওয়া হয়নি।',
-'আর তাঁর সমতুল্য কেউ নেই।'])
-]},
-
-{t:'সূরা আল-ফালাক',s:'আশ্রয় প্রার্থনা',aim:'পাঁচ আয়াত শুদ্ধভাবে পড়তে পারা।',b:[
-sura('সূরা আল-ফালাক','الْفَلَق','মক্কী · পাঁচ ('+BN(5)+') আয়াত',
-['قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ',
-'مِنْ شَرِّ مَا خَلَقَ',
-'وَمِنْ شَرِّ غَاسِقٍ إِذَا وَقَبَ',
-'وَمِنْ شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ',
-'وَمِنْ شَرِّ حَاسِدٍ إِذَا حَسَدَ'],
-['বলুন, আমি আশ্রয় চাই ভোরের প্রতিপালকের কাছে।',
-'তিনি যা সৃষ্টি করেছেন তার অনিষ্ট থেকে।',
-'অন্ধকার রাতের অনিষ্ট থেকে, যখন তা ছেয়ে যায়।',
-'গিরায় ফুঁ দেওয়া নারীদের অনিষ্ট থেকে।',
-'আর হিংসুকের অনিষ্ট থেকে, যখন সে হিংসা করে।'])
-]},
-
-{t:'সূরা আন-নাস',s:'শেষ সূরা',aim:'ছয় আয়াত শুদ্ধভাবে পড়তে পারা।',b:[
-sura('সূরা আন-নাস','النَّاس','মক্কী · ছয় ('+BN(6)+') আয়াত',
-['قُلْ أَعُوذُ بِرَبِّ النَّاسِ',
-'مَلِكِ النَّاسِ',
-'إِلٰهِ النَّاسِ',
-'مِنْ شَرِّ الْوَسْوَاسِ الْخَنَّاسِ',
-'الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ',
-'مِنَ الْجِنَّةِ وَالنَّاسِ'],
-['বলুন, আমি আশ্রয় চাই মানুষের প্রতিপালকের কাছে।',
-'মানুষের অধিপতির কাছে।',
-'মানুষের মাবুদের কাছে।',
-'আত্মগোপনকারী কুমন্ত্রণাদাতার অনিষ্ট থেকে।',
-'যে মানুষের অন্তরে কুমন্ত্রণা দেয়।',
-'জিন ও মানুষের মধ্য থেকে।'])
-]},
-
-{t:'শেষ কথা',s:'কায়দা শেষ',aim:'এরপর কী করতে হবে তা জানা।',b:[
-note('এখন যা করবেন',[
-'পুরো কায়দা <b>আরও একবার</b> প্রথম থেকে পড়ুন — এবার আগের চেয়ে দ্রুত।',
-'শেষ দশ ('+NB(10)+')টি সূরা <b>মুখস্থ</b> করুন। নামাযে কাজে লাগবে।',
-'তারপর <b>তাজবীদ শাখায়</b> যান — সেখানে মাখরাজ, সিফাত, নূন-মীম সাকিন, গুন্নাহ, মাদ্দ ও ওয়াকফ বিস্তারিত আছে।']),
-note('মনে রাখবেন',[
-'শুদ্ধ পড়া একদিনে হয় না। <b>প্রতিদিন অল্প, নিয়মিত</b> — এটাই পথ।',
-'নিজে নিজে শেখার চেয়ে <b>উস্তাদের মুখে শোনা</b> অনেক বেশি কাজে দেয়।']),
-un('ছাত্রের চিহ্ন দেখে বুঝে নিন কোন পৃষ্ঠা বাকি, সেগুলো আবার ধরুন।')
+{t:'বাক্য পড়া', s:'পূর্ণ বাক্য', aim:'বাক্য না থেমে শুদ্ধভাবে পড়া।', b:[
+  grid([
+    ['بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ','বিসমিল্লাহির রাহমানির রাহীম'],
+    ['اللَّهُ أَكْبَرُ','আল্লাহু আকবার'],
+    ['سُبْحَانَ اللَّهِ','সুবহানাল্লাহ'],
+    ['الْحَمْدُ لِلَّهِ','আলহামদু লিল্লাহ'],
+    ['لَا إِلَٰهَ إِلَّا اللَّهُ','লা ইলাহা ইল্লাল্লাহ'],
+    ['مُحَمَّدٌ رَسُولُ اللَّهِ','মুহাম্মাদুর রাসূলুল্লাহ'],
+    ['أَسْتَغْفِرُ اللَّهَ','আস্তাগফিরুল্লাহ'],
+    ['لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ','লা হাওলা ওয়ালা কুওয়াতা ইল্লা বিল্লাহ']
+  ],1)
 ]}
 ];
 
+/* ===================== ১০ সূরা ===================== */
+const S=[
+['সূরা আল-ফাতিহা','মক্কী · সাত (৭) আয়াত',false,[
+ 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ','الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ','الرَّحْمَٰنِ الرَّحِيمِ',
+ 'مَالِكِ يَوْمِ الدِّينِ','إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ','اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ',
+ 'صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ'],
+ ['পরম করুণাময় অসীম দয়ালু আল্লাহর নামে।','সমস্ত প্রশংসা আল্লাহর, যিনি সকল জগতের প্রতিপালক।',
+  'পরম করুণাময়, অসীম দয়ালু।','বিচার দিনের মালিক।','আমরা কেবল আপনারই ইবাদত করি এবং কেবল আপনারই সাহায্য চাই।',
+  'আমাদেরকে সরল পথ দেখান।','তাদের পথ, যাদের প্রতি আপনি অনুগ্রহ করেছেন; তাদের নয় যারা অভিশপ্ত, আর নয় পথভ্রষ্টদের।']],
+
+['সূরা আন-নাস','মক্কী · ছয় (৬) আয়াত',true,[
+ 'قُلْ أَعُوذُ بِرَبِّ النَّاسِ','مَلِكِ النَّاسِ','إِلَٰهِ النَّاسِ',
+ 'مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ','الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ','مِنَ الْجِنَّةِ وَالنَّاسِ'],
+ ['বলুন, আমি আশ্রয় নিচ্ছি মানুষের প্রতিপালকের।','মানুষের অধিপতির।','মানুষের মাবুদের।',
+  'আত্মগোপনকারী কুমন্ত্রণাদাতার অনিষ্ট থেকে।','যে মানুষের অন্তরে কুমন্ত্রণা দেয়।','জিন ও মানুষের মধ্য থেকে।']],
+
+['সূরা আল-ফালাক','মক্কী · পাঁচ (৫) আয়াত',true,[
+ 'قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ','مِن شَرِّ مَا خَلَقَ','وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ',
+ 'وَمِن شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ','وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ'],
+ ['বলুন, আমি আশ্রয় নিচ্ছি ভোরের প্রতিপালকের।','তিনি যা সৃষ্টি করেছেন তার অনিষ্ট থেকে।',
+  'অন্ধকার রাতের অনিষ্ট থেকে, যখন তা ছেয়ে যায়।','গিরায় ফুঁ দেওয়া নারীদের অনিষ্ট থেকে।',
+  'হিংসুকের অনিষ্ট থেকে, যখন সে হিংসা করে।']],
+
+['সূরা আল-ইখলাস','মক্কী · চার (৪) আয়াত',true,[
+ 'قُلْ هُوَ اللَّهُ أَحَدٌ','اللَّهُ الصَّمَدُ','لَمْ يَلِدْ وَلَمْ يُولَدْ','وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ'],
+ ['বলুন, তিনি আল্লাহ, এক।','আল্লাহ অমুখাপেক্ষী।','তিনি কাউকে জন্ম দেননি, তাঁকেও জন্ম দেওয়া হয়নি।',
+  'আর তাঁর সমতুল্য কেউ নেই।']],
+
+['সূরা আল-মাসাদ','মক্কী · পাঁচ (৫) আয়াত',true,[
+ 'تَبَّتْ يَدَا أَبِي لَهَبٍ وَتَبَّ','مَا أَغْنَىٰ عَنْهُ مَالُهُ وَمَا كَسَبَ','سَيَصْلَىٰ نَارًا ذَاتَ لَهَبٍ',
+ 'وَامْرَأَتُهُ حَمَّالَةَ الْحَطَبِ','فِي جِيدِهَا حَبْلٌ مِّن مَّسَدٍ'],
+ ['আবু লাহাবের দুই হাত ধ্বংস হোক, আর ধ্বংস হোক সে নিজেও।','তার ধন-সম্পদ ও উপার্জন তার কোনো কাজে আসেনি।',
+  'সে শীঘ্রই লেলিহান আগুনে প্রবেশ করবে।','আর তার স্ত্রীও — যে কাঠ বহন করে।',
+  'তার গলায় থাকবে পাকানো রশি।']],
+
+['সূরা আন-নাসর','মাদানী · তিন (৩) আয়াত',true,[
+ 'إِذَا جَاءَ نَصْرُ اللَّهِ وَالْفَتْحُ','وَرَأَيْتَ النَّاسَ يَدْخُلُونَ فِي دِينِ اللَّهِ أَفْوَاجًا',
+ 'فَسَبِّحْ بِحَمْدِ رَبِّكَ وَاسْتَغْفِرْهُ إِنَّهُ كَانَ تَوَّابًا'],
+ ['যখন আল্লাহর সাহায্য ও বিজয় আসবে।','আর আপনি মানুষকে দলে দলে আল্লাহর দ্বীনে প্রবেশ করতে দেখবেন।',
+  'তখন আপনার প্রতিপালকের প্রশংসাসহ তাসবীহ পড়ুন ও ক্ষমা চান। নিশ্চয়ই তিনি তওবা কবুলকারী।']],
+
+['সূরা আল-কাফিরূন','মক্কী · ছয় (৬) আয়াত',true,[
+ 'قُلْ يَا أَيُّهَا الْكَافِرُونَ','لَا أَعْبُدُ مَا تَعْبُدُونَ','وَلَا أَنتُمْ عَابِدُونَ مَا أَعْبُدُ',
+ 'وَلَا أَنَا عَابِدٌ مَّا عَبَدتُّمْ','وَلَا أَنتُمْ عَابِدُونَ مَا أَعْبُدُ','لَكُمْ دِينُكُمْ وَلِيَ دِينِ'],
+ ['বলুন, হে কাফিরগণ।','আমি তার ইবাদত করি না, যার ইবাদত তোমরা করো।',
+  'তোমরাও তাঁর ইবাদতকারী নও, যাঁর ইবাদত আমি করি।','আমিও তার ইবাদতকারী নই, যার ইবাদত তোমরা করেছ।',
+  'তোমরাও তাঁর ইবাদতকারী নও, যাঁর ইবাদত আমি করি।','তোমাদের দ্বীন তোমাদের, আমার দ্বীন আমার।']],
+
+['সূরা আল-কাউছার','মক্কী · তিন (৩) আয়াত',true,[
+ 'إِنَّا أَعْطَيْنَاكَ الْكَوْثَرَ','فَصَلِّ لِرَبِّكَ وَانْحَرْ','إِنَّ شَانِئَكَ هُوَ الْأَبْتَرُ'],
+ ['নিশ্চয়ই আমি আপনাকে কাউছার দান করেছি।','অতএব আপনার প্রতিপালকের জন্য নামায পড়ুন ও কুরবানি করুন।',
+  'নিশ্চয়ই আপনার শত্রুই নির্বংশ।']],
+
+['সূরা আল-মাউন','মক্কী · সাত (৭) আয়াত',true,[
+ 'أَرَأَيْتَ الَّذِي يُكَذِّبُ بِالدِّينِ','فَذَٰلِكَ الَّذِي يَدُعُّ الْيَتِيمَ','وَلَا يَحُضُّ عَلَىٰ طَعَامِ الْمِسْكِينِ',
+ 'فَوَيْلٌ لِّلْمُصَلِّينَ','الَّذِينَ هُمْ عَن صَلَاتِهِمْ سَاهُونَ','الَّذِينَ هُمْ يُرَاءُونَ','وَيَمْنَعُونَ الْمَاعُونَ'],
+ ['আপনি কি তাকে দেখেছেন, যে বিচার দিনকে অস্বীকার করে?','সে-ই তো এতিমকে দূর দূর করে তাড়ায়।',
+  'আর মিসকীনকে খাওয়াতে উৎসাহ দেয় না।','অতএব দুর্ভোগ সেই নামাযীদের জন্য।',
+  'যারা নিজেদের নামায সম্পর্কে উদাসীন।','যারা লোক দেখানোর জন্য করে।','আর নিত্যপ্রয়োজনীয় জিনিস দিতে বাধা দেয়।']],
+
+['সূরা কুরাইশ','মক্কী · চার (৪) আয়াত',true,[
+ 'لِإِيلَافِ قُرَيْشٍ','إِيلَافِهِمْ رِحْلَةَ الشِّتَاءِ وَالصَّيْفِ','فَلْيَعْبُدُوا رَبَّ هَٰذَا الْبَيْتِ',
+ 'الَّذِي أَطْعَمَهُم مِّن جُوعٍ وَآمَنَهُم مِّنْ خَوْفٍ'],
+ ['কুরাইশের অভ্যস্ততার কারণে।','শীত ও গ্রীষ্মের সফরে তাদের অভ্যস্ততার কারণে।',
+  'অতএব তারা যেন এই ঘরের প্রতিপালকের ইবাদত করে।',
+  'যিনি তাদের ক্ষুধায় খাইয়েছেন এবং ভয় থেকে নিরাপদ করেছেন।']]
+];
+S.forEach(s=>P.push({t:s[0], s:'নামাযের সূরা', aim:'আয়াতগুলো শুদ্ধভাবে পড়তে পারা।',
+  b:[{k:'surah',n:s[0],meta:s[1],bism:s[2],a:s[3]}, {k:'mean',m:s[4]}]}));
+
 /* ===================== অবস্থা ===================== */
-const K={p:'aq_page',th:'aq_theme',fs:'aq_fs',ro:'aq_role',ms:'aq_ms',mu:'aq_mu'};
-const S={view:'role',page:0,role:'',
- ms:new Set(JSON.parse(localStorage.getItem(K.ms)||'[]')),
- mu:new Set(JSON.parse(localStorage.getItem(K.mu)||'[]'))};
-function save(){localStorage.setItem(K.p,S.page);localStorage.setItem(K.ro,S.role);
- localStorage.setItem(K.ms,JSON.stringify([...S.ms]));localStorage.setItem(K.mu,JSON.stringify([...S.mu]));}
+const LS=localStorage;
+let role = LS.getItem('aq_role')||'';
+let cur  = +(LS.getItem('aq_page')||-1);          // -1 = হোম
+let MS   = new Set(JSON.parse(LS.getItem('aq_ms')||'[]'));
+let MU   = new Set(JSON.parse(LS.getItem('aq_mu')||'[]'));
+const save=()=>{LS.setItem('aq_page',cur);LS.setItem('aq_ms',JSON.stringify([...MS]));
+  LS.setItem('aq_mu',JSON.stringify([...MU]));};
 
-function cnt(p){let c=0;p.b.forEach(b=>{
- if(b.k==='grid')c+=b.items.length;
- else if(b.k==='ex'||b.k==='big')c+=b.l.length;
- else if(b.k==='sura')c+=1;});return c;}
-const TOTAL=P.reduce((a,p)=>a+cnt(p),0);
+let TOTAL=0;
+P.forEach((p,pi)=>p.b.forEach(b=>{ if(b.k==='grid') TOTAL+=b.items.length; if(b.k==='surah') TOTAL+=1; }));
 
-(function(){const th=localStorage.getItem(K.th)||'light';const fs=localStorage.getItem(K.fs)||'m';
- document.documentElement.dataset.theme=th;document.documentElement.dataset.fs=fs;
- $('#bTh').textContent=th==='dark'?'☀️':'🌙';
- const r=localStorage.getItem(K.ro);if(r){S.role=r;S.view='home';}
- S.page=parseInt(localStorage.getItem(K.p)||'0',10)||0;})();
+const $=id=>document.getElementById(id);
+const pageEl=$('page');
 
-$('#bTh').onclick=()=>{const d=document.documentElement;const n=d.dataset.theme==='dark'?'light':'dark';
- d.dataset.theme=n;localStorage.setItem(K.th,n);$('#bTh').textContent=n==='dark'?'☀️':'🌙';};
-$('#bFs').onclick=()=>{const d=document.documentElement;const o=['s','m','l'];
- const n=o[(o.indexOf(d.dataset.fs)+1)%3];d.dataset.fs=n;localStorage.setItem(K.fs,n);};
-$('#bRo').onclick=()=>{S.view='role';draw();};
+/* ===================== ভূমিকা ===================== */
+$('bSt').onclick=()=>setRole('st');
+$('bUs').onclick=()=>{ $('codeBox').style.display='block'; $('codeIn').focus(); };
+$('codeGo').onclick=()=>{
+  if($('codeIn').value.trim().toUpperCase()==='ALIF-USTAD') setRole('us');
+  else $('codeErr').textContent='কোড মেলেনি। আবার চেষ্টা করুন।';
+};
+$('codeIn').addEventListener('keydown',e=>{ if(e.key==='Enter') $('codeGo').click(); });
 
-function mkBtn(id){const b=E('button','mk');b.appendChild(E('i'));
- const s=S.ms.has(id),u=S.mu.has(id);
- if(s&&u)b.classList.add('both');else if(s)b.classList.add('on-s');else if(u)b.classList.add('on-u');
- b.onclick=ev=>{ev.stopPropagation();const set=S.role==='u'?S.mu:S.ms;
-  set.has(id)?set.delete(id):set.add(id);save();draw();};
- return b;}
+function setRole(r){
+  role=r; LS.setItem('aq_role',r);
+  $('gate').style.display='none'; $('hd').hidden=false; $('nav').hidden=false;
+  const c=$('chip');
+  c.className='chip '+(r==='us'?'us':'st');
+  c.innerHTML='<span class="dot"></span> '+(r==='us'?'উস্তাদ':'ছাত্র');
+  $('hint').textContent = r==='us'
+    ? 'ঘরের কোণে চাপ দিলে সবুজ চিহ্ন বসবে'
+    : 'ঘরের কোণে চাপ দিলে লাল চিহ্ন বসবে';
+  render();
+}
+$('tRole').onclick=()=>{ LS.removeItem('aq_role'); location.reload(); };
 
-function openHorf(i){const h=HORF[i];const m=$('#modal');m.innerHTML='';
- m.appendChild(E('div','mar',h[0]));m.appendChild(E('h3',null,h[1]));
- [['হরফের নাম',h[1]],['মাখরাজ',h[2]],['পড়ার নিয়ম',h[3]],['ক্রম',NB(i+1)+' নম্বর হরফ']]
-  .forEach(x=>{const r=E('div','mrow');r.appendChild(E('b',null,x[0]));r.appendChild(E('span',null,x[1]));m.appendChild(r);});
- const c=E('button','close','বন্ধ করুন');c.onclick=closeM;m.appendChild(c);
- $('#mask').classList.add('on');}
-function closeM(){$('#mask').classList.remove('on');}
-$('#mask').onclick=e=>{if(e.target.id==='mask')closeM();};
+/* ===================== থিম ও আকার ===================== */
+const th=LS.getItem('aq_theme')||'light';
+document.documentElement.dataset.theme=th;
+$('tTheme').textContent = th==='dark'?'☀️':'🌙';
+$('tTheme').onclick=()=>{
+  const d=document.documentElement;
+  const n=d.dataset.theme==='dark'?'light':'dark';
+  d.dataset.theme=n; LS.setItem('aq_theme',n);
+  $('tTheme').textContent = n==='dark'?'☀️':'🌙';
+};
+const FSZ=[16,18,20];
+let fi=+(LS.getItem('aq_fs')||0);
+const applyFS=()=>document.documentElement.style.setProperty('--fs',FSZ[fi]+'px');
+applyFS();
+$('tFont').onclick=()=>{ fi=(fi+1)%FSZ.length; LS.setItem('aq_fs',fi); applyFS(); };
 
-function drawBlock(b,pi,bi){
- const id=n=>pi+'-'+bi+'-'+n;
-
- if(b.k==='note'){const d=E('div','note');d.appendChild(E('h4',null,b.t));
-  b.l.forEach(x=>d.appendChild(E('p',null,x)));return d;}
-
- if(b.k==='un'){if(S.role!=='u')return null;
-  const d=E('div','unote');d.appendChild(E('strong',null,'উস্তাদের নোট'));
-  d.appendChild(E('span',null,b.t));return d;}
-
- if(b.k==='grid'){const w=E('div');const g=E('div','tiles');
-  b.items.forEach((it,n)=>{const t=E('div','tile');
-   t.appendChild(E('span',null,it.ar));t.appendChild(E('em',null,it.lab));
-   t.appendChild(mkBtn(id(n)));t.onclick=()=>openHorf(it.idx);g.appendChild(t);});
-  w.appendChild(g);return w;}
-
- if(b.k==='row'){const w=E('div');w.appendChild(E('div','bt',b.t));
-  const c=E('div','chips');b.s.split('|').forEach(x=>c.appendChild(E('div','ch',x)));
-  w.appendChild(c);return w;}
-
- if(b.k==='ex'||b.k==='big'){const w=E('div');w.appendChild(E('div','bt',b.t));
-  const l=E('div','lines');
-  b.l.forEach((x,n)=>{const r=E('div','ln'+(b.k==='big'?' big':''));
-   r.appendChild(E('div','a',x[0]));r.appendChild(E('div','m',x[1]));
-   r.appendChild(mkBtn(id(n)));l.appendChild(r);});
-  w.appendChild(l);return w;}
-
- if(b.k==='tbl'){const w=E('div');w.appendChild(E('div','bt',b.t));
-  const bx=E('div','tbx');const t=E('table','tb');
-  const hr=E('tr');b.h.forEach(x=>hr.appendChild(E('th',null,x)));
-  const th=E('thead');th.appendChild(hr);t.appendChild(th);
-  const tb=E('tbody');b.r.forEach(rw=>{const tr=E('tr');
-   rw.forEach(c=>tr.appendChild(E('td','a',c)));tb.appendChild(tr);});
-  t.appendChild(tb);bx.appendChild(t);w.appendChild(bx);return w;}
-
- if(b.k==='sura'){const w=E('div');w.style.position='relative';
-  const meta=E('div','smeta');
-  meta.appendChild(E('div','sname',b.arn));
-  meta.appendChild(E('div','sbn',b.bn));
-  meta.appendChild(E('div','sinfo',b.info));
-  w.appendChild(meta);
-  const mu=E('div','mushaf');
-  b.ayat.forEach((a,n)=>{mu.appendChild(document.createTextNode(a+' '));
-   mu.appendChild(E('span','ayn',AR(n+1)));mu.appendChild(document.createTextNode(' '));});
-  w.appendChild(mu);
-  const mn=E('div','means');mn.appendChild(E('div','bt','অর্থ'));
-  b.mean.forEach((m,n)=>{const d=E('div','mn');
-   d.appendChild(E('b',null,BN(n+1)));d.appendChild(E('span',null,m));mn.appendChild(d);});
-  w.appendChild(mn);
-  const mb=mkBtn(id(0));mb.style.position='absolute';mb.style.top='0';mb.style.right='0';
-  w.appendChild(mb);return w;}
-
- return null;
+/* ===================== নেভিগেশন ===================== */
+const sel=$('nSel');
+sel.innerHTML=P.map((p,i)=>`<option value="${i}">${bn(i+1)}. ${p.t}</option>`).join('');
+sel.onchange=()=>go(+sel.value);
+$('nHome').onclick=()=>go(-1);
+$('nPrev').onclick=()=>go(cur-1);
+$('nNext').onclick=()=>go(cur+1);
+function go(i){
+  cur = i<-1 ? -1 : (i>=P.length ? P.length-1 : i);
+  save(); render(); window.scrollTo(0,0);
 }
 
-function head(){
- const rb=$('#rolebar'),pb=$('#pbwrap');rb.innerHTML='';pb.innerHTML='';
- if(S.view==='role'){rb.style.display='none';pb.style.display='none';return;}
- rb.style.display='flex';
- rb.appendChild(E('span','chip '+(S.role==='u'?'u':'s'),S.role==='u'?'● উস্তাদ':'● ছাত্র'));
- rb.appendChild(E('span','hint',S.role==='u'
-  ?'সবুজ চিহ্ন আপনার · লাল চিহ্ন ছাত্রের'
-  :'ঘরের কোণে চাপ দিলে লাল চিহ্ন বসবে'));
- if(S.view!=='book'){pb.style.display='none';return;}
- pb.style.display='block';
- const s=S.ms.size,u=S.mu.size;
- pb.appendChild(E('div','pbtxt','ছাত্রের চিহ্ন '+NB(s)+' · উস্তাদের চিহ্ন '+NB(u)+' · মোট ঘর '+NB(TOTAL)));
- const bar=E('div','pb');
- const f1=E('i','fs');f1.style.width=Math.min(100,s/TOTAL*100)+'%';
- const f2=E('i','fu');f2.style.width=Math.min(100,u/TOTAL*100)+'%';
- bar.append(f1,f2);pb.appendChild(bar);}
+/* ===================== আঁকা ===================== */
+function render(){
+  if(cur<0){ drawHome(); } else { drawPage(P[cur]); }
+  const done = role==='us'?MU.size:MS.size;
+  $('stat').innerHTML = `ছাত্রের চিহ্ন <span class="n">${bn(MS.size)}</span> · উস্তাদের চিহ্ন <span class="n">${bn(MU.size)}</span> · মোট ঘর <span class="n">${bn(TOTAL)}</span>`;
+  $('barI').style.width = (TOTAL? (done/TOTAL*100):0)+'%';
+  $('branch').textContent = cur<0 ? 'একাডেমি' : 'কায়দা শাখা';
+  $('nPrev').disabled = cur<0;
+  $('nNext').disabled = cur>=P.length-1;
+  sel.value = cur<0?0:cur;
+}
 
-function nav(){
- const n=$('#nav');n.innerHTML='';
- if(S.view!=='book'){n.style.display='none';return;}
- n.style.display='block';
- const b=E('div','nb');
- const h=E('button','nbtn','হোম');h.onclick=()=>{S.view='home';draw();};
- const pv=E('button','nbtn','‹');pv.disabled=S.page===0;
- pv.onclick=()=>{if(S.page>0){S.page--;save();draw();}};
- const sel=E('select','sel');
- P.forEach((p,i)=>{const o=E('option',null,BN(i+1)+'. '+p.t);o.value=i;
-  if(i===S.page)o.selected=true;sel.appendChild(o);});
- sel.onchange=()=>{S.page=+sel.value;save();draw();};
- const nx=E('button','nbtn go','পরের ›');nx.disabled=S.page===P.length-1;
- nx.onclick=()=>{if(S.page<P.length-1){S.page++;save();draw();}};
- b.append(h,pv,sel,nx);n.appendChild(b);
- n.appendChild(E('div','foot','আলিফিয়া ইলম একাডেমি'));}
+function drawHome(){
+  pageEl.innerHTML=`
+  <div class="hero">
+    <div class="ara">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+    <h2>আলিফিয়া ইলম একাডেমি</h2>
+    <p>নিচ থেকে বেছে নিন।</p>
+  </div>
+  <button class="hcard" type="button" id="goQ">
+    <span class="ic" style="background:var(--grnS);color:var(--grn)">ا</span>
+    <span>
+      <h3>কায়দা</h3>
+      <p>উনত্রিশ <span class="n">(২৯)</span> হরফ, যবর-যের-পেশ, তানবীন, জযম, তাশদীদ, মাদ্দ, শব্দ, বাক্য ও নামাযের দশ <span class="n">(১০)</span> সূরা।</p>
+      <span class="meta">মোট <span class="n">${bn(P.length)}</span> পৃষ্ঠা · চলছে পৃষ্ঠা <span class="n">${bn(Math.max(1,(+LS.getItem('aq_last')||1)))}</span></span>
+    </span>
+  </button>
+  <div class="hcard soon">
+    <span class="ic" style="background:var(--redS);color:var(--red)">✦</span>
+    <span>
+      <h3>তাজবীদ</h3>
+      <p>সতেরো <span class="n">(১৭)</span>টি মাখরাজ, হরফের গুণ, নূন ও মীম সাকিন, গুন্নাহ, মাদ্দের প্রকার, লাম-রা, কলকলা ও ওয়াক্‌ফ।</p>
+      <span class="meta">শীঘ্রই আসছে</span>
+    </span>
+  </div>`;
+  $('goQ').onclick=()=>go(Math.max(0,(+LS.getItem('aq_last')||1)-1));
+}
 
-function draw(){
- const m=$('#main');m.innerHTML='';head();nav();
+function drawPage(p){
+  LS.setItem('aq_last',cur+1);
+  let h=`<div class="phead"><h1>${p.t}</h1>`;
+  if(p.s) h+=`<p class="psub">${p.s}</p>`;
+  if(p.aim) h+=`<div class="aim"><b>উদ্দেশ্য:</b> ${p.aim}</div>`;
+  h+='</div>';
+  p.b.forEach((b,bi)=>h+=block(b,bi));
+  pageEl.innerHTML=h;
+  paint();
+}
 
- if(S.view==='role'){
-  const w=E('div','role');
-  w.appendChild(E('div','cover','<div class="bsm">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيمِ</div>'
-   +'<h1>আলিফিয়া ইলম একাডেমি</h1><p>আপনি কে? নিচ থেকে বেছে নিন।</p>'));
-  const s=E('button','rbtn s','ছাত্র<span>পড়ব এবং পড়া হয়ে গেলে লাল চিহ্ন দেব।</span>');
-  s.onclick=()=>{S.role='s';S.view='home';save();draw();};
-  const u=E('button','rbtn u','উস্তাদ<span>পড়াব, নোট দেখব এবং সবুজ চিহ্ন দেব।</span>');
-  u.onclick=()=>{const c=prompt('উস্তাদের কোড লিখুন');if(c===null)return;
-   if(c.trim().toUpperCase()==='ALIF-USTAD'){S.role='u';S.view='home';save();draw();}
-   else alert('কোড মেলেনি।');};
-  w.append(s,u);m.appendChild(w);window.scrollTo(0,0);return;}
+function block(b,bi){
+  if(b.k==='note')
+    return `<section class="card"><h3>${b.t}</h3>${b.items.map(x=>`<p>${x}</p>`).join('')}</section>`;
+  if(b.k==='sec')  return `<h2 class="sec">${b.t}</h2>`;
+  if(b.k==='tip')  return `<div class="tip">${b.t}</div>`;
+  if(b.k==='grid') return `<div class="grid" style="--cols:${b.cols}">`+
+      b.items.map((it,ci)=>cellHTML(it,`${cur}.${bi}.${ci}`)).join('')+`</div>`;
+  if(b.k==='surah'){
+    const id=`${cur}.${bi}.0`;
+    const ar=b.a.map((x,i)=>`${x}<span class="ayn">${bn(i+1)}</span>`).join(' ');
+    return `<section class="card surah" data-id="${id}">
+      <button class="mk" type="button" data-mk="${id}" aria-label="চিহ্ন"></button>
+      <div class="sname">${b.n}</div><div class="smeta">${b.meta}</div>
+      <div class="stext">${b.bism?'<span class="bism">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</span>':''}${ar}</div>
+    </section>`;
+  }
+  if(b.k==='mean')
+    return `<section class="card mean"><h3>অর্থ</h3><ol>${b.m.map(x=>`<li>${x}</li>`).join('')}</ol></section>`;
+  return '';
+}
 
- if(S.view==='home'){
-  m.appendChild(E('div','cover','<div class="bsm">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيمِ</div>'
-   +'<h1>আলিফিয়া ইলম একাডেমি</h1><p>নিচ থেকে বেছে নিন।</p>'));
-  const q=E('button','big');
-  q.innerHTML='<div class="bi" style="background:var(--gbg);color:var(--g)">ا</div>'
-   +'<div class="bx"><b>কায়দা</b><span>উনত্রিশ ('+NB(29)+') হরফ, যবর-যের-পেশ, তানবীন, জযম, তাশদীদ, মাদ্দ, শব্দ, বাক্য ও নামাযের দশ ('+NB(10)+')টি সূরা।</span>'
-   +'<em>মোট '+NB(P.length)+' পৃষ্ঠা · চলছে পৃষ্ঠা '+NB(S.page+1)+'</em></div>';
-  q.onclick=()=>{S.view='book';draw();};
-  m.appendChild(q);
-  const t=E('button','big');
-  t.innerHTML='<div class="bi" style="background:var(--rbg);color:var(--r)">✦</div>'
-   +'<div class="bx"><b>তাজবীদ</b><span>সতেরো ('+NB(17)+')টি মাখরাজ, হরফের গুণ, নূন ও মীম সাকিন, গুন্নাহ, মাদ্দের প্রকার, লাম-রা, কলকলা ও ওয়াক্‌ফ।</span>'
-   +'<em>আলাদা ফাইল — tajwid.html</em></div>';
-  t.onclick=()=>{location.href='tajwid.html';};
-  m.appendChild(t);window.scrollTo(0,0);return;}
+function cellHTML(it,id){
+  const info = it[2] ? ` data-info="${encodeURIComponent(it[2])}" data-name="${encodeURIComponent(it[1])}"` : '';
+  return `<div class="cell" data-id="${id}"${info}>
+    <button class="mk" type="button" data-mk="${id}" aria-label="চিহ্ন"></button>
+    <div class="ar">${it[0]}</div>
+    ${it[1]?`<div class="bn">${it[1]}</div>`:''}
+  </div>`;
+}
 
- const p=P[S.page];
- const c=E('div','card');
- c.appendChild(E('div','ptitle',NB(S.page+1)+'. '+p.t));
- c.appendChild(E('div','psub',p.s));
- c.appendChild(E('div','paim','<b>উদ্দেশ্য:</b> '+p.aim));
- m.appendChild(c);
- const body=E('div','card');
- p.b.forEach((b,bi)=>{const n=drawBlock(b,S.page,bi);if(n)body.appendChild(n);});
- m.appendChild(body);window.scrollTo(0,0);}
+/* চিহ্ন বসানো — পাতা নতুন করে আঁকা হয় না, তাই স্ক্রল নড়ে না */
+function paint(){
+  pageEl.querySelectorAll('.mk').forEach(el=>{
+    const id=el.dataset.mk;
+    el.classList.toggle('s',MS.has(id));
+    el.classList.toggle('u',MU.has(id));
+  });
+}
 
+pageEl.addEventListener('click',e=>{
+  const mk=e.target.closest('.mk');
+  if(mk){
+    e.preventDefault(); e.stopPropagation();
+    const id=mk.dataset.mk, set = role==='us'?MU:MS, cls = role==='us'?'u':'s';
+    if(set.has(id)) set.delete(id); else set.add(id);
+    mk.classList.toggle(cls,set.has(id));
+    save();
+    const done = role==='us'?MU.size:MS.size;
+    $('stat').innerHTML = `ছাত্রের চিহ্ন <span class="n">${bn(MS.size)}</span> · উস্তাদের চিহ্ন <span class="n">${bn(MU.size)}</span> · মোট ঘর <span class="n">${bn(TOTAL)}</span>`;
+    $('barI').style.width=(TOTAL?(done/TOTAL*100):0)+'%';
+    return;                                   // এখানেই শেষ — উপরে লাফ দিবে না
+  }
+  const c=e.target.closest('.cell[data-info]');
+  if(c){
+    e.preventDefault();
+    $('mAr').textContent = c.querySelector('.ar').textContent.trim();
+    $('mName').textContent = decodeURIComponent(c.dataset.name||'');
+    $('mInfo').textContent = 'মাখরাজ — '+decodeURIComponent(c.dataset.info||'');
+    $('modal').hidden=false;
+  }
+},{passive:false});
+
+$('mClose').onclick=()=>{ $('modal').hidden=true; };
+$('modal').addEventListener('click',e=>{ if(e.target===$('modal')) $('modal').hidden=true; });
 document.addEventListener('keydown',e=>{
- if(S.view!=='book')return;
- if(e.key==='Escape')closeM();
- if(e.key==='ArrowLeft'&&S.page<P.length-1){S.page++;save();draw();}
- if(e.key==='ArrowRight'&&S.page>0){S.page--;save();draw();}});
+  if(e.key==='Escape') $('modal').hidden=true;
+  if($('modal').hidden && cur>=0){
+    if(e.key==='ArrowLeft') go(cur+1);
+    if(e.key==='ArrowRight') go(cur-1);
+  }
+});
 
-draw();
+/* ===================== চালু ===================== */
+if(role) setRole(role); else $('gate').style.display='flex';
 </script>
 </body>
 </html>
