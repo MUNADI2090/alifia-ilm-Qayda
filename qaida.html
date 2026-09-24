@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="bn" data-theme="light" data-fs="m">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>আলিফিয়া ইলম কায়দা</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f4f6f9; --card:#ffffff; --line:#d7dee8;
+  --ink:#0b1220; --ink2:#46536b;
+  --ar:#0b1220;
+  --green:#0e7a52; --green-bg:#e3f5ec;
+  --red:#b32b32; --red-bg:#fdeaea;
+  --btn:#ffffff; --btn-ink:#0b1220;
+  --shadow:0 2px 10px rgba(16,24,40,.07);
+  --r:14px;
+}
+html[data-theme="dark"]{
+  --bg:#0d1420; --card:#161f2e; --line:#2c3a4f;
+  --ink:#f2f6fb; --ink2:#c3cfdf;
+  --ar:#ffffff;
+  --green:#4ade9b; --green-bg:#122e24;
+  --red:#ff8d8d; --red-bg:#331a1c;
+  --btn:#1e293b; --btn-ink:#f2f6fb;
+  --shadow:0 2px 10px rgba(0,0,0,.35);
+}
+html[data-fs="s"]{--base:16px; --arsz:40px; --tilesz:56px;}
+html[data-fs="m"]{--base:18px; --arsz:50px; --tilesz:68px;}
+html[data-fs="l"]{--base:21px; --arsz:62px; --tilesz:82px;}
+
+*{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:'Hind Siliguri',system-ui,'Noto Sans Bengali',sans-serif;
+  font-size:var(--base); line-height:1.75; font-weight:500;
+}
+.ar{font-family:'Noto Naskh Arabic',serif; direction:rtl; color:var(--ar); font-weight:600;}
+
+/* ---------- হেডার ---------- */
+header{
+  position:sticky; top:0; z-index:30; background:var(--card);
+  border-bottom:2px solid var(--line); box-shadow:var(--shadow);
+}
+.hwrap{max-width:900px; margin:auto; padding:10px 14px; display:flex; align-items:center; gap:10px;}
+.logo{
+  width:42px; height:42px; border-radius:12px; flex:0 0 auto;
+  background:var(--green-bg); color:var(--green);
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Noto Naskh Arabic',serif; font-size:24px; font-weight:700;
+}
+.hname{flex:1; min-width:0;}
+.hname b{display:block; font-size:1.05em; font-weight:700; line-height:1.3;}
+.hname span{display:block; font-size:.78em; color:var(--ink2);}
+.tool{
+  border:2px solid var(--line); background:var(--btn); color:var(--btn-ink);
+  border-radius:11px; padding:7px 11px; font-size:.85em; font-weight:700;
+  cursor:pointer; font-family:inherit;
+}
+.tool:active{transform:scale(.96);}
+
+/* ---------- মোড বার ---------- */
+.modebar{max-width:900px; margin:auto; padding:0 14px 10px; display:flex; gap:8px; align-items:center;}
+.chip{
+  display:inline-flex; align-items:center; gap:6px; padding:6px 12px;
+  border-radius:999px; font-size:.82em; font-weight:700; border:2px solid transparent;
+}
+.chip.stu{background:var(--red-bg); color:var(--red); border-color:var(--red);}
+.chip.ust{background:var(--green-bg); color:var(--green); border-color:var(--green);}
+.dot{width:9px; height:9px; border-radius:50%; background:currentColor;}
+
+/* ---------- অগ্রগতি ---------- */
+.prog{max-width:900px; margin:auto; padding:0 14px 10px;}
+.ptxt{font-size:.8em; color:var(--ink2); font-weight:600; margin-bottom:5px;}
+.pbar{height:9px; background:var(--line); border-radius:99px; overflow:hidden;}
+.pfill{height:100%; width:0; background:var(--green); border-radius:99px; transition:width .3s;}
+
+/* ---------- পৃষ্ঠা ---------- */
+main{max-width:900px; margin:auto; padding:6px 14px 120px;}
+.page{background:var(--card); border:2px solid var(--line); border-radius:var(--r); box-shadow:var(--shadow); padding:18px 16px; margin-bottom:16px;}
+.pno{
+  display:inline-block; background:var(--green-bg); color:var(--green);
+  font-size:.78em; font-weight:700; padding:3px 12px; border-radius:99px; margin-bottom:10px;
+}
+h1{font-size:1.35em; margin:0 0 4px; font-weight:700; line-height:1.4;}
+.sub{color:var(--ink2); font-size:.92em; margin:0 0 12px;}
+.aim{
+  background:var(--green-bg); color:var(--ink); border-left:5px solid var(--green);
+  border-radius:10px; padding:10px 13px; font-size:.92em; margin-bottom:16px; font-weight:600;
+}
+html[data-theme="dark"] .aim{color:var(--ink);}
+
+.blk{margin-bottom:20px;}
+.blk h3{
+  font-size:1.02em; font-weight:700; margin:0 0 10px; padding-bottom:6px;
+  border-bottom:2px solid var(--line);
+}
+
+/* হরফের ঘর */
+.grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(var(--tilesz),1fr)); gap:9px;}
+.tile{
+  position:relative; aspect-ratio:1/1; border:2px solid var(--line); border-radius:12px;
+  background:var(--card); display:flex; align-items:center; justify-content:center;
+  cursor:pointer; transition:.15s;
+}
+.tile .ar{font-size:var(--arsz); line-height:1;}
+.tile:active{transform:scale(.94); border-color:var(--green);}
+.tile.done{border-color:var(--green); background:var(--green-bg);}
+.tick{
+  position:absolute; top:-7px; left:-7px; width:22px; height:22px; border-radius:50%;
+  background:var(--green); color:#fff; font-size:13px; font-weight:700;
+  display:none; align-items:center; justify-content:center; border:2px solid var(--card);
+}
+.tile.done .tick{display:flex;}
+.tmark{
+  position:absolute; bottom:-6px; right:-6px; width:24px; height:24px; border-radius:50%;
+  background:var(--btn); color:var(--ink2); border:2px solid var(--line);
+  font-size:13px; font-weight:700; display:none; align-items:center; justify-content:center;
+}
+body.ustad .tmark{display:flex;}
+
+/* সারি / উদাহরণ */
+.row{display:flex; flex-wrap:wrap; gap:8px;}
+.pill{
+  border:2px solid var(--line); border-radius:11px; background:var(--card);
+  padding:8px 14px; min-width:56px; text-align:center;
+}
+.pill .ar{font-size:calc(var(--arsz) * .68); line-height:1.3;}
+.ex{display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:9px;}
+.exi{border:2px solid var(--line); border-radius:11px; padding:9px 12px; background:var(--card); text-align:center;}
+.exi .ar{display:block; font-size:calc(var(--arsz) * .62); line-height:1.6;}
+.exi small{display:block; color:var(--ink2); font-size:.8em; font-weight:600;}
+
+/* তালিকা */
+ul.pt{margin:0; padding-left:20px;}
+ul.pt li{margin-bottom:7px;}
+ul.pt li b{color:var(--green);}
+
+/* টেবিল */
+.tw{overflow-x:auto; border:2px solid var(--line); border-radius:11px;}
+table{width:100%; border-collapse:collapse; font-size:.93em;}
+th{background:var(--green-bg); color:var(--green); font-weight:700; text-align:left; padding:9px 11px;}
+td{padding:9px 11px; border-top:1px solid var(--line); vertical-align:middle;}
+td .ar{font-size:calc(var(--arsz) * .55);}
+
+/* উস্তাদের নোট */
+.unote{display:none; border:2px dashed var(--green); background:var(--green-bg); border-radius:11px; padding:11px 13px;}
+body.ustad .unote{display:block;}
+.unote b{color:var(--green); display:block; margin-bottom:4px;}
+
+/* ---------- নিচের নেভিগেশন ---------- */
+nav{
+  position:fixed; bottom:0; left:0; right:0; z-index:30; background:var(--card);
+  border-top:2px solid var(--line); box-shadow:0 -2px 12px rgba(16,24,40,.10);
+}
+.nwrap{max-width:900px; margin:auto; padding:10px 14px; display:flex; gap:9px; align-items:center;}
+.nbtn{
+  flex:0 0 auto; border:2px solid var(--line); background:var(--btn); color:var(--btn-ink);
+  border-radius:12px; padding:11px 16px; font-size:.95em; font-weight:700; cursor:pointer; font-family:inherit;
+}
+.nbtn.main{background:var(--green); color:#fff; border-color:var(--green);}
+.nbtn:disabled{opacity:.4;}
+select{
+  flex:1; min-width:0; border:2px solid var(--line); background:var(--btn); color:var(--btn-ink);
+  border-radius:12px; padding:11px 8px; font-size:.88em; font-weight:600; font-family:inherit;
+}
+footer{text-align:center; color:var(--ink2); font-size:.8em; padding:4px 0 10px;}
+
+/* ---------- পপ-আপ ---------- */
+.mask{
+  position:fixed; inset:0; z-index:50; background:rgba(8,14,24,.62);
+  display:none; align-items:center; justify-content:center; padding:20px;
+}
+.mask.on{display:flex;}
+.modal{
+  background:var(--card); border:2px solid var(--line); border-radius:18px;
+  padding:22px 18px; max-width:380px; width:100%; text-align:center; box-shadow:0 12px 40px rgba(0,0,0,.4);
+}
+.modal .big{font-size:calc(var(--arsz) * 1.5); line-height:1.2; display:block; margin-bottom:10px;}
+.modal h4{margin:0 0 3px; font-size:1.25em; font-weight:700;}
+.modal .mk{color:var(--ink2); font-size:.93em; margin:8px 0 0;}
+.modal .un{display:none; margin-top:13px; padding:10px 12px; border-radius:10px; background:var(--green-bg); color:var(--ink); font-size:.9em; text-align:left; border-left:5px solid var(--green);}
+body.ustad .modal .un{display:block;}
+.mclose{margin-top:16px; width:100%; border:none; background:var(--green); color:#fff; padding:12px; border-radius:12px; font-size:1em; font-weight:700; cursor:pointer; font-family:inherit;}
+@media(max-width:420px){
+  .hname span{display:none;}
+  .nbtn{padding:11px 13px;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hwrap">
+    <div class="logo ar">ا</div>
+    <div class="hname">
+      <b>আলিফিয়া ইলম কায়দা</b>
+      <span>আলিফিয়া ইলম একাডেমি</span>
+    </div>
+    <button class="tool" id="bTheme" title="আলো / অন্ধকার">🌙</button>
+    <button class="tool" id="bFont" title="লেখার আকার">অ+</button>
+    <button class="tool" id="bMode" title="মোড">মোড</button>
+  </div>
+  <div class="modebar">
+    <span class="chip stu" id="chip"><span class="dot"></span><span id="chipTxt">ছাত্র মোড</span></span>
+    <span style="font-size:.78em;color:var(--ink2);font-weight:600" id="hint">হরফে চাপ দিন — নাম ও মাখরাজ দেখুন</span>
+  </div>
+  <div class="prog">
+    <div class="ptxt" id="ptxt">শেখা হয়েছে ০ / ২৯</div>
+    <div class="pbar"><div class="pfill" id="pfill"></div></div>
+  </div>
+</header>
+
+<main id="main"></main>
+
+<nav>
+  <div class="nwrap">
+    <button class="nbtn" id="bPrev">‹ আগের</button>
+    <select id="jump"></select>
+    <button class="nbtn main" id="bNext">পরের ›</button>
+  </div>
+  <footer>আলিফিয়া ইলম একাডেমি</footer>
+</nav>
+
+<div class="mask" id="mask">
+  <div class="modal">
+    <span class="big ar" id="mAr"></span>
+    <h4 id="mName"></h4>
+    <p class="mk" id="mMk"></p>
+    <div class="un" id="mUn"></div>
+    <button class="mclose" id="mClose">ঠিক আছে</button>
+  </div>
+</div>
+
+<script>
+/* ===== বাংলা সংখ্যা ===== */
+const BN = n => String(n).replace(/\d/g, d => '০১২৩৪৫৬৭৮৯'[d]);
+
+/* ===== ২৯ হরফ ===== */
+const HORF = [
+ ['ا','আলিফ','জাওফ — মুখের ভেতরের শূন্যস্থান থেকে','মাদ্দের হরফ; হরকত থাকলে হামযার মাখরাজ হয়'],
+ ['ب','বা','দুই ঠোঁট মিলিয়ে','ঠোঁট ভালোভাবে মিলবে, কলকলার হরফ'],
+ ['ت','তা','জিহ্বার ডগা ও সামনের দুই দাঁতের গোড়ায়','পাতলা হরফ, মোটা করা যাবে না'],
+ ['ث','ছা','জিহ্বার ডগা ও উপরের দুই দাঁতের কিনারায়','জিহ্বার ডগা অল্প বেরোবে'],
+ ['ج','জীম','জিহ্বার মধ্যভাগ ও উপরের তালুতে','কলকলার হরফ'],
+ ['ح','হা','কণ্ঠনালীর মধ্যভাগ থেকে','হালকা, শ্বাস ছেড়ে'],
+ ['خ','খা','কণ্ঠনালীর উপরিভাগ থেকে','মোটা হরফ'],
+ ['د','দাল','জিহ্বার ডগা ও সামনের দুই দাঁতের গোড়ায়','কলকলার হরফ'],
+ ['ذ','যাল','জিহ্বার ডগা ও উপরের দুই দাঁতের কিনারায়','ز ও ظ থেকে আলাদা রাখুন'],
+ ['ر','রা','জিহ্বার ডগা সামান্য উঁচু করে','একবারই নড়বে, ঘুরাবেন না'],
+ ['ز','যা','জিহ্বার ডগা ও সামনের দাঁতের ডগার কাছে','শিসের হরফ'],
+ ['س','সীন','জিহ্বার ডগা ও সামনের দাঁতের ডগার কাছে','শিসের হরফ, পাতলা'],
+ ['ش','শীন','জিহ্বার মধ্যভাগ ও উপরের তালুতে','বাতাস ছড়িয়ে পড়বে'],
+ ['ص','সোয়াদ','জিহ্বার ডগা ও সামনের দাঁতের ডগার কাছে','মোটা, س-এর সঙ্গে মেশাবেন না'],
+ ['ض','দোয়াদ','জিহ্বার এক পাশ ও মাড়ির দাঁতে','সবচেয়ে কঠিন হরফ, দীর্ঘ করে'],
+ ['ط','তোয়া','জিহ্বার ডগা ও সামনের দাঁতের গোড়ায়','মোটা, কলকলার হরফ'],
+ ['ظ','যোয়া','জিহ্বার ডগা ও উপরের দুই দাঁতের কিনারায়','মোটা, ذ থেকে আলাদা'],
+ ['ع','আইন','কণ্ঠনালীর মধ্যভাগ থেকে','গলা চেপে নয়, খোলা স্বরে'],
+ ['غ','গাইন','কণ্ঠনালীর উপরিভাগ থেকে','মোটা হরফ'],
+ ['ف','ফা','নিচের ঠোঁট ও উপরের দাঁতের ডগায়','দাঁত ঠোঁট স্পর্শ করবে'],
+ ['ق','ক্বাফ','জিহ্বার শেষভাগ ও উপরের তালুতে','মোটা, কলকলার হরফ'],
+ ['ك','কাফ','ق-এর সামান্য নিচে জিহ্বার শেষভাগে','পাতলা হরফ'],
+ ['ل','লাম','জিহ্বার ডগা ও উপরের দাঁতের গোড়ার মাংসে','সাধারণত পাতলা'],
+ ['م','মীম','দুই ঠোঁট মিলিয়ে','গুন্নাহর হরফ'],
+ ['ن','নূন','জিহ্বার ডগা ল-এর কিছু পিছনে','গুন্নাহর হরফ'],
+ ['و','ওয়াও','দুই ঠোঁট গোল করে','মাদ্দ ও লীন দুই কাজেই আসে'],
+ ['ه','হা','কণ্ঠনালীর শেষ বা গভীর ভাগ থেকে','খুব হালকা, শ্বাসের সঙ্গে'],
+ ['ء','হামযা','কণ্ঠনালীর গভীর ভাগ থেকে','ঝটকা দিয়ে থেমে'],
+ ['ي','ইয়া','জিহ্বার মধ্যভাগ ও উপরের তালুতে','মাদ্দি ও গায়রে মাদ্দি — দুই রকম']
+];
+const g29 = HORF.map(h => ({a:h[0], n:h[1], m:h[2], u:h[3]}));
+const mk = (L,s) => L.map(x => ({a:x, n:'', m:s}));
+
+/* ===== পৃষ্ঠাগুলো ===== */
+const PAGES = [
+{t:'হরফ পরিচিতি', s:'আরবি ২৯টি হরফ', aim:'প্রতিটি হরফ চিনে নেওয়া এবং কোন জায়গা থেকে বের হয় তা জানা।', b:[
+  {t:'grid', h:'২৯ হরফ — আলিফ থেকে ইয়া', items:g29},
+  {t:'note', h:'মনে রাখুন', li:['প্রতিটি হরফের <b>নিজের একটি জায়গা</b> আছে, সেটিকে মাখরাজ বলে।','মাখরাজ ঠিক না হলে অর্থ বদলে যায়, তাই ধীরে ধীরে শিখুন।','প্রথমে হরফ চিনুন, তারপর উচ্চারণ ঠিক করুন।']},
+  {t:'unote', li:['প্রথম দিনে ৫-৭টির বেশি হরফ দেবেন না।','ছাত্রকে আয়নার সামনে বসিয়ে ঠোঁট ও জিহ্বার নড়াচড়া দেখান।','প্রতিটি হরফ তিনবার শুনিয়ে তারপর ছাত্রকে বলতে দিন।']}
+]},
+
+{t:'হরফের আকৃতি', s:'শুরু, মধ্য ও শেষে লেখার রূপ', aim:'একই হরফ শব্দের ভিন্ন জায়গায় ভিন্ন দেখায় — এটি বোঝা।', b:[
+  {t:'table', h:'রূপের পরিবর্তন', head:['হরফ','শুরুতে','মধ্যে','শেষে'], rows:[
+    ['ب','بـ','ـبـ','ـب'],['ت','تـ','ـتـ','ـت'],['ج','جـ','ـجـ','ـج'],
+    ['س','سـ','ـسـ','ـس'],['ع','عـ','ـعـ','ـع'],['ك','كـ','ـكـ','ـك'],
+    ['م','مـ','ـمـ','ـم'],['ه','هـ','ـهـ','ـه'],['ي','يـ','ـيـ','ـي']
+  ]},
+  {t:'grid', h:'এই ৬টি হরফ পরের হরফের সঙ্গে জোড়া লাগে না', items:mk(['ا','د','ذ','ر','ز','و'],'পরের হরফের সঙ্গে মেলে না')},
+  {t:'ex', h:'উদাহরণ', items:[['بَيْت','বাইত'],['مَسْجِد','মাসজিদ'],['قَمَر','ক্বামার'],['وَرَد','ওয়ারাদ']]},
+  {t:'unote', li:['সাদা কাগজে বড় করে লিখে দেখান — চোখে বসে যাবে।']}
+]},
+
+{t:'যবর', s:'হরকতের প্রথম পাঠ', aim:'যবর দিলে হরফের সঙ্গে "আ" স্বর যুক্ত হয় — তা শেখা।', b:[
+  {t:'note', h:'নিয়ম', li:['হরফের <b>উপরে</b> ছোট তির্যক দাগ থাকলে তাকে যবর (ফাতহা) বলে।','যবরে হরফের সঙ্গে <b>আ</b> স্বর মিলে — যেমন بَ = বা।','এক আলিফ পরিমাণ টান হবে না, ছোট করে পড়বে।']},
+  {t:'row', h:'সব হরফে যবর', items:['أَ','بَ','تَ','ثَ','جَ','حَ','خَ','دَ','ذَ','رَ','زَ','سَ','شَ','صَ','ضَ','طَ','ظَ','عَ','غَ','فَ','قَ','كَ','لَ','مَ','نَ','وَ','هَ','يَ']},
+  {t:'ex', h:'মিলিয়ে পড়ুন', items:[['كَتَبَ','কাতাবা'],['ذَهَبَ','যাহাবা'],['نَصَرَ','নাসারা'],['فَتَحَ','ফাতাহা']]},
+  {t:'unote', li:['টান লম্বা হয়ে গেলে এখানেই ধরুন, নইলে পরে মাদ্দে ভুল হবে।']}
+]},
+
+{t:'যের', s:'হরকতের দ্বিতীয় পাঠ', aim:'যের দিলে "ই" স্বর যুক্ত হয় — তা শেখা।', b:[
+  {t:'note', h:'নিয়ম', li:['হরফের <b>নিচে</b> তির্যক দাগ থাকলে তাকে যের (কাসরা) বলে।','যেরে হরফের সঙ্গে <b>ই</b> স্বর মিলে — যেমন بِ = বি।']},
+  {t:'row', h:'সব হরফে যের', items:['إِ','بِ','تِ','ثِ','جِ','حِ','خِ','دِ','ذِ','رِ','زِ','سِ','شِ','صِ','ضِ','طِ','ظِ','عِ','غِ','فِ','قِ','كِ','لِ','مِ','نِ','وِ','هِ','يِ']},
+  {t:'ex', h:'মিলিয়ে পড়ুন', items:[['عَلِمَ','আলিমা'],['سَمِعَ','সামিআ'],['رَحِمَ','রাহিমা'],['بِسْمِ','বিসমি']]}
+]},
+
+{t:'পেশ', s:'হরকতের তৃতীয় পাঠ', aim:'পেশ দিলে "উ" স্বর যুক্ত হয় — তা শেখা।', b:[
+  {t:'note', h:'নিয়ম', li:['হরফের <b>উপরে</b> ছোট ওয়াওয়ের মতো চিহ্ন থাকলে তাকে পেশ (দাম্মা) বলে।','পেশে হরফের সঙ্গে <b>উ</b> স্বর মিলে — যেমন بُ = বু।','ঠোঁট সামান্য গোল হবে।']},
+  {t:'row', h:'সব হরফে পেশ', items:['أُ','بُ','تُ','ثُ','جُ','حُ','خُ','دُ','ذُ','رُ','زُ','سُ','شُ','صُ','ضُ','طُ','ظُ','عُ','غُ','فُ','قُ','كُ','لُ','مُ','نُ','وُ','هُ','يُ']},
+  {t:'ex', h:'মিলিয়ে পড়ুন', items:[['كَرُمَ','কারুমা'],['حَسُنَ','হাসুনা'],['قُلْ','কুল'],['هُوَ','হুওয়া']]}
+]},
+
+{t:'তিন হরকত একসাথে', s:'যবর – যের – পেশ অনুশীলন', aim:'তিন হরকত না দেখে চিনে দ্রুত পড়তে পারা।', b:[
+  {t:'row', h:'একই হরফে তিন হরকত', items:['بَ بِ بُ','تَ تِ تُ','جَ جِ جُ','دَ دِ دُ','سَ سِ سُ','عَ عِ عُ','قَ قِ قُ','كَ كِ كُ','مَ مِ مُ','نَ نِ نُ']},
+  {t:'ex', h:'শব্দে অনুশীলন', items:[['أَحَدُ','আহাদু'],['مَلِكِ','মালিকি'],['شَكُرَ','শাকুরা'],['حَمِدَ','হামিদা'],['رَزَقَ','রাযাক্বা'],['عَبُدَ','আবুদা']]},
+  {t:'unote', li:['প্রতিদিন শুরুতে এই পৃষ্ঠাটি একবার পড়ান — ভিত মজবুত হবে।']}
+]},
+
+{t:'তানভীন', s:'দুই যবর, দুই যের, দুই পেশ', aim:'হরকত দুটি হলে শেষে "ন" শব্দ আসে — তা শেখা।', b:[
+  {t:'note', h:'নিয়ম', li:['<b>দুই যবর</b> (ـً) = আন — যেমন بًا = বান।','<b>দুই যের</b> (ـٍ) = ইন — যেমন بٍ = বিন।','<b>দুই পেশ</b> (ـٌ) = উন — যেমন بٌ = বুন।','লেখায় নূন নেই, কিন্তু উচ্চারণে নূন আসে।']},
+  {t:'row', h:'অনুশীলন', items:['بًا بٍ بٌ','تًا تٍ تٌ','جًا جٍ جٌ','دًا دٍ دٌ','سًا سٍ سٌ','عًا عٍ عٌ','قًا قٍ قٌ','مًا مٍ مٌ']},
+  {t:'ex', h:'শব্দে', items:[['كِتَابًا','কিতাবান'],['رَجُلٍ','রাজুলিন'],['عِلْمٌ','ইলমুন'],['هُدًى','হুদান']]}
+]},
+
+{t:'জযম', s:'সাকিন হরফ', aim:'জযমওয়ালা হরফ থামিয়ে পড়তে শেখা।', b:[
+  {t:'note', h:'নিয়ম', li:['হরফের উপরে গোল চিহ্ন (ـْ) থাকলে তাকে জযম বা সাকিন বলে।','সাকিন হরফে <b>কোনো স্বর নেই</b> — আগের হরফের সঙ্গে মিলিয়ে থামিয়ে পড়তে হয়।','যেমন اَبْ = আব্‌, اِنْ = ইন্‌।']},
+  {t:'row', h:'অনুশীলন', items:['أَبْ','أَتْ','أَجْ','أَدْ','أَسْ','أَعْ','أَقْ','أَمْ','أَنْ','أَلْ']},
+  {t:'ex', h:'শব্দে', items:[['قُلْ','কুল'],['مِنْ','মিন'],['اُدْخُلْ','উদখুল'],['اِعْلَمْ','ইলাম'],['أَنْعَمْتَ','আনআমতা'],['يَسْتَغْفِرْ','ইয়াসতাগফির']]},
+  {t:'unote', li:['সাকিনে ছাত্ররা প্রায়ই টান দেয় — এখানে বেশি সময় দিন।']}
+]},
+
+{t:'মাদ্দের হরফ', s:'আলিফ, ওয়াও ও ইয়া', aim:'কোথায় এক আলিফ পরিমাণ টান হবে তা শেখা।', b:[
+  {t:'note', h:'নিয়ম', li:['যবরের পরে <b>আলিফ</b> এলে টান হয় — بَا।','পেশের পরে সাকিন <b>ওয়াও</b> এলে টান হয় — بُو।','যেরের পরে সাকিন <b>ইয়া</b> এলে টান হয় — بِي।','টান হবে <b>এক আলিফ</b> পরিমাণ, কম বা বেশি নয়। এটিই মাদ্দে আসলি।']},
+  {t:'row', h:'অনুশীলন', items:['بَا بِي بُو','تَا تِي تُو','جَا جِي جُو','سَا سِي سُو','عَا عِي عُو','قَا قِي قُو','مَا مِي مُو','نَا نِي نُو']},
+  {t:'ex', h:'শব্দে', items:[['قَالَ','ক্বা-লা'],['قِيلَ','ক্বী-লা'],['يَقُولُ','ইয়াক্বূ-লু'],['نُوحِيهَا','নূহী-হা']]}
+]},
+
+{t:'তাশদীদ', s:'জোড়া হরফ', aim:'তাশদীদের হরফ দুইবার ধরে পড়তে শেখা।', b:[
+  {t:'note', h:'নিয়ম', li:['হরফের উপরে ( ـّ ) চিহ্ন থাকলে তাকে তাশদীদ বলে।','তাশদীদের হরফ <b>দুইটি হরফের সমান</b> — প্রথমটি সাকিন, দ্বিতীয়টিতে হরকত।','যেমন رَبَّ = রাব্‌-বা। জোর দিয়ে চেপে পড়তে হবে।']},
+  {t:'row', h:'অনুশীলন', items:['بَّ','تَّ','جَّ','دَّ','رَّ','سَّ','شَّ','لَّ','مَّ','نَّ']},
+  {t:'ex', h:'শব্দে', items:[['رَبَّنَا','রাব্বানা'],['إِنَّ','ইন্না'],['مُحَمَّدٌ','মুহাম্মাদুন'],['الَّذِينَ','আল্লাযীনা'],['كَلَّا','কাল্লা'],['قُوَّةٌ','কুওওয়াতুন']]},
+  {t:'unote', li:['তাশদীদে চাপ না দিলে অর্থ বদলে যায় — উদাহরণ দিয়ে বোঝান।']}
+]},
+
+{t:'মিলিত অনুশীলন', s:'হরকত, জযম, মাদ্দ ও তাশদীদ একসাথে', aim:'সব নিয়ম মিলিয়ে ছোট শব্দ পড়তে পারা।', b:[
+  {t:'ex', h:'ধীরে ধীরে পড়ুন', items:[
+    ['الْحَمْدُ','আলহামদু'],['الرَّحْمَٰنِ','আর-রাহমানি'],['مُسْتَقِيمٌ','মুসতাকীমুন'],
+    ['الصَّابِرِينَ','আস-সাবিরীন'],['يُؤْمِنُونَ','ইউমিনূন'],['أَنْزَلْنَاهُ','আনযালনাহু'],
+    ['وَالَّذِينَ','ওয়াল্লাযীনা'],['تَوَّابًا','তাওওয়াবান'],['اسْتَغْفَرُوا','ইসতাগফারূ']
+  ]},
+  {t:'note', h:'পরামর্শ', li:['তাড়াহুড়া নয় — <b>ধীরে ও সঠিক</b> পড়া উত্তম।','একটি শব্দ তিনবার পড়ে পরেরটিতে যান।']}
+]},
+
+{t:'মাখরাজের প্রধান স্থান', s:'পাঁচটি জায়গা', aim:'মুখের কোন কোন জায়গা থেকে হরফ বের হয় তা মোটামুটি জানা।', b:[
+  {t:'table', h:'পাঁচ প্রধান স্থান ও মাখরাজ সংখ্যা', head:['স্থান','অর্থ','মাখরাজ'], rows:[
+    ['জাওফ','মুখের ভেতরের শূন্যস্থান','১'],
+    ['হালক','কণ্ঠনালী','৩'],
+    ['লিসান','জিহ্বা','১০'],
+    ['শাফাতাইন','দুই ঠোঁট','২'],
+    ['খাইশুম','নাকের ভেতরের ফাঁকা অংশ','১']
+  ]},
+  {t:'note', h:'মোট', li:['পাঁচ স্থানে সব মিলিয়ে <b>১৭টি মাখরাজ</b>।','পরের পৃষ্ঠায় ১৭টি মাখরাজ আলাদা করে দেওয়া হয়েছে।']}
+]},
+
+{t:'সতেরো মাখরাজ', s:'এক থেকে সতেরো', aim:'প্রতিটি মাখরাজ ও তার হরফ আলাদা করে চেনা।', b:[
+  {t:'table', h:'বিস্তারিত', head:['ক্রম','স্থান','হরফ'], rows:[
+    ['১','জাওফ — মুখের শূন্যস্থান','ا و ي (মাদ্দি)'],
+    ['২','কণ্ঠনালীর গভীর ভাগ','ء ه'],
+    ['৩','কণ্ঠনালীর মধ্যভাগ','ع ح'],
+    ['৪','কণ্ঠনালীর উপরিভাগ','غ خ'],
+    ['৫','জিহ্বার শেষভাগ ও তালু','ق'],
+    ['৬','ক্বাফের সামান্য নিচে','ك'],
+    ['৭','জিহ্বার মধ্যভাগ ও তালু','ج ش ي'],
+    ['৮','জিহ্বার পাশ ও মাড়ির দাঁত','ض'],
+    ['৯','জিহ্বার ডগা ও দাঁতের গোড়ার মাংস','ل'],
+    ['১০','লামের কিছু পিছনে','ن'],
+    ['১১','নূনের কাছে জিহ্বার পিঠ','ر'],
+    ['১২','জিহ্বার ডগা ও সামনের দাঁতের গোড়া','ط د ت'],
+    ['১৩','জিহ্বার ডগা ও সামনের দাঁতের ডগা','ص ز س'],
+    ['১৪','জিহ্বার ডগা ও উপরের দাঁতের কিনারা','ظ ذ ث'],
+    ['১৫','নিচের ঠোঁট ও উপরের দাঁতের ডগা','ف'],
+    ['১৬','দুই ঠোঁট','ب م و'],
+    ['১৭','খাইশুম — নাকের ফাঁকা অংশ','গুন্নাহ']
+  ]},
+  {t:'unote', li:['এক দিনে পুরো তালিকা নয় — স্থান ধরে ধরে ভাগ করে পড়ান।','ছাত্রের আঙুল নিজের গলায় বা ঠোঁটে রেখে অনুভব করাতে বলুন।']}
+]},
+
+{t:'হরফের গুণ', s:'সিফাতে লাযিমা', aim:'হরফ মোটা না পাতলা, নরম না শক্ত — তা বোঝা।', b:[
+  {t:'table', h:'বিপরীত গুণসমূহ', head:['গুণ','অর্থ','বিপরীত'], rows:[
+    ['হামস','শ্বাস বেরিয়ে যায়','জাহর — শ্বাস আটকে থাকে'],
+    ['শিদ্দাত','শব্দ পুরো আটকে যায়','রিখওয়াত — শব্দ বইতে থাকে'],
+    ['ইস্তিলা','জিহ্বা উঁচু হয়, হরফ মোটা','ইস্তিফাল — জিহ্বা নিচু, হরফ পাতলা'],
+    ['ইতবাক','জিহ্বা তালুতে লেগে যায়','ইনফিতাহ — ফাঁক থাকে'],
+    ['ইজলাক','সহজে উচ্চারিত হয়','ইসমাত — কিছুটা ভারী']
+  ]},
+  {t:'grid', h:'মোটা হরফ (ইস্তিলা) — সাতটি', items:mk(['خ','ص','ض','غ','ط','ق','ظ'],'জিহ্বা উঁচু হয়, মোটা করে পড়তে হবে')},
+  {t:'note', h:'মনে রাখুন', li:['এই সাতটি ছাড়া <b>বাকি সব হরফ পাতলা</b>।']}
+]},
+
+{t:'আলাদা কিছু গুণ', s:'সিফাতে গায়রে মুতাদাদ্দা', aim:'বিশেষ কয়েকটি হরফের আলাদা বৈশিষ্ট্য জানা।', b:[
+  {t:'table', h:'বিশেষ গুণ', head:['গুণ','হরফ','ভাব'], rows:[
+    ['সফীর — শিসের শব্দ','ص ز س','শিস দেওয়ার মতো আওয়াজ'],
+    ['কলকলা — ঝাঁকি','ق ط ب ج د','সাকিন হলে ঝাঁকি লাগে'],
+    ['লীন — নরম','و ي','যবরের পর সাকিন হলে নরম হয়'],
+    ['ইনহিরাফ — হেলে যাওয়া','ل ر','আওয়াজ কিছুটা হেলে যায়'],
+    ['তাকরীর — কাঁপন','ر','জিহ্বা একবার কাঁপে'],
+    ['তাফাশশি — ছড়িয়ে পড়া','ش','বাতাস মুখে ছড়ায়'],
+    ['ইস্তিতালা — লম্বা হওয়া','ض','আওয়াজ লম্বা হয়'],
+    ['গুন্নাহ — নাকে সুর','ن م','নাক দিয়ে সুর বের হয়']
+  ]}
+]},
+
+{t:'নূনে সাকিন ও তানভীন', s:'চারটি অবস্থা', aim:'নূন সাকিন ও তানভীনের পরের হরফ অনুযায়ী পড়ার নিয়ম শেখা।', b:[
+  {t:'table', h:'চার নিয়ম', head:['নিয়ম','হরফ','পড়ার ধরন'], rows:[
+    ['ইযহার','ء ه ع ح غ خ','স্পষ্ট নূন, গুন্নাহ নেই'],
+    ['ইদগাম','ي ر م ل و ن','নূন মিশে যায়'],
+    ['ইকলাব','ب','নূন মীমে বদলে যায়, গুন্নাহ হয়'],
+    ['ইখফা','বাকি ১৫টি','নূন লুকিয়ে যায়, গুন্নাহ হয়']
+  ]},
+  {t:'ex', h:'উদাহরণ', items:[['مَنْ آمَنَ','ইযহার'],['مِنْ رَبِّهِمْ','ইদগাম'],['مِنْ بَعْدِ','ইকলাব'],['مِنْ قَبْلِ','ইখফা'],['أَنْعَمْتَ','ইযহার'],['عَذَابٌ شَدِيدٌ','ইখফা']]},
+  {t:'unote', li:['"ইয়ারমালূন" (يرملون) শব্দটি মুখস্থ করালে ইদগামের হরফ মনে থাকবে।']}
+]},
+
+{t:'ইদগামের প্রকার', s:'গুন্নাহসহ ও গুন্নাহ ছাড়া', aim:'কোন ইদগামে নাকে সুর হবে আর কোনটিতে হবে না তা জানা।', b:[
+  {t:'note', h:'দুই প্রকার', li:['<b>ইদগামে বিগুন্নাহ</b> — ي ن م و এই চার হরফে মিশে যাওয়ার সময় নাকে সুর হবে।','<b>ইদগামে বিলা গুন্নাহ</b> — ل ও ر এই দুই হরফে মিশে যাবে কিন্তু নাকে সুর হবে না।','গুন্নাহর পরিমাণ <b>এক আলিফ</b> পরিমাণ।']},
+  {t:'ex', h:'গুন্নাহসহ', items:[['مَنْ يَعْمَلْ','মাইঁ-ইয়ামাল'],['مِنْ نُّورٍ','মিন-নূরিন'],['مِنْ مَّالٍ','মিম-মালিন'],['مِنْ وَّرَائِهِمْ','মিও-ওয়ারাইহিম']]},
+  {t:'ex', h:'গুন্নাহ ছাড়া', items:[['مِنْ لَّدُنْهُ','মিল-লাদুনহু'],['مِنْ رَّبِّهِ','মির-রাব্বিহি'],['غَفُورٌ رَّحِيمٌ','গাফূরুর-রাহীম']]}
+]},
+
+{t:'মীমে সাকিন', s:'তিনটি নিয়ম', aim:'মীম সাকিনের পরের হরফ অনুযায়ী পড়ার নিয়ম শেখা।', b:[
+  {t:'table', h:'তিন নিয়ম', head:['নিয়ম','হরফ','পড়ার ধরন'], rows:[
+    ['ইখফায়ে শাফাবি','ب','মীম লুকিয়ে যায়, গুন্নাহ হয়'],
+    ['ইদগামে মিসলাইন','م','দুই মীম মিশে যায়, গুন্নাহ হয়'],
+    ['ইযহারে শাফাবি','বাকি সব','মীম স্পষ্ট, গুন্নাহ নেই']
+  ]},
+  {t:'ex', h:'উদাহরণ', items:[['تَرْمِيهِمْ بِحِجَارَةٍ','ইখফা'],['لَهُمْ مَّا','ইদগাম'],['أَلَمْ نَجْعَلْ','ইযহার'],['عَلَيْهِمْ وَلَا','ইযহার']]},
+  {t:'unote', li:['ইযহারে শাফাবিতে ছাত্ররা অনেকসময় অকারণে গুন্নাহ করে — ধরে দিন।']}
+]},
+
+{t:'গুন্নাহ', s:'নাকে সুর', aim:'গুন্নাহ কোথায় হবে এবং কতটুকু হবে তা জানা।', b:[
+  {t:'note', h:'নিয়ম', li:['নূন ও মীমে <b>তাশদীদ</b> থাকলে অবশ্যই গুন্নাহ হবে।','গুন্নাহর পরিমাণ <b>এক আলিফ</b> পরিমাণ — নাক দিয়ে সুর বের হবে।','ইখফা, ইকলাব ও ইদগামে বিগুন্নাহতেও গুন্নাহ হয়।']},
+  {t:'ex', h:'উদাহরণ', items:[['إِنَّ','ইন্‌না'],['ثُمَّ','ছুম্‌মা'],['جَنَّةٍ','জান্‌নাতিন'],['مُحَمَّدٌ','মুহাম্‌মাদুন'],['عَمَّ','আম্‌মা'],['النَّاسِ','আন্‌নাস']]},
+  {t:'note', h:'পরীক্ষা করার সহজ উপায়', li:['নাক দুই আঙুলে চেপে ধরলে যদি আওয়াজ আটকে যায়, তবে গুন্নাহ হচ্ছে।']}
+]},
+
+{t:'মাদ্দের প্রকার', s:'দশ প্রকার মাদ্দ', aim:'কোন মাদ্দে কতটুকু টান হবে তা চেনা।', b:[
+  {t:'table', h:'দশ প্রকার', head:['নাম','কারণ','টান'], rows:[
+    ['মাদ্দে আসলি','মাদ্দের হরফ, পরে কিছু নেই','১ আলিফ'],
+    ['মাদ্দে মুত্তাসিল','একই শব্দে পরে হামযা','৪-৫ আলিফ'],
+    ['মাদ্দে মুনফাসিল','পরের শব্দের শুরুতে হামযা','৪-৫ আলিফ'],
+    ['মাদ্দে লাযিম','পরে তাশদীদ','৩ আলিফ'],
+    ['মাদ্দে আরিযি','থামার জায়গায় সাকিন','২-৩ আলিফ'],
+    ['মাদ্দে বদল','হামযার পরে মাদ্দ','১ আলিফ'],
+    ['মাদ্দে ইওয়াজ','শেষে দুই যবরে থামলে','২ আলিফ'],
+    ['মাদ্দে লীন','যবরের পর সাকিন و বা ي','২-৩ আলিফ'],
+    ['মাদ্দে সিলা','হা যমীরের টান','১ বা ৪ আলিফ'],
+    ['মাদ্দে ফরক','প্রশ্ন ও খবর আলাদা করতে','৩ আলিফ']
+  ]},
+  {t:'ex', h:'উদাহরণ', items:[['قَالَ','আসলি'],['جَاءَ','মুত্তাসিল'],['إِنَّا أَنْزَلْنَا','মুনফাসিল'],['الضَّالِّينَ','লাযিম'],['نَسْتَعِينُ','আরিযি'],['خَيْرٌ','লীন']]},
+  {t:'unote', li:['টানের পরিমাণ হাতের ইশারায় গুনে দেখান — ছাত্র সহজে ধরতে পারে।']}
+]},
+
+{t:'লামের হুকুম', s:'আল্লাহর লাম ও লামে তারীফ', aim:'লাম কখন মোটা আর কখন পাতলা হবে তা শেখা।', b:[
+  {t:'note', h:'আল্লাহর লাম', li:['আগে <b>যবর বা পেশ</b> থাকলে লাম মোটা (পুর) হবে।','আগে <b>যের</b> থাকলে লাম পাতলা (বারীক) হবে।']},
+  {t:'ex', h:'মোটা লাম', items:[['قَالَ اللهُ','কালাল্লাহু'],['نَصْرُ اللهِ','নাসরুল্লাহি'],['وَاللهُ','ওয়াল্লাহু']]},
+  {t:'ex', h:'পাতলা লাম', items:[['بِسْمِ اللهِ','বিসমিল্লাহি'],['لِلهِ','লিল্লাহি'],['فِي دِينِ اللهِ','ফী দীনিল্লাহি']]},
+  {t:'note', h:'লামে তারীফ', li:['<b>লামে কামারিয়া</b> — লাম স্পষ্ট পড়া হয়। যেমন الْقَمَر।','<b>লামে শামসিয়া</b> — লাম পড়া হয় না, পরের হরফে মিশে যায়। যেমন الشَّمْس।']},
+  {t:'ex', h:'উদাহরণ', items:[['الْحَمْدُ','কামারিয়া'],['الْكِتَاب','কামারিয়া'],['الرَّحْمَٰن','শামসিয়া'],['النَّاس','শামসিয়া']]}
+]},
+
+{t:'রার হুকুম', s:'রা মোটা ও পাতলা', aim:'রা কখন মোটা আর কখন পাতলা হবে তা শেখা।', b:[
+  {t:'note', h:'নিয়ম', li:['রায় <b>যবর বা পেশ</b> থাকলে মোটা হবে।','রায় <b>যের</b> থাকলে পাতলা হবে।','রা সাকিন হলে <b>আগের হরকত</b> দেখে ঠিক করতে হবে — আগে যের থাকলে পাতলা, নইলে মোটা।']},
+  {t:'ex', h:'মোটা রা', items:[['رَبِّ','রাব্বি'],['رُزِقَ','রুযিক্বা'],['الْقُرْآن','আল-কুরআন'],['مَرْيَم','মারইয়াম']]},
+  {t:'ex', h:'পাতলা রা', items:[['رِزْق','রিযক'],['فِرْعَوْن','ফিরআউন'],['مِرْيَة','মিরইয়াতুন'],['الذِّكْرِ','আয-যিকরি']]},
+  {t:'unote', li:['রা-তে জিহ্বা একবারই নড়বে — বারবার কাঁপলে ধরে শুধরে দিন।']}
+]},
+
+{t:'কলকলা', s:'পাঁচটি হরফের ঝাঁকি', aim:'কলকলার হরফে ঝাঁকি দিয়ে পড়তে শেখা।', b:[
+  {t:'grid', h:'কলকলার হরফ — ق ط ب ج د', items:mk(['ق','ط','ب','ج','د'],'সাকিন হলে ঝাঁকি দিয়ে পড়তে হবে')},
+  {t:'note', h:'দুই প্রকার', li:['<b>কলকলায়ে সুগরা</b> — শব্দের মাঝে সাকিন হলে, ঝাঁকি হালকা।','<b>কলকলায়ে কুবরা</b> — শব্দের শেষে থামলে, ঝাঁকি স্পষ্ট।','মনে রাখার শব্দ — <b>কুতুবে জাদ</b> (قطب جد)।']},
+  {t:'ex', h:'উদাহরণ', items:[['يَقْطَعُ','সুগরা'],['أَبْصَارِهِمْ','সুগরা'],['أَحَدْ','কুবরা'],['الْفَلَقْ','কুবরা'],['مُحِيطْ','কুবরা']]}
+]},
+
+{t:'ওয়াক্‌ফ', s:'থামার নিয়ম ও চিহ্ন', aim:'কোথায় থামা যাবে, কোথায় যাবে না তা জানা।', b:[
+  {t:'table', h:'ওয়াক্‌ফের চিহ্ন', head:['চিহ্ন','নাম','অর্থ'], rows:[
+    ['م','লাযিম','থামা জরুরি'],
+    ['لا','মামনু','থামা যাবে না'],
+    ['ج','জায়েয','থামা যায়, না থামলেও চলে'],
+    ['قلى','আওলা ওয়াক্‌ফ','থামা উত্তম'],
+    ['صلى','আওলা ওসল','না থেমে পড়া উত্তম'],
+    ['س','সাকতা','নিঃশ্বাস না ছেড়ে অল্প থামা']
+  ]},
+  {t:'note', h:'মনে রাখুন', li:['থামার সময় শেষ হরফ <b>সাকিন</b> করে পড়তে হয়।','অর্থ নষ্ট হয় এমন জায়গায় থামা যাবে না।','শ্বাস ফুরিয়ে গেলে সুবিধামতো জায়গায় থেমে আবার শুরু করা যায়।']},
+  {t:'unote', li:['ছাত্রকে শ্বাসের হিসাব শেখান — আয়াত ছোট ছোট ভাগে ভাগ করে পড়ান।']}
+]},
+
+{t:'মোটা ও পাতলা', s:'তাফখীম ও তারকীক', aim:'হরফ মোটা না পাতলা — শেষ পর্যায়ের অনুশীলন।', b:[
+  {t:'grid', h:'সবসময় মোটা — সাতটি', items:mk(['خ','ص','ض','غ','ط','ق','ظ'],'সবসময় মোটা করে পড়তে হবে')},
+  {t:'note', h:'অবস্থা অনুযায়ী', li:['<b>ل</b> — কেবল আল্লাহর নামে যবর বা পেশের পরে মোটা।','<b>ر</b> — যবর বা পেশে মোটা, যেরে পাতলা।','<b>ا</b> — আগের হরফ মোটা হলে মোটা, পাতলা হলে পাতলা।']},
+  {t:'ex', h:'পাশাপাশি মিলিয়ে দেখুন', items:[['سَ – صَ','সা – সোয়া'],['تَ – طَ','তা – তোয়া'],['ذَ – ظَ','যা – যোয়া'],['كَ – قَ','কা – ক্বা'],['دَ – ضَ','দা – দোয়া'],['هَ – حَ','হা – হা']]},
+  {t:'unote', li:['জোড়ায় জোড়ায় শোনালে পার্থক্য দ্রুত কানে বসে।']}
+]},
+
+{t:'শেষ পাতা', s:'পুনরাবৃত্তি ও দোয়া', aim:'শেখা বিষয়গুলো ঝালিয়ে নেওয়া।', b:[
+  {t:'note', h:'যা শিখলাম', li:['২৯ হরফ ও তাদের মাখরাজ।','হরকত, তানভীন, জযম, মাদ্দ ও তাশদীদ।','নূন সাকিন, মীম সাকিন ও গুন্নাহর নিয়ম।','মাদ্দের দশ প্রকার, লাম ও রার হুকুম, কলকলা ও ওয়াক্‌ফ।']},
+  {t:'ex', h:'দোয়া', items:[['رَبِّ زِدْنِي عِلْمًا','হে আমার রব, আমার জ্ঞান বাড়িয়ে দিন']]},
+  {t:'note', h:'পরামর্শ', li:['প্রতিদিন অল্প করে পড়ুন, তবে <b>নিয়ম করে</b> পড়ুন।','উস্তাদকে না শুনিয়ে নিজে নিজে উচ্চারণ ঠিক হয় না — মুখে মুখে শুনে নিন।']}
+]}
+];
+
+/* ===== অবস্থা ===== */
+const S = {
+  page: +(localStorage.getItem('aiq_page') || 0),
+  mode: localStorage.getItem('aiq_mode') || 'stu',
+  learned: new Set(JSON.parse(localStorage.getItem('aiq_learned') || '[]'))
+};
+const save = () => {
+  localStorage.setItem('aiq_page', S.page);
+  localStorage.setItem('aiq_mode', S.mode);
+  localStorage.setItem('aiq_learned', JSON.stringify([...S.learned]));
+};
+
+/* ===== থিম ও ফন্ট ===== */
+const H = document.documentElement;
+H.dataset.theme = localStorage.getItem('aiq_theme') || 'light';
+H.dataset.fs = localStorage.getItem('aiq_fs') || 'm';
+const bTheme = document.getElementById('bTheme');
+const setThemeIcon = () => bTheme.textContent = H.dataset.theme === 'dark' ? '☀️' : '🌙';
+setThemeIcon();
+bTheme.onclick = () => {
+  H.dataset.theme = H.dataset.theme === 'dark' ? 'light' : 'dark';
+  localStorage.setItem('aiq_theme', H.dataset.theme);
+  setThemeIcon();
+};
+document.getElementById('bFont').onclick = () => {
+  const o = ['s','m','l'];
+  H.dataset.fs = o[(o.indexOf(H.dataset.fs) + 1) % 3];
+  localStorage.setItem('aiq_fs', H.dataset.fs);
+};
+
+/* ===== মোড ===== */
+const chip = document.getElementById('chip'), chipTxt = document.getElementById('chipTxt'), hint = document.getElementById('hint');
+function applyMode(){
+  const u = S.mode === 'ust';
+  document.body.classList.toggle('ustad', u);
+  chip.className = 'chip ' + (u ? 'ust' : 'stu');
+  chipTxt.textContent = u ? 'উস্তাদ মোড' : 'ছাত্র মোড';
+  hint.textContent = u ? 'ঘরের কোণে ✓ চেপে শেখা হয়েছে চিহ্ন দিন' : 'হরফে চাপ দিন — নাম ও মাখরাজ দেখুন';
+}
+document.getElementById('bMode').onclick = () => {
+  if (S.mode === 'ust') { S.mode = 'stu'; }
+  else {
+    const c = prompt('উস্তাদ মোডের কোড লিখুন');
+    if (c === null) return;
+    if (c.trim().toUpperCase() !== 'ALIF-USTAD') { alert('কোড মেলেনি।'); return; }
+    S.mode = 'ust';
+  }
+  applyMode(); save(); render();
+};
+
+/* ===== অগ্রগতি ===== */
+function progress(){
+  const n = [...S.learned].length;
+  document.getElementById('ptxt').textContent = 'শেখা হয়েছে ' + BN(n) + ' / ' + BN(29);
+  document.getElementById('pfill').style.width = (n / 29 * 100) + '%';
+}
+
+/* ===== তৈরি করার সহায়ক ===== */
+function E(tag, cls, html){
+  const e = document.createElement(tag);
+  if (cls) e.className = cls;
+  if (html != null) e.innerHTML = html;
+  return e;
+}
+
+/* ===== ব্লক আঁকা ===== */
+function drawBlock(b){
+  const w = E('div','blk');
+  if (b.h) w.appendChild(E('h3', null, b.h));
+
+  if (b.t === 'grid'){
+    const g = E('div','grid');
+    b.items.forEach(it => {
+      const d = E('div','tile');
+      if (S.learned.has(it.a)) d.classList.add('done');
+      d.appendChild(E('span','ar', it.a));
+      d.appendChild(E('span','tick','✓'));
+      const tm = E('span','tmark','✓');
+      tm.onclick = ev => {
+        ev.stopPropagation();
+        S.learned.has(it.a) ? S.learned.delete(it.a) : S.learned.add(it.a);
+        d.classList.toggle('done');
+        save(); progress();
+      };
+      d.appendChild(tm);
+      d.onclick = () => openModal(it);
+      g.appendChild(d);
+    });
+    w.appendChild(g);
+  }
+
+  else if (b.t === 'row'){
+    const r = E('div','row');
+    b.items.forEach(x => { const p = E('div','pill'); p.appendChild(E('span','ar', x)); r.appendChild(p); });
+    w.appendChild(r);
+  }
+
+  else if (b.t === 'ex'){
+    const g = E('div','ex');
+    b.items.forEach(([a, s]) => {
+      const d = E('div','exi');
+      d.appendChild(E('span','ar', a));
+      d.appendChild(E('small', null, s));
+      g.appendChild(d);
+    });
+    w.appendChild(g);
+  }
+
+  else if (b.t === 'table'){
+    const tw = E('div','tw');
+    let html = '<table><thead><tr>' + b.head.map(h => '<th>' + h + '</th>').join('') + '</tr></thead><tbody>';
+    b.rows.forEach(r => {
+      html += '<tr>' + r.map(c => '<td>' + (/[\u0600-\u06FF]/.test(c) ? '<span class="ar">' + c + '</span>' : c) + '</td>').join('') + '</tr>';
+    });
+    tw.innerHTML = html + '</tbody></table>';
+    w.appendChild(tw);
+  }
+
+  else if (b.t === 'note'){
+    const u = E('ul','pt');
+    b.li.forEach(x => u.appendChild(E('li', null, x)));
+    w.appendChild(u);
+  }
+
+  else if (b.t === 'unote'){
+    const n = E('div','unote','<b>উস্তাদের নোট</b>');
+    const u = E('ul','pt');
+    b.li.forEach(x => u.appendChild(E('li', null, x)));
+    n.appendChild(u);
+    w.appendChild(n);
+  }
+
+  return w;
+}
+
+/* ===== পপ-আপ ===== */
+const mask = document.getElementById('mask');
+function openModal(it){
+  document.getElementById('mAr').textContent = it.a;
+  document.getElementById('mName').textContent = it.n || '';
+  document.getElementById('mMk').textContent = it.m || '';
+  const un = document.getElementById('mUn');
+  un.innerHTML = it.u ? '<b>উস্তাদের নোট:</b> ' + it.u : '';
+  un.style.display = (it.u && S.mode === 'ust') ? 'block' : 'none';
+  mask.classList.add('on');
+}
+document.getElementById('mClose').onclick = () => mask.classList.remove('on');
+mask.onclick = e => { if (e.target === mask) mask.classList.remove('on'); };
+
+/* ===== পৃষ্ঠা আঁকা ===== */
+const main = document.getElementById('main');
+function render(){
+  const p = PAGES[S.page];
+  main.innerHTML = '';
+  const box = E('div','page');
+  box.appendChild(E('div','pno','পৃষ্ঠা ' + BN(S.page + 1) + ' / ' + BN(PAGES.length)));
+  box.appendChild(E('h1', null, p.t));
+  box.appendChild(E('p','sub', p.s));
+  if (p.aim) box.appendChild(E('div','aim','<b>উদ্দেশ্য:</b> ' + p.aim));
+  p.b.forEach(b => box.appendChild(drawBlock(b)));
+  main.appendChild(box);
+  document.getElementById('bPrev').disabled = S.page === 0;
+  document.getElementById('bNext').disabled = S.page === PAGES.length - 1;
+  document.getElementById('jump').value = S.page;
+  window.scrollTo({top:0, behavior:'smooth'});
+  save();
+}
+
+/* ===== নেভিগেশন ===== */
+const jump = document.getElementById('jump');
+PAGES.forEach((p, i) => {
+  const o = document.createElement('option');
+  o.value = i;
+  o.textContent = 'পৃষ্ঠা ' + BN(i + 1) + ' — ' + p.t;
+  jump.appendChild(o);
+});
+jump.onchange = () => { S.page = +jump.value; render(); };
+document.getElementById('bPrev').onclick = () => { if (S.page > 0) { S.page--; render(); } };
+document.getElementById('bNext').onclick = () => { if (S.page < PAGES.length - 1) { S.page++; render(); } };
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight') document.getElementById('bNext').click();
+  if (e.key === 'ArrowLeft') document.getElementById('bPrev').click();
+  if (e.key === 'Escape') mask.classList.remove('on');
+});
+
+/* ===== শুরু ===== */
+if (S.page >= PAGES.length) S.page = 0;
+applyMode(); progress(); render();
+</script>
+</body>
+</html>
