@@ -6,88 +6,93 @@
 <title>আলিফিয়া ইলম — কায়দা</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root{
 --bg:#f2f5f9; --card:#ffffff; --soft:#f7f9fc; --line:#d3dbe6; --line2:#b9c4d4;
---ink:#0a1020; --ink2:#4a5568; --ar:#0a1020;
+--ink:#0a1020; --ink2:#475569; --ar:#0a1020;
 --g:#0d7a4f; --gbg:#e4f5ec; --r:#c02a35; --rbg:#fdeaec;
 --acc:#0d7a4f; --rad:16px; --sh:0 1px 3px rgba(16,24,40,.08),0 6px 18px rgba(16,24,40,.06);
 }
 html[data-theme="dark"]{
---bg:#0c1219; --card:#161e29; --soft:#1c2634; --line:#33465e; --line2:#48607d;
---ink:#f6f9fc; --ink2:#c8d4e2; --ar:#ffffff;
---g:#4ee3a4; --gbg:#0f3527; --r:#ff8f97; --rbg:#3a1a1e;
+--bg:#0c1219; --card:#161e29; --soft:#1c2634; --line:#34475f; --line2:#4a627f;
+--ink:#f7fafd; --ink2:#cbd6e4; --ar:#ffffff;
+--g:#4ee3a4; --gbg:#0f3527; --r:#ff939b; --rbg:#3a1a1e;
 --acc:#4ee3a4; --sh:0 1px 3px rgba(0,0,0,.5),0 6px 18px rgba(0,0,0,.35);
 }
-html[data-fs="s"]{--b:15.5px;--a:34px;--tile:58px;--q:26px;}
-html[data-fs="m"]{--b:17.5px;--a:42px;--tile:70px;--q:32px;}
-html[data-fs="l"]{--b:20px;--a:52px;--tile:84px;--q:39px;}
+html[data-fs="s"]{--b:16px;--a:34px;--tile:60px;--q:26px;}
+html[data-fs="m"]{--b:18px;--a:42px;--tile:72px;--q:32px;}
+html[data-fs="l"]{--b:20.5px;--a:52px;--tile:86px;--q:39px;}
 
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
 body{
- font-family:'Noto Sans Bengali',system-ui,sans-serif;
- font-size:var(--b); line-height:1.85; font-weight:500;
+ font-family:'Hind Siliguri',system-ui,sans-serif;
+ font-size:var(--b); line-height:1.95; font-weight:500;
  background:var(--bg); color:var(--ink);
  -webkit-user-select:none;user-select:none;
- overflow-x:hidden; padding-bottom:96px;
+ -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+ overflow-x:hidden; padding-bottom:100px;
  transition:background .2s,color .2s;
 }
-.ar{font-family:'Noto Naskh Arabic',serif;direction:rtl;color:var(--ar);font-weight:500;line-height:2.1;}
-.qr{font-family:'Amiri','Noto Naskh Arabic',serif;direction:rtl;color:var(--ar);}
+/* সংখ্যা পরিষ্কার দেখানোর জন্য */
+.num{font-weight:700;letter-spacing:.04em;padding:0 .06em;}
+.ar{font-family:'Noto Naskh Arabic',serif;direction:rtl;color:var(--ar);font-weight:500;line-height:2.15;}
 .wrap{max-width:760px;margin:0 auto;padding:0 12px;}
 
 /* ---------- header ---------- */
 header{position:sticky;top:0;z-index:40;background:var(--card);border-bottom:2px solid var(--line);}
 .hbar{display:flex;align-items:center;gap:8px;padding:10px 12px;max-width:760px;margin:0 auto;}
-.logo{width:40px;height:40px;flex:0 0 40px;border-radius:11px;background:var(--gbg);color:var(--g);
- display:grid;place-items:center;font-family:'Noto Naskh Arabic',serif;font-size:24px;font-weight:700;}
-.hname{flex:1 1 auto;min-width:0;font-weight:700;font-size:1.02em;line-height:1.3;}
-.hname small{display:block;font-weight:500;font-size:.72em;color:var(--ink2);}
-.ic{flex:0 0 auto;width:40px;height:40px;border-radius:11px;border:2px solid var(--line);
- background:var(--soft);color:var(--ink);font-size:.82em;font-weight:700;cursor:pointer;
- display:grid;place-items:center;font-family:inherit;}
+.logo{width:42px;height:42px;flex:0 0 42px;border-radius:12px;background:var(--gbg);color:var(--g);
+ display:grid;place-items:center;font-family:'Noto Naskh Arabic',serif;font-size:25px;font-weight:700;line-height:1;}
+.hname{flex:1 1 auto;min-width:0;font-weight:700;font-size:1.02em;line-height:1.45;
+ white-space:normal;overflow:visible;}
+.hname small{display:block;font-weight:500;font-size:.74em;color:var(--ink2);line-height:1.5;}
+.ic{flex:0 0 auto;width:42px;height:42px;border-radius:12px;border:2px solid var(--line);
+ background:var(--soft);color:var(--ink);font-size:.84em;font-weight:700;cursor:pointer;
+ display:grid;place-items:center;font-family:inherit;line-height:1;}
 .ic:active{transform:scale(.94);}
 .rolebar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:0 12px 10px;max-width:760px;margin:0 auto;}
-.chip{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;
- font-size:.8em;font-weight:700;border:2px solid;}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:4px 13px;border-radius:999px;
+ font-size:.82em;font-weight:700;border:2px solid;line-height:1.9;}
 .chip.s{color:var(--r);border-color:var(--r);background:var(--rbg);}
 .chip.u{color:var(--g);border-color:var(--g);background:var(--gbg);}
-.hint{font-size:.78em;color:var(--ink2);font-weight:500;}
-.pbwrap{max-width:760px;margin:0 auto;padding:0 12px 10px;}
-.pbtxt{font-size:.76em;color:var(--ink2);margin-bottom:5px;}
-.pb{height:8px;border-radius:99px;background:var(--soft);border:1px solid var(--line);overflow:hidden;display:flex;}
+.hint{font-size:.8em;color:var(--ink2);font-weight:500;line-height:1.7;}
+.pbwrap{max-width:760px;margin:0 auto;padding:0 12px 11px;}
+.pbtxt{font-size:.8em;color:var(--ink2);margin-bottom:6px;line-height:1.7;}
+.pb{height:9px;border-radius:99px;background:var(--soft);border:1px solid var(--line);overflow:hidden;display:flex;}
 .pb i{display:block;height:100%;}
 .pb .fs{background:var(--r);} .pb .fu{background:var(--g);}
 
 /* ---------- cards ---------- */
 .card{background:var(--card);border:2px solid var(--line);border-radius:var(--rad);
- box-shadow:var(--sh);padding:16px 14px;margin:14px 0;overflow:hidden;}
-.ptitle{font-size:1.28em;font-weight:700;line-height:1.4;}
-.psub{color:var(--ink2);font-size:.86em;margin-top:2px;}
-.paim{margin-top:10px;padding:10px 12px;border-right:5px solid var(--acc);
- background:var(--soft);border-radius:10px;font-size:.88em;}
-.bt{font-weight:700;font-size:1em;margin:0 0 10px;padding-bottom:7px;border-bottom:2px solid var(--line);}
+ box-shadow:var(--sh);padding:16px 14px;margin:14px 0;overflow:visible;}
+.ptitle{font-size:1.3em;font-weight:700;line-height:1.55;}
+.psub{color:var(--ink2);font-size:.88em;margin-top:2px;line-height:1.7;}
+.paim{margin-top:11px;padding:11px 13px;border-right:5px solid var(--acc);
+ background:var(--soft);border-radius:10px;font-size:.9em;line-height:1.8;}
+.bt{font-weight:700;font-size:1em;margin:0 0 11px;padding-bottom:8px;border-bottom:2px solid var(--line);line-height:1.7;}
 
 /* ---------- note ---------- */
-.note{background:var(--soft);border:2px solid var(--line);border-radius:12px;padding:12px;margin:12px 0;}
-.note h4{font-size:.95em;margin-bottom:7px;color:var(--acc);}
-.note p{font-size:.92em;margin:6px 0;}
+.note{background:var(--soft);border:2px solid var(--line);border-radius:12px;padding:13px;margin:13px 0;}
+.note h4{font-size:.96em;margin-bottom:7px;color:var(--acc);line-height:1.7;}
+.note p{font-size:.94em;margin:7px 0;line-height:1.9;}
 .note b{color:var(--acc);font-weight:700;}
-.unote{background:var(--gbg);border:2px dashed var(--g);border-radius:12px;padding:12px;margin:12px 0;font-size:.9em;}
+.unote{background:var(--gbg);border:2px dashed var(--g);border-radius:12px;padding:13px;margin:13px 0;
+ font-size:.92em;line-height:1.9;}
 .unote strong{display:block;color:var(--g);margin-bottom:4px;font-size:.88em;}
 
 /* ---------- tiles ---------- */
 .tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(var(--tile),1fr));gap:9px;}
 .tile{position:relative;aspect-ratio:1/1;border:2px solid var(--line);border-radius:13px;
- background:var(--card);display:grid;place-items:center;cursor:pointer;overflow:hidden;}
+ background:var(--card);display:flex;flex-direction:column;align-items:center;justify-content:center;
+ gap:2px;cursor:pointer;padding:6px 3px 5px;}
 .tile:active{border-color:var(--line2);}
-.tile span{font-family:'Noto Naskh Arabic',serif;font-size:var(--a);color:var(--ar);line-height:1;
- padding-bottom:6px;font-weight:500;}
-.tile em{position:absolute;bottom:3px;font-style:normal;font-size:.62em;color:var(--ink2);}
-.mk{position:absolute;top:3px;right:3px;width:22px;height:22px;border-radius:7px;
+.tile span{font-family:'Noto Naskh Arabic',serif;font-size:var(--a);color:var(--ar);
+ line-height:1.15;font-weight:500;}
+.tile em{font-style:normal;font-size:.64em;color:var(--ink2);line-height:1.4;text-align:center;}
+.mk{position:absolute;top:4px;right:4px;width:22px;height:22px;border-radius:7px;
  border:2px solid var(--line);background:var(--card);cursor:pointer;padding:0;
- display:grid;place-items:center;}
+ display:grid;place-items:center;z-index:2;}
 .mk i{display:block;width:8px;height:8px;border-radius:99px;background:var(--line2);}
 .mk.on-s{border-color:var(--r);background:var(--rbg);} .mk.on-s i{background:var(--r);}
 .mk.on-u{border-color:var(--g);background:var(--gbg);} .mk.on-u i{background:var(--g);}
@@ -97,87 +102,93 @@ header{position:sticky;top:0;z-index:40;background:var(--card);border-bottom:2px
 /* ---------- rows ---------- */
 .chips{display:flex;flex-wrap:wrap;gap:8px;}
 .ch{border:2px solid var(--line);border-radius:11px;background:var(--soft);
- padding:7px 13px;font-family:'Noto Naskh Arabic',serif;direction:rtl;
- font-size:calc(var(--a) * .74);color:var(--ar);line-height:1.9;}
-.lines{display:flex;flex-direction:column;gap:8px;}
+ padding:8px 14px;font-family:'Noto Naskh Arabic',serif;direction:rtl;
+ font-size:calc(var(--a) * .74);color:var(--ar);line-height:2;}
+.lines{display:flex;flex-direction:column;gap:9px;}
 .ln{position:relative;display:flex;align-items:center;gap:10px;flex-wrap:wrap;
- border:2px solid var(--line);border-radius:12px;background:var(--soft);padding:9px 34px 9px 12px;}
+ border:2px solid var(--line);border-radius:12px;background:var(--soft);padding:10px 36px 10px 13px;}
 .ln .a{font-family:'Noto Naskh Arabic',serif;direction:rtl;font-size:calc(var(--a) * .72);
- color:var(--ar);line-height:1.9;flex:1 1 130px;min-width:0;overflow-wrap:anywhere;}
-.ln .m{font-size:.86em;color:var(--ink2);flex:1 1 130px;min-width:0;}
-.ln .mk{top:6px;right:6px;}
+ color:var(--ar);line-height:2;flex:1 1 130px;min-width:0;overflow-wrap:anywhere;}
+.ln .m{font-size:.88em;color:var(--ink2);flex:1 1 130px;min-width:0;line-height:1.85;overflow-wrap:anywhere;}
+.ln .mk{top:7px;right:7px;}
 .ln.big .a{font-size:calc(var(--a) * .58);flex:1 1 100%;text-align:right;}
 .ln.big .m{flex:1 1 100%;}
 
 /* ---------- table ---------- */
-.tb{width:100%;border-collapse:collapse;font-size:.88em;}
-.tb th,.tb td{border:2px solid var(--line);padding:8px 6px;text-align:center;}
-.tb th{background:var(--soft);font-weight:700;font-size:.88em;}
-.tb td.a{font-family:'Noto Naskh Arabic',serif;font-size:calc(var(--a)*.62);color:var(--ar);}
+.tbx{width:100%;overflow-x:auto;}
+.tb{width:100%;border-collapse:collapse;font-size:.9em;}
+.tb th,.tb td{border:2px solid var(--line);padding:9px 6px;text-align:center;line-height:1.8;}
+.tb th{background:var(--soft);font-weight:700;font-size:.9em;}
+.tb td.a{font-family:'Noto Naskh Arabic',serif;font-size:calc(var(--a)*.62);color:var(--ar);line-height:1.9;}
 
 /* ---------- surah ---------- */
-.smeta{text-align:center;margin-bottom:12px;}
-.sname{font-family:'Amiri',serif;font-size:1.5em;color:var(--ar);font-weight:700;}
-.sbn{font-weight:700;font-size:1.08em;}
-.sinfo{font-size:.8em;color:var(--ink2);}
+.smeta{text-align:center;margin-bottom:13px;}
+.sname{font-family:'Amiri',serif;font-size:1.55em;color:var(--ar);font-weight:700;line-height:2;}
+.sbn{font-weight:700;font-size:1.1em;line-height:1.7;}
+.sinfo{font-size:.83em;color:var(--ink2);line-height:1.7;}
 .mushaf{border:2px solid var(--line);border-radius:14px;background:var(--soft);
- padding:16px 14px;direction:rtl;text-align:center;
- font-family:'Amiri','Noto Naskh Arabic',serif;font-size:var(--q);line-height:2.35;color:var(--ar);}
-.ayn{display:inline-grid;place-items:center;width:1.5em;height:1.5em;margin:0 .25em;
+ padding:18px 14px;direction:rtl;text-align:center;
+ font-family:'Amiri','Noto Naskh Arabic',serif;font-size:var(--q);line-height:2.5;color:var(--ar);}
+.ayn{display:inline-grid;place-items:center;width:1.5em;height:1.5em;margin:0 .26em;
  border:2px solid var(--acc);border-radius:99px;color:var(--acc);
  font-size:.5em;font-family:'Noto Naskh Arabic',serif;line-height:1;vertical-align:middle;font-weight:700;}
-.means{margin-top:14px;}
-.mn{display:flex;gap:10px;align-items:flex-start;padding:8px 2px;border-bottom:1px dashed var(--line);font-size:.9em;}
+.means{margin-top:15px;}
+.mn{display:flex;gap:11px;align-items:flex-start;padding:9px 2px;border-bottom:1px dashed var(--line);
+ font-size:.92em;line-height:1.9;}
 .mn:last-child{border-bottom:0;}
-.mn b{flex:0 0 26px;height:26px;border-radius:99px;background:var(--soft);border:2px solid var(--line);
- display:grid;place-items:center;font-size:.72em;color:var(--acc);}
+.mn b{flex:0 0 27px;height:27px;border-radius:99px;background:var(--soft);border:2px solid var(--line);
+ display:grid;place-items:center;font-size:.74em;color:var(--acc);font-weight:700;line-height:1;}
 
 /* ---------- home ---------- */
 .cover{text-align:center;padding:26px 6px 10px;}
-.cover .bsm{font-family:'Amiri',serif;font-size:1.7em;color:var(--ar);line-height:2;}
-.cover h1{font-size:1.5em;margin-top:6px;}
-.cover p{color:var(--ink2);font-size:.9em;margin-top:6px;}
-.big{display:flex;gap:14px;align-items:center;width:100%;text-align:right;
+.cover .bsm{font-family:'Amiri',serif;font-size:1.75em;color:var(--ar);line-height:2.2;}
+.cover h1{font-size:1.52em;margin-top:6px;line-height:1.6;}
+.cover p{color:var(--ink2);font-size:.92em;margin-top:6px;line-height:1.8;}
+.big{display:flex;gap:14px;align-items:flex-start;width:100%;
  background:var(--card);border:2px solid var(--line);border-radius:var(--rad);
- box-shadow:var(--sh);padding:16px 14px;margin:12px 0;cursor:pointer;font-family:inherit;color:inherit;}
+ box-shadow:var(--sh);padding:16px 14px;margin:12px 0;cursor:pointer;font-family:inherit;color:inherit;
+ text-align:left;overflow:visible;}
 .big .bi{flex:0 0 54px;height:54px;border-radius:14px;display:grid;place-items:center;font-size:26px;
- font-family:'Noto Naskh Arabic',serif;}
-.big .bx{flex:1 1 auto;min-width:0;text-align:left;}
-.big .bx b{display:block;font-size:1.12em;}
-.big .bx span{display:block;font-size:.84em;color:var(--ink2);line-height:1.6;margin-top:2px;}
-.big .bx em{display:block;font-style:normal;font-size:.76em;color:var(--ink2);margin-top:6px;}
+ font-family:'Noto Naskh Arabic',serif;line-height:1;}
+.big .bx{flex:1 1 auto;min-width:0;}
+.big .bx b{display:block;font-size:1.14em;line-height:1.7;}
+.big .bx span{display:block;font-size:.86em;color:var(--ink2);line-height:1.8;margin-top:2px;
+ overflow-wrap:anywhere;}
+.big .bx em{display:block;font-style:normal;font-size:.8em;color:var(--ink2);margin-top:7px;line-height:1.7;}
 
-/* ---------- role screen ---------- */
-.role{min-height:70vh;display:flex;flex-direction:column;justify-content:center;gap:12px;padding:20px 4px;}
+/* ---------- role ---------- */
+.role{min-height:68vh;display:flex;flex-direction:column;justify-content:center;gap:12px;padding:18px 4px;}
 .rbtn{width:100%;padding:20px 16px;border-radius:var(--rad);border:3px solid;background:var(--card);
- font-family:inherit;font-size:1.05em;font-weight:700;color:inherit;cursor:pointer;text-align:left;}
-.rbtn span{display:block;font-weight:500;font-size:.8em;color:var(--ink2);margin-top:4px;}
+ font-family:inherit;font-size:1.06em;font-weight:700;color:inherit;cursor:pointer;text-align:left;line-height:1.7;}
+.rbtn span{display:block;font-weight:500;font-size:.82em;color:var(--ink2);margin-top:4px;line-height:1.8;}
 .rbtn.s{border-color:var(--r);} .rbtn.u{border-color:var(--g);}
 
 /* ---------- nav ---------- */
 nav{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--card);border-top:2px solid var(--line);}
 .nb{display:flex;gap:7px;align-items:center;padding:9px 12px;max-width:760px;margin:0 auto;}
-.nbtn{flex:0 0 auto;padding:11px 13px;border-radius:12px;border:2px solid var(--line);
- background:var(--soft);color:var(--ink);font-family:inherit;font-weight:700;font-size:.85em;cursor:pointer;}
+.nbtn{flex:0 0 auto;padding:11px 14px;border-radius:12px;border:2px solid var(--line);
+ background:var(--soft);color:var(--ink);font-family:inherit;font-weight:700;font-size:.88em;
+ cursor:pointer;line-height:1.5;}
 .nbtn.go{background:var(--acc);border-color:var(--acc);color:#fff;}
 html[data-theme="dark"] .nbtn.go{color:#06231a;}
 .nbtn:disabled{opacity:.35;}
 .sel{flex:1 1 auto;min-width:0;padding:11px 8px;border-radius:12px;border:2px solid var(--line);
- background:var(--soft);color:var(--ink);font-family:inherit;font-size:.85em;font-weight:600;}
-.foot{text-align:center;font-size:.76em;color:var(--ink2);padding:4px 0 8px;}
+ background:var(--soft);color:var(--ink);font-family:inherit;font-size:.88em;font-weight:600;line-height:1.5;}
+.foot{text-align:center;font-size:.78em;color:var(--ink2);padding:3px 0 9px;line-height:1.7;}
 
 /* ---------- modal ---------- */
 .mask{position:fixed;inset:0;z-index:60;background:rgba(6,10,18,.62);
- display:none;align-items:flex-end;justify-content:center;padding:0;}
+ display:none;align-items:flex-end;justify-content:center;}
 .mask.on{display:flex;}
 .modal{width:100%;max-width:760px;background:var(--card);border-radius:20px 20px 0 0;
- border-top:3px solid var(--line);padding:18px 16px 26px;}
-.modal .mar{font-family:'Noto Naskh Arabic',serif;font-size:calc(var(--a)*1.5);text-align:center;color:var(--ar);line-height:1.5;}
-.modal h3{text-align:center;font-size:1.2em;margin:4px 0 12px;}
-.mrow{display:flex;gap:10px;padding:9px 0;border-bottom:1px dashed var(--line);font-size:.9em;}
-.mrow b{flex:0 0 92px;color:var(--ink2);font-weight:600;}
+ border-top:3px solid var(--line);padding:18px 16px 28px;max-height:88vh;overflow-y:auto;}
+.modal .mar{font-family:'Noto Naskh Arabic',serif;font-size:calc(var(--a)*1.5);text-align:center;
+ color:var(--ar);line-height:1.7;}
+.modal h3{text-align:center;font-size:1.22em;margin:4px 0 13px;line-height:1.6;}
+.mrow{display:flex;gap:10px;padding:10px 0;border-bottom:1px dashed var(--line);font-size:.92em;line-height:1.85;}
+.mrow b{flex:0 0 96px;color:var(--ink2);font-weight:600;}
 .close{width:100%;margin-top:16px;padding:13px;border-radius:12px;border:2px solid var(--line);
- background:var(--soft);font-family:inherit;font-weight:700;font-size:.92em;color:var(--ink);cursor:pointer;}
+ background:var(--soft);font-family:inherit;font-weight:700;font-size:.94em;color:var(--ink);cursor:pointer;}
 </style>
 </head>
 <body>
@@ -186,43 +197,39 @@ html[data-theme="dark"] .nbtn.go{color:#06231a;}
   <div class="hbar">
     <div class="logo">ا</div>
     <div class="hname">আলিফিয়া ইলম<small>কায়দা শাখা</small></div>
-    <button class="ic" id="bTh" title="আলো / অন্ধকার">🌙</button>
-    <button class="ic" id="bFs" title="লেখার আকার">অ+</button>
-    <button class="ic" id="bRo" title="ভূমিকা বদল">↺</button>
+    <button class="ic" id="bTh">🌙</button>
+    <button class="ic" id="bFs">অ+</button>
+    <button class="ic" id="bRo">↺</button>
   </div>
   <div class="rolebar" id="rolebar"></div>
   <div class="pbwrap" id="pbwrap"></div>
 </header>
 
 <main class="wrap" id="main"></main>
-
 <nav id="nav"></nav>
-
 <div class="mask" id="mask"><div class="modal" id="modal"></div></div>
 
 <script>
-/* ===================== ছোট সহায়ক ===================== */
 const $=s=>document.querySelector(s);
 const BN=n=>String(n).replace(/[0-9]/g,d=>'০১২৩৪৫৬৭৮৯'[d]);
+const NB=n=>'<span class="num">'+BN(n)+'</span>';
 const AR=n=>String(n).replace(/[0-9]/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]);
-function E(tag,cls,html){const e=document.createElement(tag);if(cls)e.className=cls;if(html!=null)e.innerHTML=html;return e;}
+function E(t,c,h){const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e;}
 
-/* ===================== ব্লক তৈরির সহায়ক ===================== */
-const note =(t,l)=>({k:'note',t,l});
-const un   =(t)=>({k:'un',t});
-const grid =(items)=>({k:'grid',items});
-const row  =(t,s)=>({k:'row',t,s});
-const ex   =(t,l)=>({k:'ex',t,l});
-const big  =(t,l)=>({k:'big',t,l});
-const tbl  =(t,h,r)=>({k:'tbl',t,h,r});
-const sura =(bn,arn,info,ayat,mean)=>({k:'sura',bn,arn,info,ayat,mean});
+const note=(t,l)=>({k:'note',t,l});
+const un=(t)=>({k:'un',t});
+const grid=(items)=>({k:'grid',items});
+const row=(t,s)=>({k:'row',t,s});
+const ex=(t,l)=>({k:'ex',t,l});
+const big=(t,l)=>({k:'big',t,l});
+const tbl=(t,h,r)=>({k:'tbl',t,h,r});
+const sura=(bn,arn,info,ayat,mean)=>({k:'sura',bn,arn,info,ayat,mean});
 
-/* ===================== ২৯ হরফ ===================== */
 const HORF=[
 ['ا','আলিফ','মুখগহ্বর (জাওফ)','টান ছাড়া সোজা, হালকা করে পড়ুন।'],
 ['ب','বা','দুই ঠোঁট','ঠোঁট মিলিয়ে ছেড়ে দিন — বাংলা "ব" এর মতো।'],
 ['ت','তা','জিহ্বার আগা ও উপরের দাঁতের গোড়া','পাতলা "ত", জোর দেবেন না।'],
-['ث','ছা','জিহ্বার আগা ও উপরের দাঁতের আগা','জিহ্বার আগা দাঁতের ফাঁকে — ইংরেজি think এর মতো।'],
+['ث','ছা','জিহ্বার আগা ও উপরের দাঁতের আগা','জিহ্বার আগা দাঁতের ফাঁকে।'],
 ['ج','জীম','জিহ্বার মাঝ ও উপরের তালু','পরিষ্কার "জ", "য" নয়।'],
 ['ح','হা','কণ্ঠনালীর মাঝখান','গলা থেকে গরম নিঃশ্বাসের মতো "হ"।'],
 ['خ','খা','কণ্ঠনালীর উপরের ভাগ','গলার উপর থেকে মোটা "খ"।'],
@@ -250,34 +257,33 @@ const HORF=[
 ['ي','ইয়া','জিহ্বার মাঝ ও উপরের তালু','"ইয়া" — জিহ্বার মাঝ তালুতে।']
 ];
 
-/* ===================== কায়দার পৃষ্ঠাগুলো ===================== */
 const P=[
 
 {t:'শুরুর কথা',s:'পড়া শুরু করার আগে',aim:'কী শিখব, কীভাবে শিখব — সেটা জেনে নেওয়া।',b:[
 note('এই বইটি কীভাবে সাজানো',[
 'প্রথমে <b>এক একটি হরফ</b>, তারপর <b>হরকত</b>, তারপর <b>শব্দ</b>, শেষে <b>বাক্য ও সূরা</b>।',
-'প্রতিটি পৃষ্ঠার উপরে লেখা আছে সেই পৃষ্ঠার উদ্দেশ্য — কী শিখতে হবে।',
+'প্রতিটি পৃষ্ঠার উপরে সেই পৃষ্ঠার উদ্দেশ্য লেখা আছে।',
 'কোনো হরফে চাপ দিলে তার নাম, মাখরাজ ও পড়ার নিয়ম দেখা যাবে।']),
 note('চিহ্ন দেওয়ার নিয়ম',[
 'প্রতিটি ঘরের <b>কোণে ছোট বোতাম</b> আছে। পড়া হয়ে গেলে সেখানে চাপ দিন।',
 'ছাত্রের চিহ্ন <b>লাল</b>, উস্তাদের চিহ্ন <b>সবুজ</b>।',
-'লেখায় চাপ দিলে রঙ বদলাবে না — শুধু কোণের বোতামে চাপ দিলেই চিহ্ন বসবে।']),
+'লেখায় চাপ দিলে রঙ বদলাবে না — শুধু কোণের বোতামেই চিহ্ন বসবে।']),
 note('পড়ার আদব',[
 'শুরুতে <b>আউযুবিল্লাহ</b> ও <b>বিসমিল্লাহ</b> পড়ুন।',
 'ধীরে পড়ুন। দ্রুত পড়ার চেয়ে <b>শুদ্ধ পড়া</b> অনেক বড় কথা।',
 'প্রতিদিন অল্প, কিন্তু নিয়মিত — এটাই সবচেয়ে ভালো নিয়ম।']),
-un('প্রথম দিনেই বেশি পৃষ্ঠা দেবেন না। এক পৃষ্ঠা ভালো করে হলে পরের পৃষ্ঠায় যান।')
+un('প্রথম দিনেই বেশি পৃষ্ঠা দেবেন না। এক পৃষ্ঠা ভালো হলে পরেরটায় যান।')
 ]},
 
-{t:'উনত্রিশ (২৯) হরফ',s:'আরবি বর্ণমালা',aim:'প্রতিটি হরফ চিনতে ও আলাদা করে বলতে পারা।',b:[
-note('নিয়ম',['আরবিতে মোট <b>উনত্রিশ (২৯)</b>টি হরফ। লেখা ও পড়া হয় <b>ডান দিক থেকে বাঁ দিকে</b>।',
+{t:'উনত্রিশ ('+BN(29)+') হরফ',s:'আরবি বর্ণমালা',aim:'প্রতিটি হরফ চিনতে ও আলাদা করে বলতে পারা।',b:[
+note('নিয়ম',['আরবিতে মোট <b>উনত্রিশ ('+NB(29)+')</b>টি হরফ। লেখা ও পড়া হয় <b>ডান দিক থেকে বাঁ দিকে</b>।',
 'যেকোনো হরফে চাপ দিলে তার <b>নাম, মাখরাজ ও পড়ার নিয়ম</b> দেখা যাবে।']),
 grid(HORF.map((h,i)=>({ar:h[0],lab:h[1],idx:i}))),
-un('একসাথে সব নয় — প্রতিদিন পাঁচ থেকে সাতটি হরফ ধরিয়ে দিন, পরদিন আগেরগুলো একবার শুনে নিন।')
+un('একসাথে সব নয় — প্রতিদিন পাঁচ থেকে সাতটি হরফ ধরান, পরদিন আগেরগুলো শুনে নিন।')
 ]},
 
 {t:'হরফের তিন রূপ',s:'শুরু · মাঝ · শেষ',aim:'একই হরফ শব্দের ভিতরে বদলে গেলেও চিনতে পারা।',b:[
-note('নিয়ম',['আরবি হরফ শব্দের <b>শুরুতে</b>, <b>মাঝে</b> ও <b>শেষে</b> আলাদা চেহারা নেয়। কিন্তু হরফ একই থাকে, আওয়াজও একই থাকে।',
+note('নিয়ম',['আরবি হরফ শব্দের <b>শুরুতে</b>, <b>মাঝে</b> ও <b>শেষে</b> আলাদা চেহারা নেয়। কিন্তু হরফ একই, আওয়াজও একই।',
 'ছয়টি হরফ (<b>ا د ذ ر ز و</b>) পরের হরফের সাথে জোড়া লাগে না — এদের পরে ফাঁক থাকে।']),
 tbl('কয়েকটি উদাহরণ',['হরফ','শুরুতে','মাঝে','শেষে'],[
 ['ب','بـ','ـبـ','ـب'],['ج','جـ','ـجـ','ـج'],['س','سـ','ـسـ','ـس'],
@@ -285,21 +291,21 @@ tbl('কয়েকটি উদাহরণ',['হরফ','শুরুতে'
 ['ي','يـ','ـيـ','ـي'],['م','مـ','ـمـ','ـم']]),
 tbl('যে হরফগুলো জোড়া লাগে না',['হরফ','শব্দে'],[
 ['ا','بَاب'],['د','يَد'],['ذ','أَخَذ'],['ر','بَر'],['ز','عَزَّ'],['و','هُو']]),
-un('বোর্ডে একটি হরফ তিন জায়গায় লিখে দেখান — ছাত্র নিজে না দেখলে এটি মুখস্থ হয় না।')
+un('বোর্ডে একটি হরফ তিন জায়গায় লিখে দেখান — নিজে না দেখলে এটি বোঝে না।')
 ]},
 
 {t:'দেখতে কাছাকাছি হরফ',s:'সাবধানে আলাদা করুন',aim:'চেহারায় মিল আছে এমন হরফ ভুল না করা।',b:[
 note('নিয়ম',['কিছু হরফের <b>আকৃতি এক</b>, শুধু <b>নোকতার সংখ্যা ও জায়গা</b> আলাদা। নোকতা গুনে নিন, তারপর পড়ুন।']),
 ex('নোকতা গুনে পড়ুন',[
-['ب ت ث','বা (নিচে ১) · তা (উপরে ২) · ছা (উপরে ৩)'],
-['ج ح خ','জীম (ভিতরে ১) · হা (নোকতা নেই) · খা (উপরে ১)'],
-['د ذ','দাল (নোকতা নেই) · যাল (উপরে ১)'],
-['ر ز','রা (নোকতা নেই) · যা (উপরে ১)'],
-['س ش','সীন (নোকতা নেই) · শীন (উপরে ৩)'],
-['ص ض','ছোয়াদ (নোকতা নেই) · দোয়াদ (উপরে ১)'],
-['ط ظ','ত্বোয়া (নোকতা নেই) · যোয়া (উপরে ১)'],
-['ع غ','আইন (নোকতা নেই) · গাইন (উপরে ১)'],
-['ف ق','ফা (উপরে ১) · ক্বাফ (উপরে ২)']]),
+['ب ت ث','বা (নিচে '+NB(1)+') · তা (উপরে '+NB(2)+') · ছা (উপরে '+NB(3)+')'],
+['ج ح خ','জীম (ভিতরে '+NB(1)+') · হা (নোকতা নেই) · খা (উপরে '+NB(1)+')'],
+['د ذ','দাল (নোকতা নেই) · যাল (উপরে '+NB(1)+')'],
+['ر ز','রা (নোকতা নেই) · যা (উপরে '+NB(1)+')'],
+['س ش','সীন (নোকতা নেই) · শীন (উপরে '+NB(3)+')'],
+['ص ض','ছোয়াদ (নোকতা নেই) · দোয়াদ (উপরে '+NB(1)+')'],
+['ط ظ','ত্বোয়া (নোকতা নেই) · যোয়া (উপরে '+NB(1)+')'],
+['ع غ','আইন (নোকতা নেই) · গাইন (উপরে '+NB(1)+')'],
+['ف ق','ফা (উপরে '+NB(1)+') · ক্বাফ (উপরে '+NB(2)+')']]),
 un('এই পৃষ্ঠাটি বারবার ফিরে দেখুন। বেশিরভাগ ভুল এখান থেকেই হয়।')
 ]},
 
@@ -330,7 +336,7 @@ ex('উচ্চারণ',[
 ['ظِ عِ غِ فِ','যি · ই‘ · গি · ফি'],
 ['قِ كِ لِ مِ','ক্বি · কি · লি · মি'],
 ['نِ وِ هِ يِ','নি · ওয়ি · হি · ইয়ি']]),
-un('যের পড়ার সময় চোয়াল একটু নিচে নামে — ছাত্রকে মুখ দেখিয়ে বুঝিয়ে দিন।')
+un('যের পড়ার সময় চোয়াল একটু নিচে নামে — মুখ দেখিয়ে বুঝিয়ে দিন।')
 ]},
 
 {t:'পেশ',s:'উ — এর আওয়াজ',aim:'পেশওয়ালা হরফ সঠিকভাবে পড়তে পারা।',b:[
@@ -345,13 +351,13 @@ ex('উচ্চারণ',[
 ['ظُ عُ غُ فُ','যু · উ‘ · গু · ফু'],
 ['قُ كُ لُ مُ','ক্বু · কু · লু · মু'],
 ['نُ وُ هُ يُ','নু · ওয়ু · হু · ইয়ু']]),
-un('পেশে ঠোঁট গোল না হলে আওয়াজ "অ" হয়ে যায় — এটা খেয়াল রাখবেন।')
+un('পেশে ঠোঁট গোল না হলে আওয়াজ "অ" হয়ে যায় — খেয়াল রাখবেন।')
 ]},
 
 {t:'তিন হরকত একসাথে',s:'যবর · যের · পেশ',aim:'তিনটি হরকত না দেখে আলাদা করতে পারা।',b:[
 note('নিয়ম',['এবার তিনটি হরকত একসাথে অভ্যাস। প্রতিটি হরফ পড়ুন <b>আ — ই — উ</b> এই ক্রমে।']),
 row('একসাথে অভ্যাস','أَ أِ أُ|بَ بِ بُ|تَ تِ تُ|ثَ ثِ ثُ|جَ جِ جُ|حَ حِ حُ|خَ خِ خُ|دَ دِ دُ|ذَ ذِ ذُ|رَ رِ رُ|زَ زِ زُ|سَ سِ سُ|شَ شِ شُ|صَ صِ صُ|ضَ ضِ ضُ|طَ طِ طُ|ظَ ظِ ظُ|عَ عِ عُ|غَ غِ غُ|فَ فِ فُ|قَ قِ قُ|كَ كِ كُ|لَ لِ لُ|مَ مِ مُ|نَ نِ نُ|وَ وِ وُ|هَ هِ هُ|يَ يِ يُ'),
-un('এলোমেলোভাবে ধরুন — যেমন শুধু পেশগুলো, তারপর শুধু যেরগুলো। তাহলে মুখস্থ নয়, সত্যিই চেনা হবে।')
+un('এলোমেলোভাবে ধরুন — শুধু পেশগুলো, তারপর শুধু যেরগুলো। তাহলে সত্যিই চেনা হবে।')
 ]},
 
 {t:'দুই যবর',s:'তানবীন — আন',aim:'দুই যবরে নূনের আওয়াজ আনতে পারা।',b:[
@@ -393,7 +399,7 @@ ex('উচ্চারণ',[
 ['ظٌ عٌ غٌ فٌ','যুন · উ‘ন · গুন · ফুন'],
 ['قٌ كٌ لٌ مٌ','ক্বুন · কুন · লুন · মুন'],
 ['نٌ وٌ هٌ يٌ','নুন · ওয়ুন · হুন · ইয়ুন']]),
-un('তিনটি তানবীন একসাথে ধরার আগে আলাদা আলাদা করে পাকা করিয়ে নিন।')
+un('তিনটি তানবীন একসাথে ধরার আগে আলাদা আলাদা পাকা করিয়ে নিন।')
 ]},
 
 {t:'তিন তানবীন একসাথে',s:'আন · ইন · উন',aim:'তিন তানবীন দ্রুত আলাদা করতে পারা।',b:[
@@ -414,7 +420,7 @@ ex('উচ্চারণ',[
 ['أَعْ أَغْ أَفْ','আ‘ · আগ্ · আফ্'],
 ['أَقْ أَكْ أَلْ','আক্ব্ · আক্ · আল্'],
 ['أَمْ أَنْ أَهْ','আম্ · আন্ · আহ্']]),
-un('সাকিনে থেমে যেতে হয় — টেনে নয়, ঝুলিয়েও নয়। এক জায়গায় আটকে যাওয়ার অনুভূতি।')
+un('সাকিনে থেমে যেতে হয় — টেনে নয়, ঝুলিয়েও নয়।')
 ]},
 
 {t:'তাশদীদ — আলিফ দিয়ে',s:'আব্বা · আব্বি · আব্বু',aim:'তাশদীদওয়ালা হরফ দুইবার পড়তে পারা।',b:[
@@ -450,7 +456,7 @@ ex('উচ্চারণ',[
 ['أَوَّ أَوِّ أَوُّ','আউয়া · আউয়ি · আউয়ু'],
 ['أَهَّ أَهِّ أَهُّ','আহ্হা · আহ্হি · আহ্হু'],
 ['أَيَّ أَيِّ أَيُّ','আইয়া · আইয়ি · আইয়ু']]),
-un('তাশদীদের হরফে একটু চাপ দিয়ে ধরে পড়ান। ছাত্র যেন স্পষ্ট দুইবার হরফ শুনতে পায় — একবার হলে ভুল।')
+un('তাশদীদের হরফে একটু চাপ দিয়ে ধরে পড়ান। ছাত্র যেন স্পষ্ট দুইবার হরফ শোনে — একবার হলে ভুল।')
 ]},
 
 {t:'তাশদীদওয়ালা শব্দ',s:'শব্দের ভিতরে তাশদীদ',aim:'আসল শব্দে তাশদীদ চিনে পড়তে পারা।',b:[
@@ -467,14 +473,14 @@ ex('পড়ুন',[
 ['الطَّيِّب','আত্-তাইয়িব — পবিত্র'],
 ['جَنَّة','জান্নাহ — বাগান'],
 ['حَقًّا','হাক্কান — সত্যিই']]),
-un('তাশদীদ ছুটে গেলে অর্থ বদলে যায় — যেমন رَبَنَا আর رَبَّنَا এক নয়। এটা বুঝিয়ে দিন।')
+un('তাশদীদ ছুটে গেলে অর্থ বদলে যায় — رَبَنَا আর رَبَّنَا এক নয়। এটা বুঝিয়ে দিন।')
 ]},
 
 {t:'মাদ্দ — টেনে পড়া',s:'এক আলিফ পরিমাণ',aim:'কোথায় টান হবে আর কোথায় হবে না, তা বোঝা।',b:[
 note('নিয়ম',['<b>যবরের পরে আলিফ</b> থাকলে টান হয় — যেমন بَا = <b>বা</b> (টেনে)।',
 '<b>যেরের পরে সাকিন ইয়া</b> থাকলে টান হয় — যেমন بِي = <b>বী</b>।',
 '<b>পেশের পরে সাকিন ওয়াও</b> থাকলে টান হয় — যেমন بُو = <b>বূ</b>।',
-'টান হবে <b>এক আলিফ পরিমাণ</b> — অর্থাৎ দুই মাত্রা। বেশি টানলেও ভুল, কম টানলেও ভুল।']),
+'টান হবে <b>এক আলিফ পরিমাণ</b>, অর্থাৎ <b>দুই ('+NB(2)+') মাত্রা</b>। বেশি টানলেও ভুল, কম টানলেও ভুল।']),
 row('যবরের পরে আলিফ','بَا|تَا|ثَا|جَا|حَا|خَا|دَا|ذَا|رَا|زَا|سَا|شَا|صَا|ضَا|طَا|ظَا|عَا|غَا|فَا|قَا|كَا|لَا|مَا|نَا|وَا|هَا|يَا'),
 row('যেরের পরে ইয়া','بِي|تِي|ثِي|جِي|حِي|خِي|دِي|ذِي|رِي|زِي|سِي|شِي|صِي|ضِي|طِي|ظِي|عِي|غِي|فِي|قِي|كِي|لِي|مِي|نِي|وِي|هِي|يِي'),
 row('পেশের পরে ওয়াও','بُو|تُو|ثُو|جُو|حُو|خُو|دُو|ذُو|رُو|زُو|سُو|شُو|صُو|ضُو|طُو|ظُو|عُو|غُو|فُو|قُو|كُو|لُو|مُو|نُو|وُو|هُو|يُو'),
@@ -491,15 +497,11 @@ note('নিয়ম',['<b>যবরের পরে সাকিন ওয়�
 row('ওয়াও লীন','بَوْ|تَوْ|ثَوْ|جَوْ|حَوْ|خَوْ|دَوْ|ذَوْ|رَوْ|زَوْ|سَوْ|شَوْ|صَوْ|طَوْ|عَوْ|غَوْ|فَوْ|قَوْ|كَوْ|لَوْ|مَوْ|نَوْ|هَوْ|يَوْ'),
 row('ইয়া লীন','بَيْ|تَيْ|ثَيْ|جَيْ|حَيْ|خَيْ|دَيْ|ذَيْ|رَيْ|زَيْ|سَيْ|شَيْ|صَيْ|طَيْ|عَيْ|غَيْ|فَيْ|قَيْ|كَيْ|لَيْ|مَيْ|نَيْ|هَيْ|يَيْ'),
 ex('শব্দে দেখুন',[
-['خَوْف','খাওফ — ভয়'],
-['قَوْم','ক্বাওম — জাতি'],
-['بَيْت','বাইত — ঘর'],
-['خَيْر','খাইর — কল্যাণ'],
-['يَوْم','ইয়াওম — দিন'],
-['كَيْف','কাইফা — কেমন']])
+['خَوْف','খাওফ — ভয়'],['قَوْم','ক্বাওম — জাতি'],['بَيْت','বাইত — ঘর'],
+['خَيْر','খাইর — কল্যাণ'],['يَوْم','ইয়াওম — দিন'],['كَيْف','কাইফা — কেমন']])
 ]},
 
-{t:'খাড়া যবর, খাড়া যের, উল্টো পেশ',s:'লেখা নেই, কিন্তু টান আছে',aim:'লুকানো টান চিনতে পারা।',b:[
+{t:'খাড়া যবর ও লুকানো টান',s:'লেখা নেই, তবু টান আছে',aim:'না-লেখা টান চিনতে পারা।',b:[
 note('নিয়ম',['কখনো আলিফ লেখা থাকে না, কিন্তু যবরটি <b>খাড়া</b> করে লেখা হয় — তখনও <b>টেনে</b> পড়তে হয়।',
 'একইভাবে <b>খাড়া যের</b> ও <b>উল্টো পেশ</b> — এদের সাথেও টান আছে।']),
 ex('পড়ুন',[
@@ -521,7 +523,7 @@ ex('ছোট শব্দ',[
 ['مَاء','মা-উ — পানি'],['شَمْس','শামস — সূর্য'],['قَمَر','ক্বামার — চাঁদ'],
 ['رَبّ','রব্ব — প্রতিপালক'],['دِين','দী-ন — ধর্ম'],['نَفْس','নাফস — প্রাণ'],
 ['أَرْض','আরদ্ব — জমিন']]),
-un('শব্দ ভেঙে না পড়ে যেন একটানে পড়ে — সেটাই এখানে লক্ষ্য।')
+un('শব্দ ভেঙে না পড়ে যেন একটানে পড়ে — এখানে এটাই লক্ষ্য।')
 ]},
 
 {t:'দুই শব্দ একসাথে',s:'দ্বিতীয় ধাপ',aim:'দুইটি শব্দ মিলিয়ে পড়তে পারা।',b:[
@@ -559,12 +561,11 @@ big('পড়ুন',[
 un('এখান পর্যন্ত ঠিক হলে ছাত্র সূরা ধরার জন্য প্রস্তুত।')
 ]},
 
-/* ---------- দশটি সূরা ---------- */
 {t:'সূরা আল-ফাতিহা',s:'প্রথম সূরা',aim:'কুরআনের ধরনে আয়াত ধরে ধরে পড়তে পারা।',b:[
 note('পড়ার নিয়ম',['প্রতিটি আয়াতের শেষে <b>গোল নম্বর</b> আছে — সেটাই <b>ওয়াকফ</b>, অর্থাৎ থামার জায়গা।',
 'এক আয়াত পড়ুন, সেখানে থামুন, শ্বাস নিন, তারপর পরের আয়াত।',
 'নিচে একই নম্বর ধরে ধরে প্রতিটি আয়াতের <b>অর্থ</b> দেওয়া আছে।']),
-sura('সূরা আল-ফাতিহা','الْفَاتِحَة','মক্কী · সাত (৭) আয়াত',
+sura('সূরা আল-ফাতিহা','الْفَاتِحَة','মক্কী · সাত ('+BN(7)+') আয়াত',
 ['بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيمِ',
 'الْحَمْدُ لِلّٰهِ رَبِّ الْعَالَمِينَ',
 'الرَّحْمٰنِ الرَّحِيمِ',
@@ -583,7 +584,7 @@ un('ফাতিহা ছাড়া নামায হয় না। এ�
 ]},
 
 {t:'সূরা আল-ফীল',s:'হাতিওয়ালাদের ঘটনা',aim:'পাঁচ আয়াত শুদ্ধভাবে পড়তে পারা।',b:[
-sura('সূরা আল-ফীল','الْفِيل','মক্কী · পাঁচ (৫) আয়াত',
+sura('সূরা আল-ফীল','الْفِيل','মক্কী · পাঁচ ('+BN(5)+') আয়াত',
 ['أَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ بِأَصْحَابِ الْفِيلِ',
 'أَلَمْ يَجْعَلْ كَيْدَهُمْ فِي تَضْلِيلٍ',
 'وَأَرْسَلَ عَلَيْهِمْ طَيْرًا أَبَابِيلَ',
@@ -597,7 +598,7 @@ sura('সূরা আল-ফীল','الْفِيل','মক্কী · পা
 ]},
 
 {t:'সূরা কুরাইশ',s:'শীত ও গ্রীষ্মের সফর',aim:'চার আয়াত শুদ্ধভাবে পড়তে পারা।',b:[
-sura('সূরা কুরাইশ','قُرَيْش','মক্কী · চার (৪) আয়াত',
+sura('সূরা কুরাইশ','قُرَيْش','মক্কী · চার ('+BN(4)+') আয়াত',
 ['لِإِيلَافِ قُرَيْشٍ',
 'إِيلَافِهِمْ رِحْلَةَ الشِّتَاءِ وَالصَّيْفِ',
 'فَلْيَعْبُدُوا رَبَّ هٰذَا الْبَيْتِ',
@@ -609,7 +610,7 @@ sura('সূরা কুরাইশ','قُرَيْش','মক্কী · চ�
 ]},
 
 {t:'সূরা আল-মাউন',s:'যে বিচার দিন অস্বীকার করে',aim:'সাত আয়াত শুদ্ধভাবে পড়তে পারা।',b:[
-sura('সূরা আল-মাউন','الْمَاعُون','মক্কী · সাত (৭) আয়াত',
+sura('সূরা আল-মাউন','الْمَاعُون','মক্কী · সাত ('+BN(7)+') আয়াত',
 ['أَرَأَيْتَ الَّذِي يُكَذِّبُ بِالدِّينِ',
 'فَذٰلِكَ الَّذِي يَدُعُّ الْيَتِيمَ',
 'وَلَا يَحُضُّ عَلَى طَعَامِ الْمِسْكِينِ',
@@ -626,8 +627,8 @@ sura('সূরা আল-মাউন','الْمَاعُون','মক্কী 
 'এবং নিত্যপ্রয়োজনীয় জিনিস দিতে বাধা দেয়।'])
 ]},
 
-{t:'সূরা আল-কাউছার',s:'কুরআনের সবচেয়ে ছোট সূরা',aim:'তিন আয়াত শুদ্ধভাবে পড়তে পারা।',b:[
-sura('সূরা আল-কাউছার','الْكَوْثَر','মক্কী · তিন (৩) আয়াত',
+{t:'সূরা আল-কাউছার',s:'সবচেয়ে ছোট সূরা',aim:'তিন আয়াত শুদ্ধভাবে পড়তে পারা।',b:[
+sura('সূরা আল-কাউছার','الْكَوْثَر','মক্কী · তিন ('+BN(3)+') আয়াত',
 ['إِنَّا أَعْطَيْنَاكَ الْكَوْثَرَ',
 'فَصَلِّ لِرَبِّكَ وَانْحَرْ',
 'إِنَّ شَانِئَكَ هُوَ الْأَبْتَرُ'],
@@ -637,7 +638,7 @@ sura('সূরা আল-কাউছার','الْكَوْثَر','মক্�
 ]},
 
 {t:'সূরা আল-কাফিরুন',s:'দ্বীনের পার্থক্য',aim:'ছয় আয়াত শুদ্ধভাবে পড়তে পারা।',b:[
-sura('সূরা আল-কাফিরুন','الْكَافِرُون','মক্কী · ছয় (৬) আয়াত',
+sura('সূরা আল-কাফিরুন','الْكَافِرُون','মক্কী · ছয় ('+BN(6)+') আয়াত',
 ['قُلْ يَا أَيُّهَا الْكَافِرُونَ',
 'لَا أَعْبُدُ مَا تَعْبُدُونَ',
 'وَلَا أَنْتُمْ عَابِدُونَ مَا أَعْبُدُ',
@@ -653,7 +654,7 @@ sura('সূরা আল-কাফিরুন','الْكَافِرُون','ম
 ]},
 
 {t:'সূরা আন-নাসর',s:'সাহায্য ও বিজয়',aim:'তিন আয়াত শুদ্ধভাবে পড়তে পারা।',b:[
-sura('সূরা আন-নাসর','النَّصْر','মাদানী · তিন (৩) আয়াত',
+sura('সূরা আন-নাসর','النَّصْر','মাদানী · তিন ('+BN(3)+') আয়াত',
 ['إِذَا جَاءَ نَصْرُ اللّٰهِ وَالْفَتْحُ',
 'وَرَأَيْتَ النَّاسَ يَدْخُلُونَ فِي دِينِ اللّٰهِ أَفْوَاجًا',
 'فَسَبِّحْ بِحَمْدِ رَبِّكَ وَاسْتَغْفِرْهُ إِنَّهُ كَانَ تَوَّابًا'],
@@ -663,7 +664,7 @@ sura('সূরা আন-নাসর','النَّصْر','মাদানী �
 ]},
 
 {t:'সূরা আল-ইখলাস',s:'আল্লাহর পরিচয়',aim:'চার আয়াত শুদ্ধভাবে পড়তে পারা।',b:[
-sura('সূরা আল-ইখলাস','الْإِخْلَاص','মক্কী · চার (৪) আয়াত',
+sura('সূরা আল-ইখলাস','الْإِخْلَاص','মক্কী · চার ('+BN(4)+') আয়াত',
 ['قُلْ هُوَ اللّٰهُ أَحَدٌ',
 'اللّٰهُ الصَّمَدُ',
 'لَمْ يَلِدْ وَلَمْ يُولَدْ',
@@ -675,7 +676,7 @@ sura('সূরা আল-ইখলাস','الْإِخْلَاص','মক্�
 ]},
 
 {t:'সূরা আল-ফালাক',s:'আশ্রয় প্রার্থনা',aim:'পাঁচ আয়াত শুদ্ধভাবে পড়তে পারা।',b:[
-sura('সূরা আল-ফালাক','الْفَلَق','মক্কী · পাঁচ (৫) আয়াত',
+sura('সূরা আল-ফালাক','الْفَلَق','মক্কী · পাঁচ ('+BN(5)+') আয়াত',
 ['قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ',
 'مِنْ شَرِّ مَا خَلَقَ',
 'وَمِنْ شَرِّ غَاسِقٍ إِذَا وَقَبَ',
@@ -689,7 +690,7 @@ sura('সূরা আল-ফালাক','الْفَلَق','মক্কী �
 ]},
 
 {t:'সূরা আন-নাস',s:'শেষ সূরা',aim:'ছয় আয়াত শুদ্ধভাবে পড়তে পারা।',b:[
-sura('সূরা আন-নাস','النَّاس','মক্কী · ছয় (৬) আয়াত',
+sura('সূরা আন-নাস','النَّاس','মক্কী · ছয় ('+BN(6)+') আয়াত',
 ['قُلْ أَعُوذُ بِرَبِّ النَّاسِ',
 'مَلِكِ النَّاسِ',
 'إِلٰهِ النَّاسِ',
@@ -707,179 +708,129 @@ sura('সূরা আন-নাস','النَّاس','মক্কী · ছয
 {t:'শেষ কথা',s:'কায়দা শেষ',aim:'এরপর কী করতে হবে তা জানা।',b:[
 note('এখন যা করবেন',[
 'পুরো কায়দা <b>আরও একবার</b> প্রথম থেকে পড়ুন — এবার আগের চেয়ে দ্রুত।',
-'শেষ দশটি সূরা <b>মুখস্থ</b> করুন। নামাযে কাজে লাগবে।',
+'শেষ দশ ('+NB(10)+')টি সূরা <b>মুখস্থ</b> করুন। নামাযে কাজে লাগবে।',
 'তারপর <b>তাজবীদ শাখায়</b> যান — সেখানে মাখরাজ, সিফাত, নূন-মীম সাকিন, গুন্নাহ, মাদ্দ ও ওয়াকফ বিস্তারিত আছে।']),
 note('মনে রাখবেন',[
 'শুদ্ধ পড়া একদিনে হয় না। <b>প্রতিদিন অল্প, নিয়মিত</b> — এটাই পথ।',
 'নিজে নিজে শেখার চেয়ে <b>উস্তাদের মুখে শোনা</b> অনেক বেশি কাজে দেয়।']),
-un('ছাত্রের চিহ্ন দেখে বুঝে নিন কোন পৃষ্ঠাগুলো এখনো বাকি আছে, সেগুলো আবার ধরুন।')
+un('ছাত্রের চিহ্ন দেখে বুঝে নিন কোন পৃষ্ঠা বাকি, সেগুলো আবার ধরুন।')
 ]}
 ];
 
 /* ===================== অবস্থা ===================== */
 const K={p:'aq_page',th:'aq_theme',fs:'aq_fs',ro:'aq_role',ms:'aq_ms',mu:'aq_mu'};
-const S={
- view:'role', page:0, role:'',
+const S={view:'role',page:0,role:'',
  ms:new Set(JSON.parse(localStorage.getItem(K.ms)||'[]')),
- mu:new Set(JSON.parse(localStorage.getItem(K.mu)||'[]'))
-};
-function save(){
- localStorage.setItem(K.p,S.page);
- localStorage.setItem(K.ro,S.role);
- localStorage.setItem(K.ms,JSON.stringify([...S.ms]));
- localStorage.setItem(K.mu,JSON.stringify([...S.mu]));
-}
+ mu:new Set(JSON.parse(localStorage.getItem(K.mu)||'[]'))};
+function save(){localStorage.setItem(K.p,S.page);localStorage.setItem(K.ro,S.role);
+ localStorage.setItem(K.ms,JSON.stringify([...S.ms]));localStorage.setItem(K.mu,JSON.stringify([...S.mu]));}
 
-/* মোট চিহ্নযোগ্য ঘর */
 function cnt(p){let c=0;p.b.forEach(b=>{
  if(b.k==='grid')c+=b.items.length;
  else if(b.k==='ex'||b.k==='big')c+=b.l.length;
  else if(b.k==='sura')c+=1;});return c;}
 const TOTAL=P.reduce((a,p)=>a+cnt(p),0);
 
-/* ===================== থিম / আকার ===================== */
-(function init(){
- const th=localStorage.getItem(K.th)||'light';
- const fs=localStorage.getItem(K.fs)||'m';
- document.documentElement.dataset.theme=th;
- document.documentElement.dataset.fs=fs;
- $('#bTh').textContent = th==='dark'?'☀️':'🌙';
- const r=localStorage.getItem(K.ro);
- if(r){S.role=r;S.view='home';}
- S.page=parseInt(localStorage.getItem(K.p)||'0',10)||0;
-})();
-$('#bTh').onclick=()=>{const d=document.documentElement;
- const n=d.dataset.theme==='dark'?'light':'dark';
+(function(){const th=localStorage.getItem(K.th)||'light';const fs=localStorage.getItem(K.fs)||'m';
+ document.documentElement.dataset.theme=th;document.documentElement.dataset.fs=fs;
+ $('#bTh').textContent=th==='dark'?'☀️':'🌙';
+ const r=localStorage.getItem(K.ro);if(r){S.role=r;S.view='home';}
+ S.page=parseInt(localStorage.getItem(K.p)||'0',10)||0;})();
+
+$('#bTh').onclick=()=>{const d=document.documentElement;const n=d.dataset.theme==='dark'?'light':'dark';
  d.dataset.theme=n;localStorage.setItem(K.th,n);$('#bTh').textContent=n==='dark'?'☀️':'🌙';};
 $('#bFs').onclick=()=>{const d=document.documentElement;const o=['s','m','l'];
  const n=o[(o.indexOf(d.dataset.fs)+1)%3];d.dataset.fs=n;localStorage.setItem(K.fs,n);};
 $('#bRo').onclick=()=>{S.view='role';draw();};
 
-/* ===================== চিহ্ন ===================== */
-function mkBtn(id){
- const b=E('button','mk');b.appendChild(E('i'));
+function mkBtn(id){const b=E('button','mk');b.appendChild(E('i'));
  const s=S.ms.has(id),u=S.mu.has(id);
- if(s&&u)b.classList.add('both'); else if(s)b.classList.add('on-s'); else if(u)b.classList.add('on-u');
- b.onclick=ev=>{ev.stopPropagation();
-  const set = S.role==='u' ? S.mu : S.ms;
-  set.has(id)?set.delete(id):set.add(id);
-  save();draw();};
- return b;
-}
+ if(s&&u)b.classList.add('both');else if(s)b.classList.add('on-s');else if(u)b.classList.add('on-u');
+ b.onclick=ev=>{ev.stopPropagation();const set=S.role==='u'?S.mu:S.ms;
+  set.has(id)?set.delete(id):set.add(id);save();draw();};
+ return b;}
 
-/* ===================== মডাল ===================== */
-function openHorf(i){
- const h=HORF[i];const m=$('#modal');m.innerHTML='';
- m.appendChild(E('div','mar',h[0]));
- m.appendChild(E('h3',null,h[1]));
- const r1=E('div','mrow');r1.appendChild(E('b',null,'হরফের নাম'));r1.appendChild(E('span',null,h[1]));
- const r2=E('div','mrow');r2.appendChild(E('b',null,'মাখরাজ'));r2.appendChild(E('span',null,h[2]));
- const r3=E('div','mrow');r3.appendChild(E('b',null,'পড়ার নিয়ম'));r3.appendChild(E('span',null,h[3]));
- const r4=E('div','mrow');r4.appendChild(E('b',null,'ক্রম'));r4.appendChild(E('span',null,BN(i+1)+' নম্বর হরফ'));
- m.append(r1,r2,r3,r4);
+function openHorf(i){const h=HORF[i];const m=$('#modal');m.innerHTML='';
+ m.appendChild(E('div','mar',h[0]));m.appendChild(E('h3',null,h[1]));
+ [['হরফের নাম',h[1]],['মাখরাজ',h[2]],['পড়ার নিয়ম',h[3]],['ক্রম',NB(i+1)+' নম্বর হরফ']]
+  .forEach(x=>{const r=E('div','mrow');r.appendChild(E('b',null,x[0]));r.appendChild(E('span',null,x[1]));m.appendChild(r);});
  const c=E('button','close','বন্ধ করুন');c.onclick=closeM;m.appendChild(c);
- $('#mask').classList.add('on');
-}
+ $('#mask').classList.add('on');}
 function closeM(){$('#mask').classList.remove('on');}
 $('#mask').onclick=e=>{if(e.target.id==='mask')closeM();};
 
-/* ===================== ব্লক আঁকা ===================== */
 function drawBlock(b,pi,bi){
  const id=n=>pi+'-'+bi+'-'+n;
 
- if(b.k==='note'){
-  const d=E('div','note');d.appendChild(E('h4',null,b.t));
+ if(b.k==='note'){const d=E('div','note');d.appendChild(E('h4',null,b.t));
   b.l.forEach(x=>d.appendChild(E('p',null,x)));return d;}
 
- if(b.k==='un'){
-  if(S.role!=='u')return null;
+ if(b.k==='un'){if(S.role!=='u')return null;
   const d=E('div','unote');d.appendChild(E('strong',null,'উস্তাদের নোট'));
   d.appendChild(E('span',null,b.t));return d;}
 
- if(b.k==='grid'){
-  const w=E('div');const g=E('div','tiles');
-  b.items.forEach((it,n)=>{
-   const t=E('div','tile');
-   t.appendChild(E('span',null,it.ar));
-   t.appendChild(E('em',null,it.lab));
-   t.appendChild(mkBtn(id(n)));
-   t.onclick=()=>openHorf(it.idx);
-   g.appendChild(t);});
+ if(b.k==='grid'){const w=E('div');const g=E('div','tiles');
+  b.items.forEach((it,n)=>{const t=E('div','tile');
+   t.appendChild(E('span',null,it.ar));t.appendChild(E('em',null,it.lab));
+   t.appendChild(mkBtn(id(n)));t.onclick=()=>openHorf(it.idx);g.appendChild(t);});
   w.appendChild(g);return w;}
 
- if(b.k==='row'){
-  const w=E('div');w.appendChild(E('div','bt',b.t));
-  const c=E('div','chips');
-  b.s.split('|').forEach(x=>c.appendChild(E('div','ch',x)));
+ if(b.k==='row'){const w=E('div');w.appendChild(E('div','bt',b.t));
+  const c=E('div','chips');b.s.split('|').forEach(x=>c.appendChild(E('div','ch',x)));
   w.appendChild(c);return w;}
 
- if(b.k==='ex'||b.k==='big'){
-  const w=E('div');w.appendChild(E('div','bt',b.t));
+ if(b.k==='ex'||b.k==='big'){const w=E('div');w.appendChild(E('div','bt',b.t));
   const l=E('div','lines');
-  b.l.forEach((x,n)=>{
-   const r=E('div','ln'+(b.k==='big'?' big':''));
-   r.appendChild(E('div','a',x[0]));
-   r.appendChild(E('div','m',x[1]));
-   r.appendChild(mkBtn(id(n)));
-   l.appendChild(r);});
+  b.l.forEach((x,n)=>{const r=E('div','ln'+(b.k==='big'?' big':''));
+   r.appendChild(E('div','a',x[0]));r.appendChild(E('div','m',x[1]));
+   r.appendChild(mkBtn(id(n)));l.appendChild(r);});
   w.appendChild(l);return w;}
 
- if(b.k==='tbl'){
-  const w=E('div');w.appendChild(E('div','bt',b.t));
-  const t=E('table','tb');
+ if(b.k==='tbl'){const w=E('div');w.appendChild(E('div','bt',b.t));
+  const bx=E('div','tbx');const t=E('table','tb');
   const hr=E('tr');b.h.forEach(x=>hr.appendChild(E('th',null,x)));
   const th=E('thead');th.appendChild(hr);t.appendChild(th);
-  const tb=E('tbody');
-  b.r.forEach(rw=>{const tr=E('tr');rw.forEach(c=>tr.appendChild(E('td','a',c)));tb.appendChild(tr);});
-  t.appendChild(tb);w.appendChild(t);return w;}
+  const tb=E('tbody');b.r.forEach(rw=>{const tr=E('tr');
+   rw.forEach(c=>tr.appendChild(E('td','a',c)));tb.appendChild(tr);});
+  t.appendChild(tb);bx.appendChild(t);w.appendChild(bx);return w;}
 
- if(b.k==='sura'){
-  const w=E('div');w.style.position='relative';
+ if(b.k==='sura'){const w=E('div');w.style.position='relative';
   const meta=E('div','smeta');
   meta.appendChild(E('div','sname',b.arn));
   meta.appendChild(E('div','sbn',b.bn));
   meta.appendChild(E('div','sinfo',b.info));
   w.appendChild(meta);
   const mu=E('div','mushaf');
-  b.ayat.forEach((a,n)=>{
-   mu.appendChild(document.createTextNode(a+' '));
-   mu.appendChild(E('span','ayn',AR(n+1)));
-   mu.appendChild(document.createTextNode(' '));});
+  b.ayat.forEach((a,n)=>{mu.appendChild(document.createTextNode(a+' '));
+   mu.appendChild(E('span','ayn',AR(n+1)));mu.appendChild(document.createTextNode(' '));});
   w.appendChild(mu);
-  const mn=E('div','means');
-  mn.appendChild(E('div','bt','অর্থ'));
+  const mn=E('div','means');mn.appendChild(E('div','bt','অর্থ'));
   b.mean.forEach((m,n)=>{const d=E('div','mn');
    d.appendChild(E('b',null,BN(n+1)));d.appendChild(E('span',null,m));mn.appendChild(d);});
   w.appendChild(mn);
   const mb=mkBtn(id(0));mb.style.position='absolute';mb.style.top='0';mb.style.right='0';
-  w.appendChild(mb);
-  return w;}
+  w.appendChild(mb);return w;}
 
  return null;
 }
 
-/* ===================== হেডার ===================== */
 function head(){
- const rb=$('#rolebar'),pb=$('#pbwrap');
- rb.innerHTML='';pb.innerHTML='';
- if(S.view==='role'){$('#rolebar').style.display='none';$('#pbwrap').style.display='none';return;}
+ const rb=$('#rolebar'),pb=$('#pbwrap');rb.innerHTML='';pb.innerHTML='';
+ if(S.view==='role'){rb.style.display='none';pb.style.display='none';return;}
  rb.style.display='flex';
- const c=E('span','chip '+(S.role==='u'?'u':'s'),(S.role==='u'?'● উস্তাদ':'● ছাত্র'));
- rb.appendChild(c);
+ rb.appendChild(E('span','chip '+(S.role==='u'?'u':'s'),S.role==='u'?'● উস্তাদ':'● ছাত্র'));
  rb.appendChild(E('span','hint',S.role==='u'
   ?'সবুজ চিহ্ন আপনার · লাল চিহ্ন ছাত্রের'
   :'ঘরের কোণে চাপ দিলে লাল চিহ্ন বসবে'));
  if(S.view!=='book'){pb.style.display='none';return;}
  pb.style.display='block';
  const s=S.ms.size,u=S.mu.size;
- pb.appendChild(E('div','pbtxt','ছাত্রের চিহ্ন '+BN(s)+' · উস্তাদের চিহ্ন '+BN(u)+' · মোট ঘর '+BN(TOTAL)));
+ pb.appendChild(E('div','pbtxt','ছাত্রের চিহ্ন '+NB(s)+' · উস্তাদের চিহ্ন '+NB(u)+' · মোট ঘর '+NB(TOTAL)));
  const bar=E('div','pb');
  const f1=E('i','fs');f1.style.width=Math.min(100,s/TOTAL*100)+'%';
  const f2=E('i','fu');f2.style.width=Math.min(100,u/TOTAL*100)+'%';
- bar.append(f1,f2);pb.appendChild(bar);
-}
+ bar.append(f1,f2);pb.appendChild(bar);}
 
-/* ===================== ন্যাভ ===================== */
 function nav(){
  const n=$('#nav');n.innerHTML='';
  if(S.view!=='book'){n.style.display='none';return;}
@@ -889,15 +840,14 @@ function nav(){
  const pv=E('button','nbtn','‹');pv.disabled=S.page===0;
  pv.onclick=()=>{if(S.page>0){S.page--;save();draw();}};
  const sel=E('select','sel');
- P.forEach((p,i)=>{const o=E('option',null,BN(i+1)+'. '+p.t);o.value=i;if(i===S.page)o.selected=true;sel.appendChild(o);});
+ P.forEach((p,i)=>{const o=E('option',null,BN(i+1)+'. '+p.t);o.value=i;
+  if(i===S.page)o.selected=true;sel.appendChild(o);});
  sel.onchange=()=>{S.page=+sel.value;save();draw();};
  const nx=E('button','nbtn go','পরের ›');nx.disabled=S.page===P.length-1;
  nx.onclick=()=>{if(S.page<P.length-1){S.page++;save();draw();}};
  b.append(h,pv,sel,nx);n.appendChild(b);
- n.appendChild(E('div','foot','আলিফিয়া ইলম একাডেমি'));
-}
+ n.appendChild(E('div','foot','আলিফিয়া ইলম একাডেমি'));}
 
-/* ===================== আঁকা ===================== */
 function draw(){
  const m=$('#main');m.innerHTML='';head();nav();
 
@@ -908,50 +858,42 @@ function draw(){
   const s=E('button','rbtn s','ছাত্র<span>পড়ব এবং পড়া হয়ে গেলে লাল চিহ্ন দেব।</span>');
   s.onclick=()=>{S.role='s';S.view='home';save();draw();};
   const u=E('button','rbtn u','উস্তাদ<span>পড়াব, নোট দেখব এবং সবুজ চিহ্ন দেব।</span>');
-  u.onclick=()=>{
-   const c=prompt('উস্তাদের কোড লিখুন');
-   if(c===null)return;
+  u.onclick=()=>{const c=prompt('উস্তাদের কোড লিখুন');if(c===null)return;
    if(c.trim().toUpperCase()==='ALIF-USTAD'){S.role='u';S.view='home';save();draw();}
    else alert('কোড মেলেনি।');};
-  w.append(s,u);m.appendChild(w);
-  window.scrollTo(0,0);return;}
+  w.append(s,u);m.appendChild(w);window.scrollTo(0,0);return;}
 
  if(S.view==='home'){
   m.appendChild(E('div','cover','<div class="bsm">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيمِ</div>'
    +'<h1>আলিফিয়া ইলম একাডেমি</h1><p>নিচ থেকে বেছে নিন।</p>'));
   const q=E('button','big');
   q.innerHTML='<div class="bi" style="background:var(--gbg);color:var(--g)">ا</div>'
-   +'<div class="bx"><b>কায়দা</b><span>উনত্রিশ (২৯) হরফ, যবর-যের-পেশ, তানবীন, জযম, তাশদীদ, মাদ্দ, শব্দ, বাক্য ও নামাযের দশ (১০)টি সূরা।</span>'
-   +'<em>মোট '+BN(P.length)+' পৃষ্ঠা · চলছে পৃষ্ঠা '+BN(S.page+1)+'</em></div>';
+   +'<div class="bx"><b>কায়দা</b><span>উনত্রিশ ('+NB(29)+') হরফ, যবর-যের-পেশ, তানবীন, জযম, তাশদীদ, মাদ্দ, শব্দ, বাক্য ও নামাযের দশ ('+NB(10)+')টি সূরা।</span>'
+   +'<em>মোট '+NB(P.length)+' পৃষ্ঠা · চলছে পৃষ্ঠা '+NB(S.page+1)+'</em></div>';
   q.onclick=()=>{S.view='book';draw();};
   m.appendChild(q);
   const t=E('button','big');
   t.innerHTML='<div class="bi" style="background:var(--rbg);color:var(--r)">✦</div>'
-   +'<div class="bx"><b>তাজবীদ</b><span>সতেরো (১৭)টি মাখরাজ, হরফের গুণ, নূন ও মীম সাকিন, গুন্নাহ, মাদ্দের প্রকার, লাম-রা, কলকলা ও ওয়াক্‌ফ।</span>'
+   +'<div class="bx"><b>তাজবীদ</b><span>সতেরো ('+NB(17)+')টি মাখরাজ, হরফের গুণ, নূন ও মীম সাকিন, গুন্নাহ, মাদ্দের প্রকার, লাম-রা, কলকলা ও ওয়াক্‌ফ।</span>'
    +'<em>আলাদা ফাইল — tajwid.html</em></div>';
   t.onclick=()=>{location.href='tajwid.html';};
-  m.appendChild(t);
-  window.scrollTo(0,0);return;}
+  m.appendChild(t);window.scrollTo(0,0);return;}
 
- /* book */
  const p=P[S.page];
  const c=E('div','card');
- c.appendChild(E('div','ptitle',BN(S.page+1)+'. '+p.t));
+ c.appendChild(E('div','ptitle',NB(S.page+1)+'. '+p.t));
  c.appendChild(E('div','psub',p.s));
  c.appendChild(E('div','paim','<b>উদ্দেশ্য:</b> '+p.aim));
  m.appendChild(c);
  const body=E('div','card');
  p.b.forEach((b,bi)=>{const n=drawBlock(b,S.page,bi);if(n)body.appendChild(n);});
- m.appendChild(body);
- window.scrollTo(0,0);
-}
+ m.appendChild(body);window.scrollTo(0,0);}
 
 document.addEventListener('keydown',e=>{
  if(S.view!=='book')return;
  if(e.key==='Escape')closeM();
  if(e.key==='ArrowLeft'&&S.page<P.length-1){S.page++;save();draw();}
- if(e.key==='ArrowRight'&&S.page>0){S.page--;save();draw();}
-});
+ if(e.key==='ArrowRight'&&S.page>0){S.page--;save();draw();}});
 
 draw();
 </script>
